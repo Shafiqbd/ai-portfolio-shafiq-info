@@ -44,12 +44,12 @@ export function HeroContent({
         className="flex flex-col items-center gap-8 text-center lg:items-start lg:text-left"
       >
         <motion.p variants={item} className="font-mono text-sm text-foreground-muted">
-          Hi, I&apos;m {profile.name.split(" ")[0]}.
+          Hi, I&apos;m {profile.name}.
         </motion.p>
 
         <motion.h1
           variants={item}
-          className="max-w-xl text-balance text-4xl font-semibold tracking-tight sm:text-6xl"
+          className="max-w-2xl text-balance text-4xl font-semibold tracking-tight sm:text-6xl"
         >
           <span className="text-gradient-brand">{profile.tagline}</span>
         </motion.h1>
