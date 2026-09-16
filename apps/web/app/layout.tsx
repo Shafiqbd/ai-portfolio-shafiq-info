@@ -5,6 +5,7 @@ import { ToastProvider } from "@shafiq-info/ui";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { AskShafiqPanel } from "@/components/ai/ask-shafiq-panel";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <AskShafiqPanel />
           </ToastProvider>
         </ThemeProvider>
       </body>

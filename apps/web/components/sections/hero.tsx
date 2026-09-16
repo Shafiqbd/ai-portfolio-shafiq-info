@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button, Badge } from "@shafiq-info/ui";
 import { getProfile } from "@/services/profile.service";
 import { getSkillCategories } from "@/services/skill.service";
+import { OpenAskShafiqButton } from "@/components/ai/open-ask-shafiq-button";
 
 const AVAILABILITY_LABEL: Record<string, string> = {
   available: "Available for work",
@@ -45,6 +46,9 @@ export async function Hero() {
             <Link href="/resume">Download CV</Link>
           </Button>
         )}
+        <OpenAskShafiqButton variant="ghost" size="lg">
+          Ask Shafiq AI
+        </OpenAskShafiqButton>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
