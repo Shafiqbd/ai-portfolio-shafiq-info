@@ -23,14 +23,15 @@ treated as verified fact about actual work performed.
   (`components/sections/animated-profile.tsx`) instead of a real photo; swap
   in a real headshot via `next/image` once one exists.
 - **experiences.json** — now has 4 real roles (IT Consultants PLC, Pridesys
-  IT ltd., Rotnogorva Farida Zaman School & College, Techqul), but all 4
-  still share the exact same placeholder `responsibilities`, `technologies`,
-  and `milestoneStage` text — copied from the original single-entry seed.
-  The Experience section will keep looking repetitive until each entry gets
-  its own real responsibilities/stack/milestone label. Each entry also
-  supports an optional `location` field (shown under the role/dates) that's
-  currently unset on every entry — add real city/country (or "Remote") per
-  role when known.
+  IT ltd., Rotnogorva Farida Zaman School & College, Techqul) with real
+  `address` values, but all 4 still share the exact same placeholder
+  `responsibilities`, `technologies`, and `milestoneStage` text — copied
+  from the original single-entry seed. The Experience section will keep
+  looking repetitive until each entry gets its own real responsibilities/
+  stack/milestone label. Two entries also have malformed `endDate` values
+  (`"20222-05-30"` on Pridesys, `"20220-03-30"` on Rotnogorva — an extra
+  digit in the year) that render as garbage dates; likely meant to be
+  `2022-05-30` / `2022-03-30`.
 - **projects.json** — the 6 projects match what's live on shafiq.info.bd.
   `liveUrl`/`githubUrl` are omitted (unknown), `features` are empty, and
   `thumbnailUrl` paths don't have real assets yet.

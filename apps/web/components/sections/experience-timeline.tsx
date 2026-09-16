@@ -20,24 +20,25 @@ export async function ExperienceTimeline() {
       title="Experience"
       description="The path from software fundamentals to shipping production systems."
     >
-      <div className="flex flex-col gap-16">
+      <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
         <RevealGroup>
           {experiences.map((experience) => (
             <div key={experience.id}>
               <div className="mb-1 flex flex-wrap items-center gap-3">
-                <Badge variant="accent">{experience.milestoneStage}</Badge>
+                <Badge variant="accent" className="text-[15px] font-medium">
+                  {experience.role}
+                </Badge>
                 <p className="font-mono text-xs text-foreground-muted">
                   {formatDate(experience.startDate)} — {formatDate(experience.endDate)}
                 </p>
               </div>
 
               <h3 className="text-lg font-semibold">
-                {experience.role} · {experience.company}
+                {experience.company}
+                {experience.address && (
+                  <span className="font-normal text-foreground-muted"> · {experience.address}</span>
+                )}
               </h3>
-
-              {experience.location && (
-                <p className="text-xs text-foreground-muted">{experience.location}</p>
-              )}
 
               {experience.technologies.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-2">

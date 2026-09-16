@@ -3,7 +3,7 @@ export interface Experience {
   company: string;
   role: string;
   /** City/country or "Remote" — optional, shown only when known. */
-  location?: string;
+  address?: string;
   startDate: string;
   endDate?: string;
   summary: string;

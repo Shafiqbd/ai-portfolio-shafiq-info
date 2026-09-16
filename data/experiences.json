@@ -5,6 +5,7 @@
     "role": "Software Engineer",
     "startDate": "2022-06-01",
     "summary": "Full-stack development, REST API design, code optimization, and mentoring within a production engineering team.",
+    "address": "Tejgaon, Dhaka, Bangladesh",
     "responsibilities": [
       "Full-stack feature development across React/Next.js and NestJS",
       "REST API design and implementation",
@@ -18,7 +19,9 @@
     "id": "pridesys",
     "company": "Pridesys IT ltd.",
     "role": "Web Developer",
-    "startDate": "2021-06-01",
+    "startDate": "2020-05-01",
+    "endDate": "20222-05-30",
+    "address": "Karwan Bazar, Dhaka, Bangladesh",
     "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
     "responsibilities": [
       "Full-stack feature development across React/Next.js and NestJS",
@@ -33,7 +36,9 @@
     "id": "rfzsc",
     "company": "Rotnogorva Farida Zaman School & College",
     "role": "Assistent Teacher(ICT)",
-    "startDate": "2021-06-01",
+    "startDate": "2019-02-01",
+    "endDate": "20220-03-30",
+    "address": "Badda, Dhaka, Bangladesh",
     "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
     "responsibilities": [
       "Full-stack feature development across React/Next.js and NestJS",
