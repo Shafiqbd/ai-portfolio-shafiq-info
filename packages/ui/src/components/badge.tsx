@@ -4,7 +4,7 @@ import { cn } from "../lib/cn";
 
 const VARIANT_CLASSES = {
   neutral: "border-border text-foreground-muted",
-  accent: "border-accent/40 bg-accent/10 text-accent",
+  accent: "border-transparent bg-gradient-brand text-white",
 } as const;
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {

@@ -52,11 +52,15 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <div
+          aria-hidden="true"
+          className="bg-mesh pointer-events-none fixed inset-0 -z-10 opacity-20 blur-3xl"
+        />
         <JsonLd data={personJsonLd(profile)} />
         <JsonLd data={websiteJsonLd()} />
         <a
           href="#main-content"
-          className="fixed left-4 top-4 z-100 -translate-y-20 rounded-control bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-transform focus:translate-y-0"
+          className="fixed left-4 top-4 z-100 -translate-y-20 rounded-control bg-gradient-brand px-4 py-2 text-sm font-medium text-white shadow-glow transition-transform focus:translate-y-0"
         >
           Skip to content
         </a>

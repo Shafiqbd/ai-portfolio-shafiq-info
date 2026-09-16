@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/common/section";
+import { RevealGroup } from "@/components/common/reveal";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { TechStack } from "@/components/sections/tech-stack";
 import { Education } from "@/components/sections/education";
@@ -37,7 +38,10 @@ export default async function AboutPage() {
         <div className="flex flex-col gap-6">
           <p className="max-w-2xl text-foreground-muted">{profile.bio}</p>
           {profile.philosophy && (
-            <blockquote className="max-w-2xl border-l-2 border-accent pl-4 italic text-foreground">
+            <blockquote
+              className="max-w-2xl border-l-2 pl-4 italic text-foreground"
+              style={{ borderImage: "var(--gradient-brand) 1" }}
+            >
               &ldquo;{profile.philosophy}&rdquo;
             </blockquote>
           )}
@@ -52,12 +56,14 @@ export default async function AboutPage() {
 
       <Section eyebrow="How I think about the work" title="Mindset">
         <div className="grid gap-6 sm:grid-cols-3">
-          {MINDSET_POINTS.map((point) => (
-            <div key={point.title} className="flex flex-col gap-2">
-              <h3 className="font-semibold">{point.title}</h3>
-              <p className="text-sm text-foreground-muted">{point.description}</p>
-            </div>
-          ))}
+          <RevealGroup>
+            {MINDSET_POINTS.map((point) => (
+              <div key={point.title} className="flex flex-col gap-2">
+                <h3 className="font-semibold">{point.title}</h3>
+                <p className="text-sm text-foreground-muted">{point.description}</p>
+              </div>
+            ))}
+          </RevealGroup>
         </div>
       </Section>
     </>

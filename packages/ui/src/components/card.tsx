@@ -7,7 +7,9 @@ export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        "rounded-card border border-border bg-background-elevated p-6 shadow-sm transition-colors",
+        "rounded-card border border-transparent p-6 shadow-sm transition-all duration-300",
+        "[background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand-soft)_border-box]",
+        "hover:-translate-y-1 hover:shadow-glow hover:[background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box]",
         className,
       )}
       {...props}

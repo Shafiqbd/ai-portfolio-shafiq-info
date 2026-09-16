@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "slug": "structuring-a-nestjs-api-for-multi-branch-systems",
+    "title": "Structuring a NestJS API for Multi-Branch Systems",
+    "excerpt": "How module boundaries, tenancy, and a shared service layer keep a multi-branch accounting API maintainable as branches (and requirements) multiply.",
+    "contentPath": "structuring-a-nestjs-api-for-multi-branch-systems.mdx",
+    "category": "Backend",
+    "tags": ["NestJS", "Architecture", "PostgreSQL"],
+    "readingTimeMinutes": 7,
+    "publishedAt": "2026-06-12"
+  },
+  {
+    "slug": "server-components-without-losing-your-mind",
+    "title": "Server Components Without Losing Your Mind",
+    "excerpt": "A practical mental model for deciding what stays a Server Component, what needs 'use client', and where the boundary actually belongs.",
+    "contentPath": "server-components-without-losing-your-mind.mdx",
+    "category": "Frontend",
+    "tags": ["Next.js", "React", "Performance"],
+    "readingTimeMinutes": 6,
+    "publishedAt": "2026-04-03"
+  },
+  {
+    "slug": "grounding-an-ai-assistant-in-your-own-data",
+    "title": "Grounding an AI Assistant in Your Own Data (Before Reaching for RAG)",
+    "excerpt": "Why a small, reviewed knowledge base and a keyword matcher can outperform a half-built RAG pipeline — and when it's actually time to graduate to one.",
+    "contentPath": "grounding-an-ai-assistant-in-your-own-data.mdx",
+    "category": "AI Engineering",
+    "tags": ["AI", "RAG", "Product"],
+    "readingTimeMinutes": 8,
+    "publishedAt": "2026-02-20"
+  }
+]

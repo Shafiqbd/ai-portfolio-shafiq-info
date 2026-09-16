@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "slug": "smart-somity",
+    "title": "Smart Somity — Multi-Branch Financial Management",
+    "problem": "Branch offices were tracking member accounts, loans, and collections in disconnected spreadsheets, making it slow and error-prone to reconcile finances across the organization.",
+    "context": "A financial cooperative operating across multiple branches needed a single system that every branch could use day-to-day, while giving head office a real-time consolidated view.",
+    "requirements": [
+      "Per-branch member and account management with role-based access",
+      "Loan issuance, repayment scheduling, and collections tracking",
+      "Real-time consolidated reporting across all branches",
+      "Auditable transaction history"
+    ],
+    "solution": "A multi-tenant web application with branch-scoped data access, a shared accounting engine, and a reporting layer that aggregates across branches without duplicating business logic per branch.",
+    "architecture": {
+      "description": "React front end talking to a NestJS REST API, with PostgreSQL as the system of record. Branch scoping is enforced at the query layer so every request is implicitly filtered to the caller's branch (or all branches, for head-office roles) rather than relying on the client to filter correctly."
+    },
+    "technologies": ["React", "TypeScript", "PostgreSQL", "NestJS"],
+    "role": "Full-Stack Developer",
+    "features": [
+      "Branch-scoped member and account management",
+      "Loan lifecycle: issuance, repayment schedule, collections",
+      "Consolidated cross-branch reporting for head office",
+      "Role-based access control"
+    ],
+    "challenges": [
+      "Keeping branch-level data isolation correct without duplicating query logic across every endpoint",
+      "Designing a reporting layer that stays fast as transaction volume grows across branches"
+    ],
+    "engineeringDecisions": [
+      {
+        "decision": "Enforce branch scoping at the query layer, not in each controller",
+        "rationale": "Centralizing the scoping rule in one place removes an entire class of bugs where a new endpoint forgets to filter by branch."
+      },
+      {
+        "decision": "Model accounting entries as immutable, append-only records",
+        "rationale": "Financial data needs a reliable audit trail — corrections are new entries, not edits to history."
+      }
+    ],
+    "screenshots": [],
+    "relatedProjectIds": ["smart-somity"]
+  }
+]

@@ -3,9 +3,16 @@
 This directory is the Phase-1 data source behind `apps/web/services/*.service.ts`
 (see the content model in the plan). Everything here is a **draft seeded from
 shafiq.info.bd** and the project brief — it must be reviewed and corrected by
-Shafiq before anything ships. Nothing in this directory is fabricated (no
-invented metrics, clients, or project details); gaps are left empty rather
-than guessed.
+Shafiq before anything ships. Gaps that couldn't be verified are left empty
+rather than guessed.
+
+**`articles.json`, `case-studies.json`, and `gallery.json` currently hold
+placeholder/sample content** (generic engineering-topic articles, a plausible
+but illustrative Smart Somity case study, and abstract gradient tiles instead
+of real screenshots) — added on request to preview the full page designs
+before real content exists. All of it needs to be replaced with real,
+Shafiq-reviewed content before this ships publicly; none of it should be
+treated as verified fact about actual work performed.
 
 ## Outstanding TODOs
 
@@ -20,12 +27,19 @@ than guessed.
 - **projects.json** — the 6 projects match what's live on shafiq.info.bd.
   `liveUrl`/`githubUrl` are omitted (unknown), `features` are empty, and
   `thumbnailUrl` paths don't have real assets yet.
-- **case-studies.json** — intentionally empty. The spec's flagship case
-  studies (Smart Somity, Sawaribd, German Butcher) need Problem/Context/
-  Architecture/Decisions/Impact content that only Shafiq can supply — Sawaribd
-  and German Butcher aren't on the live site at all yet.
-- **articles.json** / **gallery.json** — intentionally empty; no articles or
-  gallery assets exist yet.
+- **case-studies.json** — holds one **placeholder** Smart Somity case study
+  (plausible but not verified against how the system actually works) for
+  design-preview purposes. The spec's other flagship case studies (Sawaribd,
+  German Butcher) still need real source material — Sawaribd and German
+  Butcher aren't on the live site at all yet. Replace the Smart Somity entry
+  with the real Problem/Context/Architecture/Decisions/Impact before shipping.
+- **articles.json** — holds 3 **placeholder** articles (generic engineering
+  topics matching Shafiq's stack) for design-preview purposes; no MDX body is
+  wired up yet (see the article `[slug]` page). Replace with real writing
+  before shipping.
+- **gallery.json** — abstract gradient tiles (no real screenshots exist yet)
+  labeled with engineering-discipline captions rather than pretending to be
+  real project photos. Swap for real screenshots when available.
 - **services.json** — seeded from the spec's proposed service list (§16), not
   the live site's older list. `deliveredVia.url` for TechQul-delivered
   services is empty pending the actual TechQul URL.

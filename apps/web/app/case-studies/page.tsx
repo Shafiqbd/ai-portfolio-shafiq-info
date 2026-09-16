@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
+import { RevealGroup } from "@/components/common/reveal";
 import { getCaseStudies } from "@/services/case-study.service";
 
 export const metadata: Metadata = {
@@ -21,16 +22,18 @@ export default async function CaseStudiesPage() {
     >
       {caseStudies.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2">
-          {caseStudies.map((caseStudy) => (
-            <Link key={caseStudy.slug} href={`/case-studies/${caseStudy.slug}`}>
-              <Card className="h-full transition-colors hover:border-accent">
-                <CardHeader>
-                  <CardTitle>{caseStudy.title}</CardTitle>
-                  <CardDescription>{caseStudy.problem}</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-          ))}
+          <RevealGroup>
+            {caseStudies.map((caseStudy) => (
+              <Link key={caseStudy.slug} href={`/case-studies/${caseStudy.slug}`}>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle>{caseStudy.title}</CardTitle>
+                    <CardDescription>{caseStudy.problem}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            ))}
+          </RevealGroup>
         </div>
       ) : (
         <EmptyState

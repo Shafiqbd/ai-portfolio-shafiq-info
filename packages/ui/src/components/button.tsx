@@ -4,9 +4,10 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../lib/cn";
 
 const VARIANT_CLASSES = {
-  primary: "bg-accent text-accent-foreground hover:opacity-90",
-  secondary: "bg-background-elevated text-foreground border border-border hover:border-accent",
-  ghost: "text-foreground hover:bg-background-elevated",
+  primary: "bg-gradient-brand text-white shadow-glow hover:brightness-110 active:brightness-95",
+  secondary:
+    "border border-transparent text-foreground [background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box] hover:shadow-glow",
+  ghost: "text-foreground-muted hover:text-foreground hover:bg-background-elevated",
 } as const;
 
 const SIZE_CLASSES = {
@@ -29,9 +30,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-control font-medium transition-colors",
+          "inline-flex items-center justify-center gap-2 rounded-control font-medium transition-all duration-200",
+          "hover:-translate-y-0.5 active:translate-y-0",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-          "disabled:pointer-events-none disabled:opacity-50",
+          "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none",
           VARIANT_CLASSES[variant],
           SIZE_CLASSES[size],
           className,

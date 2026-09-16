@@ -92,7 +92,7 @@ export function AskShafiqPanel() {
                       key={suggestion}
                       type="button"
                       onClick={() => void ask(suggestion)}
-                      className="rounded-control border border-border px-3 py-2 text-left text-sm text-foreground-muted transition-colors hover:border-accent hover:text-foreground"
+                      className="rounded-control border border-transparent px-3 py-2 text-left text-sm text-foreground-muted transition-all [background:linear-gradient(var(--background),var(--background))_padding-box,var(--gradient-brand-soft)_border-box] hover:text-foreground hover:[background:linear-gradient(var(--background),var(--background))_padding-box,var(--gradient-brand)_border-box]"
                     >
                       {suggestion}
                     </button>
@@ -103,7 +103,7 @@ export function AskShafiqPanel() {
 
             {turns.map((turn, index) => (
               <div key={index} className="flex flex-col gap-2">
-                <p className="self-end rounded-card bg-accent px-3 py-2 text-sm text-accent-foreground">
+                <p className="self-end rounded-card bg-gradient-brand px-3 py-2 text-sm text-white">
                   {turn.question}
                 </p>
                 <p className="self-start rounded-card border border-border bg-background px-3 py-2 text-sm">
@@ -137,7 +137,7 @@ export function AskShafiqPanel() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
-        className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-medium text-accent-foreground shadow-lg transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-4 py-3 text-sm font-medium text-white shadow-glow transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <Bot className="h-4 w-4" aria-hidden="true" />
         {open ? "Close" : "Ask Shafiq AI"}

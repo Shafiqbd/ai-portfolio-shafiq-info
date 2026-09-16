@@ -1,10 +1,13 @@
 import { Hero } from "@/components/sections/hero";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
+import { CaseStudiesTeaser } from "@/components/sections/case-studies-teaser";
 import { TechStack } from "@/components/sections/tech-stack";
 import { AiEngineering } from "@/components/sections/ai-engineering";
+import { ArticlesTeaser } from "@/components/sections/articles-teaser";
 import { ServicesTeaser } from "@/components/sections/services-teaser";
 import { Certifications } from "@/components/sections/certifications";
+import { GalleryMarquee } from "@/components/sections/gallery-marquee";
 import { Cta } from "@/components/sections/cta";
 
 export default function Home() {
@@ -13,10 +16,13 @@ export default function Home() {
       <Hero />
       <ExperienceTimeline />
       <FeaturedProjects />
+      <CaseStudiesTeaser />
       <TechStack />
       <AiEngineering />
+      <ArticlesTeaser />
       <ServicesTeaser />
       <Certifications />
+      <GalleryMarquee />
       <Cta />
     </>
   );

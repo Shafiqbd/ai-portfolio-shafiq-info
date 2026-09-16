@@ -1,5 +1,6 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
+import { RevealGroup } from "@/components/common/reveal";
 
 const PILLARS = [
   {
@@ -27,14 +28,16 @@ export function AiEngineering() {
       description="AI isn't a chatbot bolted on top here — it's part of how this site is built and how it answers questions about my work."
     >
       <div className="grid gap-6 sm:grid-cols-3">
-        {PILLARS.map((pillar) => (
-          <Card key={pillar.title}>
-            <CardHeader>
-              <CardTitle>{pillar.title}</CardTitle>
-              <CardDescription>{pillar.description}</CardDescription>
-            </CardHeader>
-          </Card>
-        ))}
+        <RevealGroup>
+          {PILLARS.map((pillar) => (
+            <Card key={pillar.title}>
+              <CardHeader>
+                <CardTitle>{pillar.title}</CardTitle>
+                <CardDescription>{pillar.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </RevealGroup>
       </div>
     </Section>
   );

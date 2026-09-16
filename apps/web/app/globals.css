@@ -10,7 +10,9 @@
 
 /*
  * Dark is the default aesthetic (premium/futuristic engineering); `.light`
- * overrides to the editorial palette. Keep in sync with
+ * overrides to the editorial palette. Gradient is the default *visual
+ * language* in both themes — buttons, cards, and headline accents all carry
+ * the brand gradient rather than flat fills. Keep in sync with
  * packages/config/src/tokens.ts.
  */
 :root {
@@ -19,8 +21,17 @@
   --foreground: #f3f4f1;
   --foreground-muted: #9aa0a6;
   --border: #22262b;
-  --accent: #3e7bfa;
-  --accent-foreground: #04060f;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+
+  --gradient-brand: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  --gradient-brand-soft: linear-gradient(
+    135deg,
+    color-mix(in oklab, #6366f1 18%, transparent) 0%,
+    color-mix(in oklab, #a855f7 18%, transparent) 50%,
+    color-mix(in oklab, #ec4899 18%, transparent) 100%
+  );
+  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #a855f7 55%, transparent);
 }
 
 .light {
@@ -29,8 +40,17 @@
   --foreground: #14151a;
   --foreground-muted: #5b5f66;
   --border: #e4e1da;
-  --accent: #2f5fd0;
+  --accent: #7c3aed;
   --accent-foreground: #ffffff;
+
+  --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+  --gradient-brand-soft: linear-gradient(
+    135deg,
+    color-mix(in oklab, #4f46e5 12%, transparent) 0%,
+    color-mix(in oklab, #9333ea 12%, transparent) 50%,
+    color-mix(in oklab, #db2777 12%, transparent) 100%
+  );
+  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #9333ea 35%, transparent);
 }
 
 @theme inline {
@@ -49,10 +69,84 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+@utility bg-gradient-brand-soft {
+  background-image: var(--gradient-brand-soft);
+}
+
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility gradient-frame {
+  background-image: var(--gradient-brand);
+}
+
+@utility bg-mesh {
+  background-image:
+    radial-gradient(
+      40% 50% at 15% 20%,
+      color-mix(in oklab, #6366f1 45%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      45% 55% at 85% 15%,
+      color-mix(in oklab, #ec4899 40%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      50% 60% at 50% 100%,
+      color-mix(in oklab, #a855f7 35%, transparent) 0%,
+      transparent 100%
+    );
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes mesh-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0) scale(1.05);
+  }
+}
+
+.animate-mesh-drift {
+  animation: mesh-drift 18s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
