@@ -33,3 +33,6 @@ than guessed.
   are from the spec; exact start/end years and issue date are omitted rather
   than guessed (`startYear`/`issuedDate` are optional in the type for this
   reason).
+- **resume.json** — the three variants from the spec (§21) are stubbed with
+  empty `fileUrl`s; the Resume page shows "not available yet" until real
+  PDFs are supplied.
