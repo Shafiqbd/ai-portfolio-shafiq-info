@@ -1,6 +1,6 @@
-import { Badge } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
 import { RevealGroup } from "@/components/common/reveal";
+import { ConnectedResponsibilities } from "@/components/experience/connected-responsibilities";
 import { getExperiences } from "@/services/experience.service";
 
 function formatDate(value?: string) {
@@ -19,30 +19,34 @@ export async function ExperienceTimeline() {
       title="Experience"
       description="The path from software fundamentals to shipping production systems."
     >
-      <ol className="flex flex-col gap-8 border-l border-border pl-6">
-        <RevealGroup>
-          {experiences.map((experience) => (
-            <li key={experience.id} className="relative">
-              <span
-                className="absolute top-1.5 left-[-1.65rem] h-3 w-3 rounded-full bg-gradient-brand shadow-glow"
-                aria-hidden="true"
-              />
-              <div className="flex flex-col gap-1">
-                <Badge variant="accent" className="w-fit">
-                  {experience.milestoneStage}
-                </Badge>
-                <h3 className="font-semibold">
-                  {experience.role} · {experience.company}
-                </h3>
-                <p className="font-mono text-xs text-foreground-muted">
-                  {formatDate(experience.startDate)} — {formatDate(experience.endDate)}
-                </p>
-                <p className="text-sm text-foreground-muted">{experience.summary}</p>
+      <div className="relative">
+        {/* Shared spine, aligned to each column's dot (header block height + half the dot). */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-21.5 hidden h-px bg-border md:block"
+          aria-hidden="true"
+        />
+
+        <div className="flex flex-col gap-14 md:flex-row md:flex-wrap md:gap-x-10 md:gap-y-16">
+          <RevealGroup>
+            {experiences.map((experience) => (
+              <div key={experience.id} className="md:w-[calc(50%-1.25rem)] md:flex-none">
+                <div className="flex h-20 flex-col justify-end gap-0.5">
+                  <p className="font-semibold">{experience.company}</p>
+                  <p className="font-mono text-xs text-foreground-muted">
+                    {experience.role} · {formatDate(experience.startDate)} —{" "}
+                    {formatDate(experience.endDate)}
+                  </p>
+                  {experience.location && (
+                    <p className="text-xs text-foreground-muted">{experience.location}</p>
+                  )}
+                </div>
+
+                <ConnectedResponsibilities items={experience.responsibilities} />
               </div>
-            </li>
-          ))}
-        </RevealGroup>
-      </ol>
+            ))}
+          </RevealGroup>
+        </div>
+      </div>
     </Section>
   );
 }
