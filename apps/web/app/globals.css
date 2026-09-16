@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* Explicit source so Tailwind's content scanner also covers the workspace UI
  * package — its Tailwind classes live outside apps/web's automatic scan root. */
