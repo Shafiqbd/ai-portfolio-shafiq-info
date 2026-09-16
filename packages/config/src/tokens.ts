@@ -11,7 +11,7 @@ export const colors = {
     foreground: "#F3F4F1",
     foregroundMuted: "#9AA0A6",
     border: "#22262B",
-    accent: "#8B5CF6",
+    accent: "#09A04A",
     accentForeground: "#FFFFFF",
   },
   light: {
@@ -20,15 +20,15 @@ export const colors = {
     foreground: "#14151A",
     foregroundMuted: "#5B5F66",
     border: "#E4E1DA",
-    accent: "#7C3AED",
+    accent: "#09A04A",
     accentForeground: "#FFFFFF",
   },
 } as const;
 
-/** Brand gradient stops — indigo -> violet -> pink. Same order in both themes. */
+/** Brand gradient stops — logo green -> teal -> cyan. Same order in both themes. */
 export const gradientBrand = {
-  dark: ["#6366F1", "#A855F7", "#EC4899"],
-  light: ["#4F46E5", "#9333EA", "#DB2777"],
+  dark: ["#09A04A", "#14B8A6", "#06B6D4"],
+  light: ["#09A04A", "#0D9488", "#0891B2"],
 } as const;
 
 export const radius = {

@@ -26,7 +26,7 @@ export async function FeaturedProjects() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <RevealGroup>
           {projects.map((project) => (
-            <Card key={project.id} className="flex h-full flex-col">
+            <Card key={project.id} sparkle className="flex h-full flex-col">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>{project.summary}</CardDescription>

@@ -19,7 +19,9 @@ treated as verified fact about actual work performed.
 - **profile.json** — `socialLinks[].url` are empty; the live site shows the
   icons (GitHub, Stack Overflow, LinkedIn, Facebook) but not the exact
   handles/URLs. `avatarUrl` and `resumeUrl` point at asset paths that don't
-  exist yet.
+  exist yet — the Hero currently renders an animated initials placeholder
+  (`components/sections/animated-profile.tsx`) instead of a real photo; swap
+  in a real headshot via `next/image` once one exists.
 - **experiences.json** — only the current role (IT Consultants PLC) is
   captured. The spec's career-milestone story (CSE → ... → International
   Engineering) needs earlier roles/education context to fill out the full

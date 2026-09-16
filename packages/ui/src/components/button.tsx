@@ -4,7 +4,8 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../lib/cn";
 
 const VARIANT_CLASSES = {
-  primary: "bg-gradient-brand text-white shadow-glow hover:brightness-110 active:brightness-95",
+  primary:
+    "btn-shine bg-gradient-brand text-white shadow-glow hover:brightness-110 active:brightness-95",
   secondary:
     "border border-transparent text-foreground [background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box] hover:shadow-glow",
   ghost: "text-foreground-muted hover:text-foreground hover:bg-background-elevated",

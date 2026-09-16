@@ -21,17 +21,18 @@
   --foreground: #f3f4f1;
   --foreground-muted: #9aa0a6;
   --border: #22262b;
-  --accent: #8b5cf6;
+  --accent: #09a04a;
   --accent-foreground: #ffffff;
 
-  --gradient-brand: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  /* Brand gradient anchored on the logo green, sweeping through teal into cyan. */
+  --gradient-brand: linear-gradient(135deg, #09a04a 0%, #14b8a6 50%, #06b6d4 100%);
   --gradient-brand-soft: linear-gradient(
     135deg,
-    color-mix(in oklab, #6366f1 18%, transparent) 0%,
-    color-mix(in oklab, #a855f7 18%, transparent) 50%,
-    color-mix(in oklab, #ec4899 18%, transparent) 100%
+    color-mix(in oklab, #09a04a 18%, transparent) 0%,
+    color-mix(in oklab, #14b8a6 18%, transparent) 50%,
+    color-mix(in oklab, #06b6d4 18%, transparent) 100%
   );
-  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #a855f7 55%, transparent);
+  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #09a04a 55%, transparent);
 }
 
 .light {
@@ -40,17 +41,17 @@
   --foreground: #14151a;
   --foreground-muted: #5b5f66;
   --border: #e4e1da;
-  --accent: #7c3aed;
+  --accent: #09a04a;
   --accent-foreground: #ffffff;
 
-  --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+  --gradient-brand: linear-gradient(135deg, #09a04a 0%, #0d9488 50%, #0891b2 100%);
   --gradient-brand-soft: linear-gradient(
     135deg,
-    color-mix(in oklab, #4f46e5 12%, transparent) 0%,
-    color-mix(in oklab, #9333ea 12%, transparent) 50%,
-    color-mix(in oklab, #db2777 12%, transparent) 100%
+    color-mix(in oklab, #09a04a 12%, transparent) 0%,
+    color-mix(in oklab, #0d9488 12%, transparent) 50%,
+    color-mix(in oklab, #0891b2 12%, transparent) 100%
   );
-  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #9333ea 35%, transparent);
+  --shadow-glow: 0 8px 40px -8px color-mix(in oklab, #09a04a 35%, transparent);
 }
 
 @theme inline {
@@ -96,17 +97,17 @@
   background-image:
     radial-gradient(
       40% 50% at 15% 20%,
-      color-mix(in oklab, #6366f1 45%, transparent) 0%,
+      color-mix(in oklab, #09a04a 45%, transparent) 0%,
       transparent 100%
     ),
     radial-gradient(
       45% 55% at 85% 15%,
-      color-mix(in oklab, #ec4899 40%, transparent) 0%,
+      color-mix(in oklab, #06b6d4 40%, transparent) 0%,
       transparent 100%
     ),
     radial-gradient(
       50% 60% at 50% 100%,
-      color-mix(in oklab, #a855f7 35%, transparent) 0%,
+      color-mix(in oklab, #14b8a6 35%, transparent) 0%,
       transparent 100%
     );
 }
@@ -147,6 +148,54 @@ body {
 .animate-marquee:hover,
 .animate-marquee:focus-within {
   animation-play-state: paused;
+}
+
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  50% {
+    opacity: var(--sparkle-peak-opacity, 0.9);
+    transform: scale(1) rotate(15deg);
+  }
+}
+
+.sparkle {
+  animation: sparkle-twinkle 2.6s ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+  --sparkle-peak-opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.group:hover .sparkle {
+  --sparkle-peak-opacity: 1;
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -75%;
+  width: 50%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    color-mix(in oklab, white 45%, transparent),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+}
+
+.btn-shine:hover::after {
+  left: 125%;
 }
 
 @media (prefers-reduced-motion: reduce) {

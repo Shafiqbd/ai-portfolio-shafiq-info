@@ -30,7 +30,7 @@ export function AiEngineering() {
       <div className="grid gap-6 sm:grid-cols-3">
         <RevealGroup>
           {PILLARS.map((pillar) => (
-            <Card key={pillar.title}>
+            <Card key={pillar.title} sparkle>
               <CardHeader>
                 <CardTitle>{pillar.title}</CardTitle>
                 <CardDescription>{pillar.description}</CardDescription>
