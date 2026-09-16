@@ -22,7 +22,7 @@ export function Section({
 }) {
   const Heading = titleAs;
   return (
-    <section id={id} className={cn("mx-auto max-w-6xl px-6 py-16 sm:py-20", className)}>
+    <section id={id} className={cn("container mx-auto px-6 py-16 sm:py-20", className)}>
       {(eyebrow || title || description) && (
         <Reveal className="mb-10 flex flex-col gap-2">
           {eyebrow && (
