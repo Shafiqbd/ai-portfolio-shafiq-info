@@ -1,0 +1,69 @@
+[
+  {
+    "id": "smart-somity",
+    "slug": "smart-somity",
+    "title": "Smart Somity",
+    "summary": "Multi-branch financial/accounting management system.",
+    "role": "Full-Stack Developer",
+    "technologies": ["React", "TypeScript", "PostgreSQL", "NestJS"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/smart-somity.jpg",
+    "featured": true,
+    "caseStudySlug": ""
+  },
+  {
+    "id": "alahazrat-academy",
+    "slug": "alahazrat-academy",
+    "title": "Alahazrat Academy",
+    "summary": "Educational institution platform.",
+    "role": "Full-Stack Developer",
+    "technologies": ["React", "Next.js", "Tailwind CSS", "NestJS"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/alahazrat-academy.jpg",
+    "featured": false
+  },
+  {
+    "id": "press-council-application",
+    "slug": "press-council-application",
+    "title": "Press Council Application",
+    "summary": "Application built for the Press Council.",
+    "role": "Full-Stack Developer",
+    "technologies": ["HTML", "CSS", "PHP", "Laravel", "MySQL"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/press-council-application.jpg",
+    "featured": false
+  },
+  {
+    "id": "robyy-ecommerce",
+    "slug": "robyy-ecommerce",
+    "title": "Robyy Ecommerce",
+    "summary": "E-commerce web application.",
+    "role": "Full-Stack Developer",
+    "technologies": ["React", "Next.js", "Tailwind CSS"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/robyy-ecommerce.jpg",
+    "featured": false
+  },
+  {
+    "id": "adorsholipi-desktop",
+    "slug": "adorsholipi-desktop",
+    "title": "Adorsholipi Desktop Application",
+    "summary": "Desktop application built with JavaScript and Visual Basic.",
+    "role": "Developer",
+    "technologies": ["JavaScript", "Visual Basic"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/adorsholipi-desktop.jpg",
+    "featured": false
+  },
+  {
+    "id": "bodyguard-dynamic-website",
+    "slug": "bodyguard-dynamic-website",
+    "title": "Bodyguard Dynamic Website",
+    "summary": "Dynamic business website.",
+    "role": "Full-Stack Developer",
+    "technologies": ["React", "Next.js", "MySQL", "NestJS"],
+    "features": [],
+    "thumbnailUrl": "/images/projects/bodyguard-dynamic-website.jpg",
+    "featured": false
+  }
+]

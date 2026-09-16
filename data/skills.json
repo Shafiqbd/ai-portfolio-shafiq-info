@@ -1,0 +1,36 @@
+[
+  {
+    "category": "Frontend Design",
+    "skills": [{ "name": "Figma" }, { "name": "Photoshop" }, { "name": "Adobe XD" }]
+  },
+  {
+    "category": "Frontend Development",
+    "skills": [
+      { "name": "React" },
+      { "name": "Next.js" },
+      { "name": "TypeScript" },
+      { "name": "Angular" },
+      { "name": "Tailwind CSS" },
+      { "name": "Bootstrap" },
+      { "name": "SCSS" },
+      { "name": "HTML" },
+      { "name": "CSS" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "skills": [{ "name": "Node.js" }, { "name": "NestJS" }, { "name": "REST APIs" }]
+  },
+  {
+    "category": "Database",
+    "skills": [{ "name": "PostgreSQL" }, { "name": "MySQL" }]
+  },
+  {
+    "category": "Infrastructure",
+    "skills": [{ "name": "Docker" }, { "name": "Redis" }, { "name": "GitHub Actions" }]
+  },
+  {
+    "category": "AI",
+    "skills": [{ "name": "LLM APIs" }, { "name": "RAG" }, { "name": "AI-assisted development" }]
+  }
+]

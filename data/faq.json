@@ -1,0 +1,38 @@
+[
+  {
+    "question": "What does Shafiq specialize in?",
+    "answer": "Shafiq is a Software Engineer building scalable full-stack and AI-powered products, with real-world experience across FinTech, ERP, accounting, and business management systems."
+  },
+  {
+    "question": "What technologies does Shafiq use?",
+    "answer": "React, Next.js, TypeScript, NestJS, PostgreSQL, and MySQL on the product side, plus Docker and GitHub Actions for delivery. See the Tech Stack section for the full breakdown."
+  },
+  {
+    "question": "What FinTech experience does he have?",
+    "answer": "Shafiq built Smart Somity, a multi-branch financial and accounting management system, using React, TypeScript, PostgreSQL, and NestJS."
+  },
+  {
+    "question": "What is his strongest project?",
+    "answer": "Smart Somity is his most substantial project to date — a multi-branch financial/accounting management system. See the Projects section for details."
+  },
+  {
+    "question": "Has he worked with ERP systems?",
+    "answer": "Yes — ERP Development is one of his listed services, and his accounting/business-management project work (Smart Somity) falls in that space."
+  },
+  {
+    "question": "Does he work with AI?",
+    "answer": "Yes — this site itself is built AI-natively, and AI Integration (LLM APIs, RAG) is one of his services."
+  },
+  {
+    "question": "Is he available for remote opportunities?",
+    "answer": "Shafiq is currently open to new opportunities. Use the Contact page to reach out."
+  },
+  {
+    "question": "What services does he offer?",
+    "answer": "Custom software development, web application development, ERP and accounting software, e-commerce, business management systems, AI integration, API development, DevOps, and website maintenance. See the Services section for details."
+  },
+  {
+    "question": "What certifications does he have?",
+    "answer": "Google Cloud Associate Cloud Engineer. See the Education & Certifications section."
+  }
+]

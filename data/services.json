@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "custom-software-development",
+    "title": "Custom Software Development",
+    "summary": "End-to-end custom software built around a specific business process.",
+    "description": "Design and delivery of bespoke software systems, from requirements through architecture, implementation, and deployment.",
+    "deliveredVia": { "name": "TechQul", "url": "" }
+  },
+  {
+    "slug": "web-application-development",
+    "title": "Web Application Development",
+    "summary": "Full-stack web applications with React/Next.js front ends and NestJS APIs.",
+    "description": "Production-grade web applications covering UI, API, database design, and deployment."
+  },
+  {
+    "slug": "erp-development",
+    "title": "ERP Development",
+    "summary": "Enterprise resource planning systems tailored to multi-branch or multi-department operations.",
+    "description": "ERP systems covering accounting, inventory, HR, and operational workflows.",
+    "deliveredVia": { "name": "TechQul", "url": "" }
+  },
+  {
+    "slug": "accounting-software",
+    "title": "Accounting Software",
+    "summary": "Financial and accounting management systems, including multi-branch support.",
+    "description": "Accounting software for organizations managing ledgers, branches, and financial reporting.",
+    "deliveredVia": { "name": "TechQul", "url": "" },
+    "relatedProjectIds": ["smart-somity"]
+  },
+  {
+    "slug": "ecommerce",
+    "title": "E-commerce",
+    "summary": "Storefronts and commerce platforms built for real transaction volume.",
+    "description": "E-commerce platforms covering product catalogs, checkout, and order management.",
+    "deliveredVia": { "name": "TechQul", "url": "" },
+    "relatedProjectIds": ["robyy-ecommerce"]
+  },
+  {
+    "slug": "business-management-systems",
+    "title": "Business Management Systems",
+    "summary": "Internal tools and dashboards that run day-to-day operations.",
+    "description": "Custom internal systems for managing branches, staff, and business workflows.",
+    "deliveredVia": { "name": "TechQul", "url": "" }
+  },
+  {
+    "slug": "ai-integration",
+    "title": "AI Integration",
+    "summary": "Adding LLM-powered features to existing products.",
+    "description": "Structured-data-grounded AI features, from assistant widgets to retrieval-augmented workflows."
+  },
+  {
+    "slug": "api-development",
+    "title": "API Development",
+    "summary": "REST APIs designed for real client integrations.",
+    "description": "API design and implementation with NestJS, including validation, auth, and documentation.",
+    "deliveredVia": { "name": "TechQul", "url": "" }
+  },
+  {
+    "slug": "devops",
+    "title": "DevOps",
+    "summary": "Docker, CI/CD, and deployment pipelines.",
+    "description": "Containerized environments and automated pipelines for reliable delivery."
+  },
+  {
+    "slug": "website-maintenance",
+    "title": "Website Maintenance",
+    "summary": "Ongoing support, updates, and performance maintenance.",
+    "description": "Continued upkeep of existing websites: updates, bug fixes, and performance tuning."
+  }
+]

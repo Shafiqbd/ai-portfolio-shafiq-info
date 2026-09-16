@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Explicit source so Tailwind's content scanner also covers the workspace UI
+ * package — its Tailwind classes live outside apps/web's automatic scan root. */
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+
+/* Class-based dark mode so next-themes' `class="dark"`/`class="light"` toggle drives it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Dark is the default aesthetic (premium/futuristic engineering); `.light`
+ * overrides to the editorial palette. Keep in sync with
+ * packages/config/src/tokens.ts.
+ */
+:root {
+  --background: #0a0b0d;
+  --background-elevated: #121417;
+  --foreground: #f3f4f1;
+  --foreground-muted: #9aa0a6;
+  --border: #22262b;
+  --accent: #3e7bfa;
+  --accent-foreground: #04060f;
+}
+
+.light {
+  --background: #faf9f6;
+  --background-elevated: #ffffff;
+  --foreground: #14151a;
+  --foreground-muted: #5b5f66;
+  --border: #e4e1da;
+  --accent: #2f5fd0;
+  --accent-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

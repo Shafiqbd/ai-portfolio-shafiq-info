@@ -1,0 +1,31 @@
+# Local dev stack. Only postgres/redis are runnable today — apps/web doesn't
+# need either yet (it reads data/*.json directly), and apps/api doesn't exist
+# yet. This exists so Phase 9/15 can add services without redesigning the
+# file, and so PostgreSQL + Redis are available to develop against early if
+# needed.
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shafiq_info
+      POSTGRES_PASSWORD: shafiq_info
+      POSTGRES_DB: shafiq_info
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  # web:
+  #   build: ./docker/web.Dockerfile   # Phase 15
+  # api:
+  #   build: ./docker/api.Dockerfile   # Phase 9 + Phase 15
+
+volumes:
+  postgres-data:

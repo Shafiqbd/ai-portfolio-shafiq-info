@@ -1,0 +1,17 @@
+[
+  {
+    "id": "it-consultants-plc",
+    "company": "IT Consultants PLC",
+    "role": "Software Engineer",
+    "startDate": "2022-06-01",
+    "summary": "Full-stack development, REST API design, code optimization, and mentoring within a production engineering team.",
+    "responsibilities": [
+      "Full-stack feature development across React/Next.js and NestJS",
+      "REST API design and implementation",
+      "Code optimization and performance improvements",
+      "Mentoring team members"
+    ],
+    "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
+    "milestoneStage": "Full-Stack Engineering"
+  }
+]

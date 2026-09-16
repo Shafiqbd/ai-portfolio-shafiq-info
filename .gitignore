@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+apps/web/.next/
+apps/web/out/
+
+# NestJS / build output
+dist/
+apps/api/dist/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# Testing / coverage
+coverage/
+
+# Misc
+*.tsbuildinfo
+.turbo/
