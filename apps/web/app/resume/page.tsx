@@ -15,6 +15,7 @@ export default async function ResumePage() {
     <Section
       eyebrow="CV"
       title="Resume"
+      titleAs="h1"
       description="Pick the version that fits what you're looking for."
     >
       <ResumeSwitcher variants={variants} />

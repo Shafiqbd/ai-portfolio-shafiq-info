@@ -16,6 +16,7 @@ export default async function CaseStudiesPage() {
     <Section
       eyebrow="Deep dives"
       title="Case Studies"
+      titleAs="h1"
       description="Problem, architecture, and the engineering decisions behind a handful of flagship projects."
     >
       {caseStudies.length > 0 ? (

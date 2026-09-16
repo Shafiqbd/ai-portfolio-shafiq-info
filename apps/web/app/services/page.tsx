@@ -13,7 +13,7 @@ export default async function ServicesPage() {
   const services = await getServices();
 
   return (
-    <Section eyebrow="What I can build" title="Services">
+    <Section eyebrow="What I can build" title="Services" titleAs="h1">
       {services.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (

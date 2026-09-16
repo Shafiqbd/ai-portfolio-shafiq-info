@@ -33,7 +33,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <Section eyebrow="About" title={`Hi, I'm ${profile.name}.`}>
+      <Section eyebrow="About" title={`Hi, I'm ${profile.name}.`} titleAs="h1">
         <div className="flex flex-col gap-6">
           <p className="max-w-2xl text-foreground-muted">{profile.bio}</p>
           {profile.philosophy && (

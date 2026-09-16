@@ -16,6 +16,7 @@ export default async function ProjectsPage() {
     <Section
       eyebrow="Work"
       title="Projects"
+      titleAs="h1"
       description="Production software shipped across FinTech, education, e-commerce, and business management."
     >
       {projects.length > 0 ? (

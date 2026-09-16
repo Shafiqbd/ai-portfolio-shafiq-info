@@ -14,7 +14,7 @@ export default async function ArticlesPage() {
   const articles = await getArticles();
 
   return (
-    <Section eyebrow="Writing" title="Articles">
+    <Section eyebrow="Writing" title="Articles" titleAs="h1">
       {articles.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2">
           {articles.map((article) => (

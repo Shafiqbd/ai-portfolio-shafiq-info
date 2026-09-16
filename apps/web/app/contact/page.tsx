@@ -12,7 +12,7 @@ export default async function ContactPage() {
   const profile = await getProfile();
 
   return (
-    <Section eyebrow="Get in touch" title="Contact" description={profile.tagline}>
+    <Section eyebrow="Get in touch" title="Contact" titleAs="h1" description={profile.tagline}>
       <div className="flex flex-col gap-8 sm:flex-row sm:gap-16">
         <ContactForm />
         <div className="flex flex-col gap-2 text-sm text-foreground-muted">

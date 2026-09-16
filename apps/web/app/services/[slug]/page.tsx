@@ -41,7 +41,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           { name: service.title, path: `/services/${service.slug}` },
         ])}
       />
-      <Section eyebrow="Service" title={service.title}>
+      <Section eyebrow="Service" title={service.title} titleAs="h1">
         <div className="flex flex-col gap-4">
           {service.deliveredVia && (
             <Badge variant="accent" className="w-fit">

@@ -37,7 +37,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           { name: article.title, path: `/articles/${article.slug}` },
         ])}
       />
-      <Section eyebrow={article.category} title={article.title}>
+      <Section eyebrow={article.category} title={article.title} titleAs="h1">
         <div className="mb-6 flex flex-wrap items-center gap-2">
           <Badge>{article.readingTimeMinutes} min read</Badge>
           {article.tags.map((tag) => (

@@ -36,7 +36,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           { name: caseStudy.title, path: `/case-studies/${caseStudy.slug}` },
         ])}
       />
-      <Section eyebrow="Case Study" title={caseStudy.title}>
+      <Section eyebrow="Case Study" title={caseStudy.title} titleAs="h1">
         <div className="flex flex-wrap gap-2">
           {caseStudy.technologies.map((tech) => (
             <Badge key={tech}>{tech}</Badge>
