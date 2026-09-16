@@ -10,13 +10,28 @@ function getInitials(name: string) {
   return (source[0][0] + source[source.length - 1][0]).toUpperCase();
 }
 
-const ORBIT_POSITIONS = [
-  { top: "0%", left: "-2%" },
-  { top: "10%", right: "-4%" },
-  { top: "50%", left: "-6%" },
-  { bottom: "8%", right: "-4%" },
-  { bottom: "-2%", left: "6%" },
-];
+const MAX_ORBIT_BADGES = 8;
+const ORBIT_RADIUS_PERCENT = 54;
+/** Degrees left clear at the bottom of the ring for the "Available" pill. */
+const BOTTOM_GAP_DEGREES = 110;
+
+/**
+ * Evenly distributes `total` badges around the ring, leaving a gap centered
+ * on the bottom (180°) clear for the "Available" pill. Angle 0° is straight
+ * up, increasing clockwise.
+ */
+function getOrbitPosition(index: number, total: number) {
+  const sweep = 360 - BOTTOM_GAP_DEGREES;
+  const start = 180 + BOTTOM_GAP_DEGREES / 2;
+  const step = total > 1 ? sweep / (total - 1) : 0;
+  const angleDeg = start + index * step;
+  const angleRad = (angleDeg * Math.PI) / 180;
+
+  const left = 50 + ORBIT_RADIUS_PERCENT * Math.sin(angleRad);
+  const top = 50 - ORBIT_RADIUS_PERCENT * Math.cos(angleRad);
+
+  return { top: `${top}%`, left: `${left}%` };
+}
 
 export function AnimatedProfile({
   name,
@@ -28,7 +43,7 @@ export function AnimatedProfile({
   technologies: string[];
 }) {
   const initials = getInitials(name);
-  const badges = technologies.slice(0, ORBIT_POSITIONS.length);
+  const badges = technologies.slice(0, MAX_ORBIT_BADGES);
 
   return (
     <div className="mx-auto w-full max-w-60 px-4 sm:max-w-sm sm:px-8">
@@ -63,39 +78,44 @@ export function AnimatedProfile({
         </div>
 
         {available && (
-          <motion.div
-            className="absolute -bottom-1 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-border bg-background-elevated px-2.5 py-1 shadow-glow sm:px-3 sm:py-1.5"
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="bg-accent relative inline-flex h-2 w-2 rounded-full" />
-            </span>
-            <span className="text-[10px] font-medium sm:text-xs">Available</span>
-          </motion.div>
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2">
+            <motion.div
+              className="flex items-center gap-1.5 rounded-full border border-border bg-background-elevated px-2.5 py-1 shadow-glow sm:px-3 sm:py-1.5"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="bg-accent relative inline-flex h-2 w-2 rounded-full" />
+              </span>
+              <span className="text-[10px] font-medium sm:text-xs">Available</span>
+            </motion.div>
+          </div>
         )}
 
         {badges.map((tech, index) => (
-          <motion.div
+          <div
             key={tech}
-            className="absolute"
-            style={ORBIT_POSITIONS[index]}
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 3 + index * 0.4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: index * 0.3,
-            }}
+            className="absolute -translate-x-1/2 -translate-y-1/2"
+            style={getOrbitPosition(index, badges.length)}
           >
-            <Badge
-              variant="accent"
-              className="shadow-glow px-1.5 py-0.5 text-[10px] sm:px-2.5 sm:py-0.5 sm:text-xs"
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 3 + index * 0.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: index * 0.3,
+              }}
             >
-              {tech}
-            </Badge>
-          </motion.div>
+              <Badge
+                variant="accent"
+                className="shadow-glow px-1.5 py-0.5 text-[10px] sm:px-2.5 sm:py-0.5 sm:text-xs"
+              >
+                {tech}
+              </Badge>
+            </motion.div>
+          </div>
         ))}
       </div>
     </div>

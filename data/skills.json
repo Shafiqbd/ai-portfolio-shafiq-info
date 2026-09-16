@@ -38,9 +38,11 @@
     "skills": [
       { "name": "React.js" },
       { "name": "Next.js" },
-      { "name": "Nestjs" },
+      { "name": "Node.js" },
+      { "name": "Nest.js" },
       { "name": "Agentic AI" },
-      { "name": "PostgreSQL" }
+      { "name": "PostgreSQL" },
+      { "name": "Deployments" }
     ]
   }
 ]
