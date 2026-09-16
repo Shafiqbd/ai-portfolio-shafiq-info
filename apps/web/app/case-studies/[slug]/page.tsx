@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge, Button } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
+import { JsonLd } from "@/components/common/json-ld";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { getCaseStudies, getCaseStudyBySlug } from "@/services/case-study.service";
 
 export async function generateStaticParams() {
@@ -28,6 +30,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Case Studies", path: "/case-studies" },
+          { name: caseStudy.title, path: `/case-studies/${caseStudy.slug}` },
+        ])}
+      />
       <Section eyebrow="Case Study" title={caseStudy.title}>
         <div className="flex flex-wrap gap-2">
           {caseStudy.technologies.map((tech) => (

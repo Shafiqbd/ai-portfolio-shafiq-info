@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge, Button, Card, CardDescription, CardHeader, CardTitle } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
+import { JsonLd } from "@/components/common/json-ld";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { getServiceBySlug, getServices } from "@/services/service.service";
 import { getProjects } from "@/services/project.service";
 
@@ -33,6 +35,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ])}
+      />
       <Section eyebrow="Service" title={service.title}>
         <div className="flex flex-col gap-4">
           {service.deliveredVia && (
