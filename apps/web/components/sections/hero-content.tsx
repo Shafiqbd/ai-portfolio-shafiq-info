@@ -36,7 +36,7 @@ export function HeroContent({
   topTechnologies: string[];
 }) {
   return (
-    <div className="container mx-auto grid items-center gap-12 px-6 py-20 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+    <div className="site-container mx-auto grid items-center gap-12 px-6 py-20 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
       <motion.div
         variants={container}
         initial="hidden"

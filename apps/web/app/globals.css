@@ -70,6 +70,23 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Fluid up to 1280px (80rem), then locks there — deliberately NOT named
+ * `container`: Tailwind v4 still emits its own stepped 640/768/1024/
+ * 1280/1536 rules for that class name alongside any `@utility container`
+ * override, so the two fight per-breakpoint. A distinct name sidesteps it.
+ */
+@utility site-container {
+  width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 80rem) {
+  .site-container {
+    max-width: 80rem;
+  }
+}
+
 @utility bg-gradient-brand {
   background-image: var(--gradient-brand);
 }

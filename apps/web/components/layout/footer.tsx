@@ -12,7 +12,7 @@ export async function Footer() {
 
   return (
     <footer className="border-t border-border">
-      <div className="container mx-auto flex flex-col gap-8 px-6 py-12 sm:flex-row sm:justify-between">
+      <div className="site-container mx-auto flex flex-col gap-8 px-6 py-12 sm:flex-row sm:justify-between">
         <div className="flex flex-col gap-2">
           <p className="font-mono text-sm font-semibold">{site.name}</p>
           <p className="max-w-xs text-sm text-foreground-muted">{profile.tagline}</p>
@@ -49,7 +49,7 @@ export async function Footer() {
       </div>
 
       <div className="border-t border-border px-6 py-4">
-        <p className="container mx-auto text-xs text-foreground-muted">
+        <p className="site-container mx-auto text-xs text-foreground-muted">
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
       </div>
