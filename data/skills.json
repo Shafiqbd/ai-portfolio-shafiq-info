@@ -1,7 +1,7 @@
 [
   {
     "category": "Frontend Design",
-    "skills": [{ "name": "Figma" }, { "name": "Photoshop" }, { "name": "Adobe XD" }]
+    "skills": [{ "name": "React.js" }, { "name": "Next.js" }, { "name": "Tailwind CSS" }]
   },
   {
     "category": "Frontend Development",
@@ -32,5 +32,15 @@
   {
     "category": "AI",
     "skills": [{ "name": "LLM APIs" }, { "name": "RAG" }, { "name": "AI-assisted development" }]
+  },
+  {
+    "category": "All",
+    "skills": [
+      { "name": "React.js" },
+      { "name": "Next.js" },
+      { "name": "Nestjs" },
+      { "name": "Agentic AI" },
+      { "name": "PostgreSQL" }
+    ]
   }
 ]

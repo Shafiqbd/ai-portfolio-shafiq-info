@@ -4,9 +4,11 @@ import { HeroContent } from "@/components/sections/hero-content";
 
 export async function Hero() {
   const [profile, skillCategories] = await Promise.all([getProfile(), getSkillCategories()]);
-  const topTechnologies = skillCategories
-    .flatMap((category) => category.skills)
-    .slice(0, 6)
+  const allCategory = skillCategories.find((category) => category.category === "All");
+  const topTechnologies = (
+    allCategory?.skills ?? skillCategories.flatMap((category) => category.skills)
+  )
+    .slice(0, 7)
     .map((skill) => skill.name);
 
   return (

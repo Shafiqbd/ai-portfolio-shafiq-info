@@ -1,14 +1,14 @@
 {
   "name": "Md. Shafiqul Islam",
-  "title": "Software Engineer",
+  "title": "Full-Stack Engineer",
   "tagline": "Full-Stack Engineer (React · NestJS)",
   "secondaryTagline": "Building real-world software for FinTech, ERP, accounting, business management and modern AI-powered applications.",
-  "bio": "Full-stack developer with 6+ years of experience shipping production software across e-commerce, healthcare, ERP, and education. Known online as Shafiq Info.",
+  "bio": "Full-Stack Engineer with 6+ years of experience shipping production software across e-commerce, healthcare, ERP and education. Known online as Shafiq Info.",
   "philosophy": "In vain have you acquired knowledge if you have not imparted it to others.",
   "location": "Bangladesh",
   "availability": "open",
   "yearsExperience": 6,
-  "email": "me.mdshafiq@gmail.com",
+  "email": "shafiqinfo.dev@gmail.com",
   "phone": "+8801636020790",
   "socialLinks": [
     { "platform": "GitHub", "url": "" },
