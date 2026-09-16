@@ -1,3 +1,4 @@
+import { Badge } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
 import { RevealGroup } from "@/components/common/reveal";
 import { ConnectedResponsibilities } from "@/components/experience/connected-responsibilities";
@@ -19,33 +20,39 @@ export async function ExperienceTimeline() {
       title="Experience"
       description="The path from software fundamentals to shipping production systems."
     >
-      <div className="relative">
-        {/* Shared spine, aligned to each column's dot (header block height + half the dot). */}
-        <div
-          className="pointer-events-none absolute inset-x-0 top-21.5 hidden h-px bg-border md:block"
-          aria-hidden="true"
-        />
+      <div className="flex flex-col gap-16">
+        <RevealGroup>
+          {experiences.map((experience) => (
+            <div key={experience.id}>
+              <div className="mb-1 flex flex-wrap items-center gap-3">
+                <Badge variant="accent">{experience.milestoneStage}</Badge>
+                <p className="font-mono text-xs text-foreground-muted">
+                  {formatDate(experience.startDate)} — {formatDate(experience.endDate)}
+                </p>
+              </div>
 
-        <div className="flex flex-col gap-14 md:flex-row md:flex-wrap md:gap-x-10 md:gap-y-16">
-          <RevealGroup>
-            {experiences.map((experience) => (
-              <div key={experience.id} className="md:w-[calc(50%-1.25rem)] md:flex-none">
-                <div className="flex h-20 flex-col justify-end gap-0.5">
-                  <p className="font-semibold">{experience.company}</p>
-                  <p className="font-mono text-xs text-foreground-muted">
-                    {experience.role} · {formatDate(experience.startDate)} —{" "}
-                    {formatDate(experience.endDate)}
-                  </p>
-                  {experience.location && (
-                    <p className="text-xs text-foreground-muted">{experience.location}</p>
-                  )}
+              <h3 className="text-lg font-semibold">
+                {experience.role} · {experience.company}
+              </h3>
+
+              {experience.location && (
+                <p className="text-xs text-foreground-muted">{experience.location}</p>
+              )}
+
+              {experience.technologies.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {experience.technologies.map((tech) => (
+                    <Badge key={tech}>{tech}</Badge>
+                  ))}
                 </div>
+              )}
 
+              <div className="mt-6 max-w-xl">
                 <ConnectedResponsibilities items={experience.responsibilities} />
               </div>
-            ))}
-          </RevealGroup>
-        </div>
+            </div>
+          ))}
+        </RevealGroup>
       </div>
     </Section>
   );

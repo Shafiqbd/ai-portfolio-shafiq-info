@@ -22,12 +22,15 @@ treated as verified fact about actual work performed.
   exist yet — the Hero currently renders an animated initials placeholder
   (`components/sections/animated-profile.tsx`) instead of a real photo; swap
   in a real headshot via `next/image` once one exists.
-- **experiences.json** — the spec's career-milestone story (CSE → ... →
-  International Engineering) still needs earlier roles/education context to
-  fill out the full timeline. Each entry also supports an optional
-  `location` field (shown under the role/dates on the Experience timeline)
-  that's currently unset on every entry — add real city/country (or
-  "Remote") per role when known.
+- **experiences.json** — now has 4 real roles (IT Consultants PLC, Pridesys
+  IT ltd., Rotnogorva Farida Zaman School & College, Techqul), but all 4
+  still share the exact same placeholder `responsibilities`, `technologies`,
+  and `milestoneStage` text — copied from the original single-entry seed.
+  The Experience section will keep looking repetitive until each entry gets
+  its own real responsibilities/stack/milestone label. Each entry also
+  supports an optional `location` field (shown under the role/dates) that's
+  currently unset on every entry — add real city/country (or "Remote") per
+  role when known.
 - **projects.json** — the 6 projects match what's live on shafiq.info.bd.
   `liveUrl`/`githubUrl` are omitted (unknown), `features` are empty, and
   `thumbnailUrl` paths don't have real assets yet.

@@ -15,11 +15,41 @@
     "milestoneStage": "Full-Stack Engineering"
   },
   {
-    "id": "self-employed",
-    "company": "Self-employed",
-    "role": "Software Engineer",
+    "id": "pridesys",
+    "company": "Pridesys IT ltd.",
+    "role": "Web Developer",
     "startDate": "2021-06-01",
-    "summary": "Full-stack development, REST API design, code optimization, and mentoring within a production engineering team.",
+    "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
+    "responsibilities": [
+      "Full-stack feature development across React/Next.js and NestJS",
+      "REST API design and implementation",
+      "Code optimization and performance improvements",
+      "Mentoring team members"
+    ],
+    "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
+    "milestoneStage": "Full-Stack Engineering"
+  },
+  {
+    "id": "rfzsc",
+    "company": "Rotnogorva Farida Zaman School & College",
+    "role": "Assistent Teacher(ICT)",
+    "startDate": "2021-06-01",
+    "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
+    "responsibilities": [
+      "Full-stack feature development across React/Next.js and NestJS",
+      "REST API design and implementation",
+      "Code optimization and performance improvements",
+      "Mentoring team members"
+    ],
+    "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
+    "milestoneStage": "Full-Stack Engineering"
+  },
+  {
+    "id": "rfzs22c",
+    "company": "Techqul",
+    "role": "Full Stack Developer",
+    "startDate": "2021-06-01",
+    "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
     "responsibilities": [
       "Full-stack feature development across React/Next.js and NestJS",
       "REST API design and implementation",
