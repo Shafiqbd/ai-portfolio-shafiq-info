@@ -20,7 +20,7 @@
     "technologies": ["React", "Next.js", "Tailwind CSS", "NestJS"],
     "features": [],
     "thumbnailUrl": "/images/projects/alahazrat-academy.jpg",
-    "featured": false
+    "featured": true
   },
   {
     "id": "press-council-application",
@@ -31,7 +31,7 @@
     "technologies": ["HTML", "CSS", "PHP", "Laravel", "MySQL"],
     "features": [],
     "thumbnailUrl": "/images/projects/press-council-application.jpg",
-    "featured": false
+    "featured": true
   },
   {
     "id": "robyy-ecommerce",
@@ -42,7 +42,7 @@
     "technologies": ["React", "Next.js", "Tailwind CSS"],
     "features": [],
     "thumbnailUrl": "/images/projects/robyy-ecommerce.jpg",
-    "featured": false
+    "featured": true
   },
   {
     "id": "adorsholipi-desktop",
@@ -53,7 +53,7 @@
     "technologies": ["JavaScript", "Visual Basic"],
     "features": [],
     "thumbnailUrl": "/images/projects/adorsholipi-desktop.jpg",
-    "featured": false
+    "featured": true
   },
   {
     "id": "bodyguard-dynamic-website",
@@ -64,6 +64,6 @@
     "technologies": ["React", "Next.js", "MySQL", "NestJS"],
     "features": [],
     "thumbnailUrl": "/images/projects/bodyguard-dynamic-website.jpg",
-    "featured": false
+    "featured": true
   }
 ]

@@ -28,7 +28,7 @@ export async function GalleryMarquee() {
           {looped.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className={`flex h-40 w-64 shrink-0 flex-col justify-end overflow-hidden rounded-card bg-gradient-to-br p-5 text-white shadow-glow ${
+              className={`flex h-40 w-64 shrink-0 flex-col justify-end overflow-hidden rounded-card bg-linear-to-br p-5 text-white shadow-glow ${
                 TILE_GRADIENTS[index % TILE_GRADIENTS.length]
               }`}
             >

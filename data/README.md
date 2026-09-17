@@ -32,9 +32,16 @@ treated as verified fact about actual work performed.
   (`"20222-05-30"` on Pridesys, `"20220-03-30"` on Rotnogorva — an extra
   digit in the year) that render as garbage dates; likely meant to be
   `2022-05-30` / `2022-03-30`.
-- **projects.json** — the 6 projects match what's live on shafiq.info.bd.
-  `liveUrl`/`githubUrl` are omitted (unknown), `features` are empty, and
-  `thumbnailUrl` paths don't have real assets yet.
+- **projects.json** — the 6 projects match what's live on shafiq.info.bd, all
+  now marked `featured: true` so the Home page's Featured Projects grid shows
+  all 6. `liveUrl`/`githubUrl` are omitted (unknown) — the Featured Projects
+  cards fall back to "Read case study"/"View details" when `liveUrl` is
+  missing, and hide the "Code" button when `githubUrl` is missing, so add
+  real URLs when you have them rather than placeholders. `thumbnailUrl`
+  paths don't have real assets yet, so Featured Projects renders a themed
+  icon panel per project (`components/sections/featured-projects.tsx`,
+  `PROJECT_ICONS`) instead of a fake/stock screenshot — swap in real
+  screenshots via `thumbnailUrl` once they exist.
 - **case-studies.json** — holds one **placeholder** Smart Somity case study
   (plausible but not verified against how the system actually works) for
   design-preview purposes. The spec's other flagship case studies (Sawaribd,
