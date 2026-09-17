@@ -7,7 +7,7 @@ export function personJsonLd(profile: Profile) {
     "@type": "Person",
     name: profile.name,
     jobTitle: profile.title,
-    description: profile.bio,
+    description: profile.description,
     url: site.url,
     email: `mailto:${profile.email}`,
     address: profile.location,

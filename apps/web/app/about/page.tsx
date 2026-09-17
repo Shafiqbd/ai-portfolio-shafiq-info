@@ -36,13 +36,13 @@ export default async function AboutPage() {
     <>
       <Section eyebrow="About" title={`Hi, I'm ${profile.name}.`} titleAs="h1">
         <div className="flex flex-col gap-6">
-          <p className="max-w-2xl text-foreground-muted">{profile.bio}</p>
-          {profile.philosophy && (
+          <p className="whitespace-pre-line text-foreground-muted">{profile.description}</p>
+          {profile.tagline && (
             <blockquote
               className="max-w-2xl border-l-2 pl-4 italic text-foreground"
               style={{ borderImage: "var(--gradient-brand) 1" }}
             >
-              &ldquo;{profile.philosophy}&rdquo;
+              &ldquo;{profile.tagline}&rdquo;
             </blockquote>
           )}
         </div>

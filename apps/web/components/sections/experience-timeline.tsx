@@ -36,7 +36,7 @@ export async function ExperienceTimeline() {
               <h3 className="text-lg font-semibold">
                 {experience.company}
                 {experience.address && (
-                  <span className="font-normal text-foreground-muted"> · {experience.address}</span>
+                  <span className="font-normal text-foreground-muted"> , {experience.address}</span>
                 )}
               </h3>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { motion, type Variants } from "motion/react";
 import { Button, Badge } from "@shafiq-info/ui";
 import type { Profile } from "@shafiq-info/types";
@@ -36,7 +37,7 @@ export function HeroContent({
   topTechnologies: string[];
 }) {
   return (
-    <div className="site-container mx-auto grid items-center gap-12 px-6 py-20 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+    <div className="site-container mx-auto grid items-center gap-12 px-6 py-20 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
       <motion.div
         variants={container}
         initial="hidden"
@@ -51,11 +52,21 @@ export function HeroContent({
           variants={item}
           className="max-w-2xl text-balance text-4xl font-semibold tracking-tight sm:text-6xl"
         >
-          <span className="text-gradient-brand">{profile.tagline}</span>
+          <span className="text-gradient-brand">{profile.title}</span>
         </motion.h1>
 
-        <motion.p variants={item} className="max-w-xl text-balance text-foreground-muted">
-          {profile.secondaryTagline}
+        <motion.p variants={item} className="text-foreground-muted">
+          {profile.shortDescription}{" "}
+          <Link
+            href="/about"
+            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-foreground ml-2"
+          >
+            Read more
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
         </motion.p>
 
         {topTechnologies.length > 0 && (

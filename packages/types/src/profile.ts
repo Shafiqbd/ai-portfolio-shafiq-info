@@ -8,10 +8,9 @@ export type Availability = "available" | "open" | "unavailable";
 export interface Profile {
   name: string;
   title: string;
+  shortDescription: string;
+  description: string;
   tagline: string;
-  secondaryTagline: string;
-  bio: string;
-  philosophy?: string;
   location: string;
   availability: Availability;
   yearsExperience: number;
