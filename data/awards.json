@@ -1,0 +1,28 @@
+[
+   {
+    "name": "Best Employee Award in 2022",
+    "issuer": "Pridesys IT Ltd.",
+    "issuedDate": "Feb 2022"  
+  },
+ {
+    "name": "1st Place in University Extempore Speech",
+    "issuer": "Northern University Bangladesh",
+    "issuedDate": "Dec 2019"  
+  },
+ 
+  {
+    "name": "Best Student Award Form KUET",
+    "issuer": "Khulna University of Engineering & Technology",
+    "issuedDate": "Jan 2016"  
+  },
+  {
+    "name": "Cadetship Certificate",
+    "issuer": "Bangladesh Navy Cadet Corps(BNCC)",
+    "issuedDate": "Oct 2015"  
+  },
+  {
+    "name": "Dhaka International Merathon 2025",
+    "issuer": "Bangladesh Army",
+    "issuedDate": "Dec 2025"  
+  }
+]

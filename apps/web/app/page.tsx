@@ -6,7 +6,7 @@ import { TechStack } from "@/components/sections/tech-stack";
 import { AiEngineering } from "@/components/sections/ai-engineering";
 import { ArticlesTeaser } from "@/components/sections/articles-teaser";
 import { ServicesTeaser } from "@/components/sections/services-teaser";
-import { Certifications } from "@/components/sections/certifications";
+import { Achievements } from "@/components/sections/achievements";
 import { GalleryMarquee } from "@/components/sections/gallery-marquee";
 import { Cta } from "@/components/sections/cta";
 
@@ -18,10 +18,10 @@ export default function Home() {
       <FeaturedProjects />
       {/* <CaseStudiesTeaser /> */}
       <TechStack />
-      <AiEngineering />
-      <ArticlesTeaser />
+      <Achievements />
       <ServicesTeaser />
-      <Certifications />
+      {/* <AiEngineering /> */}
+      <ArticlesTeaser />
       <GalleryMarquee />
       <Cta />
     </>

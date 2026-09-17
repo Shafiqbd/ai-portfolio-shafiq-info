@@ -1,6 +1,27 @@
 [
   {
-    "name": "Associate Cloud Engineer",
-    "issuer": "Google Cloud"
+    "name": "NestJS Masterclass - NodeJS Framework Backend Development",
+    "issuer": "Udemy",
+    "issuedDate": "2024-10-01"  
+  },
+  {
+    "name": "Learn AWS Foundation with Foyzul Karim",
+    "issuer": "BrightSkills",
+    "issuedDate": "Feb 2024"  
+  },
+  {
+    "name": "Mastering on React JS, Next JS & Prisma",
+    "issuer": "Ostad",
+    "issuedDate": "Nov 2023"  
+  },
+  {
+    "name": "Think in a Redux Way",
+    "issuer": "Learn With Sumit",
+    "issuedDate": "Feb 2023"  
+  },
+  {
+    "name": "Web application Development-Dot Net",
+    "issuer": "BITM",
+    "issuedDate": "Mar 2018"  
   }
 ]

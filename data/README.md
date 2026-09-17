@@ -70,6 +70,10 @@ banner_img.{png,jpg}` rendered directly in the Featured Projects cards.
   are from the spec; exact start/end years and issue date are omitted rather
   than guessed (`startYear`/`issuedDate` are optional in the type for this
   reason).
+- **awards.json** — now holds 5 real entries (`name`/`issuer`/`issuedDate`,
+  same shape as `certifications.json`), rendered together with
+  `certifications.json` in the "Achievements & Certifications" section
+  (`components/sections/achievements.tsx`) on the About page.
 - **resume.json** — the three variants from the spec (§21) are stubbed with
   empty `fileUrl`s; the Resume page shows "not available yet" until real
   PDFs are supplied.

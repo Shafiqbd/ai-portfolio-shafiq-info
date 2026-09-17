@@ -7,6 +7,7 @@ import { AboutStats } from "@/components/about/about-stats";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { TechStack } from "@/components/sections/tech-stack";
 import { Education } from "@/components/sections/education";
+import { Achievements } from "@/components/sections/achievements";
 import { getProfile } from "@/services/profile.service";
 
 export const metadata: Metadata = {
@@ -71,6 +72,8 @@ export default async function AboutPage() {
       <TechStack />
 
       <Education />
+
+      <Achievements />
 
       <Section eyebrow="Why work with me" title="Mindset">
         <div className="flex flex-col gap-4">

@@ -25,6 +25,13 @@ export interface Certification {
   credentialUrl?: string;
 }
 
+export interface Award {
+  name: string;
+  issuer: string;
+  // Optional: some entries are seeded before an exact date is confirmed.
+  issuedDate?: string;
+}
+
 export interface GalleryItem {
   id: string;
   imageUrl: string;
