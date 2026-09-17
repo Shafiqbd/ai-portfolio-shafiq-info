@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <ExperienceTimeline />
       <FeaturedProjects />
-      <CaseStudiesTeaser />
+      {/* <CaseStudiesTeaser /> */}
       <TechStack />
       <AiEngineering />
       <ArticlesTeaser />
