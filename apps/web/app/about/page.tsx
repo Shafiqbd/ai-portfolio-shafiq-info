@@ -46,11 +46,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <PageBanner
-        eyebrow="About"
-        title={`Hi, I'm ${profile.name}.`}
-        description={profile.shortDescription}
-      >
+      <PageBanner eyebrow="About" title={`Hi, I'm ${profile.name}.`}>
         <div className="mt-4 w-full">
           <AboutStats />
         </div>

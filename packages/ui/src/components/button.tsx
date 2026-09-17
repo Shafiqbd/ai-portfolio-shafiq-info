@@ -7,8 +7,9 @@ const VARIANT_CLASSES = {
   primary:
     "btn-shine bg-gradient-brand text-white shadow-glow hover:brightness-110 active:brightness-95",
   secondary:
-    "border border-transparent text-foreground [background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box] hover:shadow-glow",
-  ghost: "text-foreground-muted hover:text-foreground hover:bg-background-elevated",
+    "btn-shine border border-transparent text-foreground [background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box] hover:shadow-glow hover:brightness-110 active:brightness-95",
+  ghost:
+    "btn-shine text-foreground-muted hover:text-foreground hover:bg-background-elevated hover:shadow-glow",
 } as const;
 
 const SIZE_CLASSES = {

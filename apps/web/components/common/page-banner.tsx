@@ -29,7 +29,7 @@ export function PageBanner({
           <p className="font-mono text-xs uppercase tracking-wide text-accent">{eyebrow}</p>
         )}
         {title && (
-          <h1 className="text-gradient-brand max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="text-gradient-brand max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
             {title}
           </h1>
         )}
