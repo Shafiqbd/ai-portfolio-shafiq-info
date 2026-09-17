@@ -25,15 +25,14 @@
     "summary": "Financial and accounting management systems, including multi-branch support.",
     "description": "Accounting software for organizations managing ledgers, branches, and financial reporting.",
     "deliveredVia": { "name": "TechQul", "url": "" },
-    "relatedProjectIds": ["smart-somity"]
+    "relatedProjectIds": ["nayanogor-somity"]
   },
   {
     "slug": "ecommerce",
     "title": "E-commerce",
     "summary": "Storefronts and commerce platforms built for real transaction volume.",
     "description": "E-commerce platforms covering product catalogs, checkout, and order management.",
-    "deliveredVia": { "name": "TechQul", "url": "" },
-    "relatedProjectIds": ["robyy-ecommerce"]
+    "deliveredVia": { "name": "TechQul", "url": "" }
   },
   {
     "slug": "business-management-systems",

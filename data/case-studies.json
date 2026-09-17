@@ -1,7 +1,7 @@
 [
   {
-    "slug": "smart-somity",
-    "title": "Smart Somity — Multi-Branch Financial Management",
+    "slug": "nayanogor-somity",
+    "title": "Nayanogor Somity — Multi-Branch Financial Management",
     "problem": "Branch offices were tracking member accounts, loans, and collections in disconnected spreadsheets, making it slow and error-prone to reconcile finances across the organization.",
     "context": "A financial cooperative operating across multiple branches needed a single system that every branch could use day-to-day, while giving head office a real-time consolidated view.",
     "requirements": [
@@ -37,6 +37,6 @@
       }
     ],
     "screenshots": [],
-    "relatedProjectIds": ["smart-somity"]
+    "relatedProjectIds": ["nayanogor-somity"]
   }
 ]

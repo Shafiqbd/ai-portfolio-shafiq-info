@@ -8,11 +8,17 @@ rather than guessed.
 
 **`articles.json`, `case-studies.json`, and `gallery.json` currently hold
 placeholder/sample content** (generic engineering-topic articles, a plausible
-but illustrative Smart Somity case study, and abstract gradient tiles instead
-of real screenshots) — added on request to preview the full page designs
-before real content exists. All of it needs to be replaced with real,
-Shafiq-reviewed content before this ships publicly; none of it should be
-treated as verified fact about actual work performed.
+but illustrative Nayanogor Somity case study, and abstract gradient tiles
+instead of real screenshots) — added on request to preview the full page
+designs before real content exists. All of it needs to be replaced with
+real, Shafiq-reviewed content before this ships publicly; none of it should
+be treated as verified fact about actual work performed.
+
+**`projects.json` now holds 6 real projects with real screenshots**
+(Nayanogor Somity, Alahazrat Academy, SawariBD Booking App, the PrideBook
+Pro Garments ERP System, MMS, and DMS), replacing the earlier placeholder
+list scraped from shafiq.info.bd — see below for what's still outstanding
+on each.
 
 ## Outstanding TODOs
 
@@ -32,22 +38,24 @@ treated as verified fact about actual work performed.
   (`"20222-05-30"` on Pridesys, `"20220-03-30"` on Rotnogorva — an extra
   digit in the year) that render as garbage dates; likely meant to be
   `2022-05-30` / `2022-03-30`.
-- **projects.json** — the 6 projects match what's live on shafiq.info.bd, all
-  now marked `featured: true` so the Home page's Featured Projects grid shows
-  all 6. `liveUrl`/`githubUrl` are omitted (unknown) — the Featured Projects
-  cards fall back to "Read case study"/"View details" when `liveUrl` is
-  missing, and hide the "Code" button when `githubUrl` is missing, so add
-  real URLs when you have them rather than placeholders. `thumbnailUrl`
-  paths don't have real assets yet, so Featured Projects renders a themed
-  icon panel per project (`components/sections/featured-projects.tsx`,
-  `PROJECT_ICONS`) instead of a fake/stock screenshot — swap in real
-  screenshots via `thumbnailUrl` once they exist.
-- **case-studies.json** — holds one **placeholder** Smart Somity case study
-  (plausible but not verified against how the system actually works) for
-  design-preview purposes. The spec's other flagship case studies (Sawaribd,
-  German Butcher) still need real source material — Sawaribd and German
-  Butcher aren't on the live site at all yet. Replace the Smart Somity entry
-  with the real Problem/Context/Architecture/Decisions/Impact before shipping.
+- **projects.json** — 6 real projects, all `featured: true`, each with a
+  real `thumbnailUrl` under `apps/web/public/images/projects/<folder>/
+banner_img.{png,jpg}` rendered directly in the Featured Projects cards.
+  `liveUrl`/`githubUrl` are still omitted on all 6 (unknown) — cards fall
+  back to "Read case study"/"View details" when `liveUrl` is missing, and
+  hide the "Code" button when `githubUrl` is missing, so add real URLs when
+  you have them rather than placeholders. Only `nayanogor-somity` has a
+  `caseStudySlug` (pointing at the one real case-studies.json entry) — the
+  other 5 had dangling `caseStudySlug` values (pointing at case studies that
+  don't exist, which would 404) that were removed rather than guessed at;
+  add a real slug back once each project has a written case study.
+- **case-studies.json** — holds one **placeholder** case study, renamed from
+  "Smart Somity" to **Nayanogor Somity** to match the real project it
+  actually describes (plausible content, but not verified against how the
+  system actually works) — for design-preview purposes. The other 5 projects
+  (Alahazrat Academy, SawariBD, PrideBook Pro, MMS, DMS) still need their own
+  real Problem/Context/Architecture/Decisions/Impact write-ups before
+  shipping; none exist yet.
 - **articles.json** — holds 3 **placeholder** articles (generic engineering
   topics matching Shafiq's stack) for design-preview purposes; no MDX body is
   wired up yet (see the article `[slug]` page). Replace with real writing

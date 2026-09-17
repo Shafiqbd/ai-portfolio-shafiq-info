@@ -14,8 +14,8 @@ describe("project.service", () => {
   });
 
   it("looks up a project by slug", async () => {
-    const project = await getProjectBySlug("smart-somity");
-    expect(project?.title).toBe("Smart Somity");
+    const project = await getProjectBySlug("nayanogor-somity");
+    expect(project?.title).toBe("Nayanogor Somity");
   });
 
   it("returns undefined for a missing slug rather than throwing", async () => {

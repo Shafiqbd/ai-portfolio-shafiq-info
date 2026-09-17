@@ -1,15 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ExternalLink,
-  Code2,
-  Folder,
-  Landmark,
-  GraduationCap,
-  Newspaper,
-  ShoppingCart,
-  Monitor,
-  ShieldCheck,
-} from "lucide-react";
+import { ExternalLink, Code2, Folder } from "lucide-react";
 import {
   Badge,
   Button,
@@ -24,26 +15,6 @@ import { Section } from "@/components/common/section";
 import { RevealGroup } from "@/components/common/reveal";
 import { getFeaturedProjects } from "@/services/project.service";
 
-// No real screenshots exist yet (see data/README.md) — a themed icon panel
-// stands in for a thumbnail rather than a fake/stock project image.
-const PROJECT_ICONS: Record<string, typeof Folder> = {
-  "smart-somity": Landmark,
-  "alahazrat-academy": GraduationCap,
-  "press-council-application": Newspaper,
-  "robyy-ecommerce": ShoppingCart,
-  "adorsholipi-desktop": Monitor,
-  "bodyguard-dynamic-website": ShieldCheck,
-};
-
-const HEADER_GRADIENTS = [
-  "from-emerald-500 via-teal-500 to-cyan-500",
-  "from-teal-500 via-cyan-500 to-sky-500",
-  "from-green-500 via-emerald-500 to-teal-500",
-  "from-cyan-500 via-sky-500 to-blue-500",
-  "from-emerald-500 via-green-500 to-teal-500",
-  "from-teal-500 via-emerald-500 to-lime-500",
-];
-
 export async function FeaturedProjects() {
   const projects = await getFeaturedProjects();
   if (projects.length === 0) return null;
@@ -56,8 +27,7 @@ export async function FeaturedProjects() {
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <RevealGroup>
-          {projects.map((project, index) => {
-            const Icon = PROJECT_ICONS[project.id] ?? Folder;
+          {projects.map((project) => {
             const primaryHref = project.liveUrl
               ? project.liveUrl
               : project.caseStudySlug
@@ -71,12 +41,20 @@ export async function FeaturedProjects() {
 
             return (
               <Card key={project.id} sparkle className="flex h-full flex-col overflow-hidden">
-                <div
-                  className={`-mx-6 -mt-6 mb-4 flex aspect-video items-center justify-center bg-linear-to-br ${
-                    HEADER_GRADIENTS[index % HEADER_GRADIENTS.length]
-                  }`}
-                >
-                  <Icon className="h-12 w-12 text-white/90" aria-hidden="true" />
+                <div className="bg-background relative -mx-6 -mt-6 mb-4 aspect-video overflow-hidden">
+                  {project.thumbnailUrl ? (
+                    <Image
+                      src={project.thumbnailUrl}
+                      alt={`${project.title} preview`}
+                      fill
+                      sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="bg-gradient-brand flex h-full items-center justify-center">
+                      <Folder className="h-12 w-12 text-white/90" aria-hidden="true" />
+                    </div>
+                  )}
                 </div>
 
                 <CardHeader>
