@@ -50,17 +50,15 @@ export default async function AboutPage() {
         eyebrow="About"
         title={`Hi, I'm ${profile.name}.`}
         description={profile.shortDescription}
-      />
-
-      <Section className="pb-0">
-        <AboutStats />
-      </Section>
+      >
+        <div className="mt-4 w-full">
+          <AboutStats />
+        </div>
+      </PageBanner>
 
       <Section>
         <div className="flex flex-col gap-6">
-          <p className="max-w-2xl whitespace-pre-line text-foreground-muted">
-            {profile.description}
-          </p>
+          <p className=" whitespace-pre-line text-foreground-muted">{profile.description}</p>
           {profile.tagline && (
             <blockquote
               className="max-w-2xl border-l-2 pl-4 italic text-foreground"
@@ -72,7 +70,7 @@ export default async function AboutPage() {
         </div>
       </Section>
 
-      <ExperienceTimeline />
+      {/* <ExperienceTimeline /> */}
 
       <TechStack />
 

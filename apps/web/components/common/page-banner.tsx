@@ -13,7 +13,7 @@ export function PageBanner({
   className,
 }: {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
   children?: ReactNode;
   className?: string;
@@ -24,13 +24,15 @@ export function PageBanner({
         aria-hidden="true"
         className="animate-mesh-drift bg-mesh pointer-events-none absolute inset-0 opacity-70 blur-3xl"
       />
-      <div className="site-container relative mx-auto flex flex-col items-center gap-5 px-6 py-20 text-center sm:py-28">
+      <div className="site-container relative mx-auto flex flex-col items-center gap-5 px-6 py-10 text-center">
         {eyebrow && (
           <p className="font-mono text-xs uppercase tracking-wide text-accent">{eyebrow}</p>
         )}
-        <h1 className="text-gradient-brand max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-          {title}
-        </h1>
+        {title && (
+          <h1 className="text-gradient-brand max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+            {title}
+          </h1>
+        )}
         {description && (
           <p className="max-w-2xl text-balance text-foreground-muted">{description}</p>
         )}

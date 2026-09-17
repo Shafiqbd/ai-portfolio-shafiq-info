@@ -1,4 +1,5 @@
 import { Briefcase, Calendar, FolderGit2, Layers } from "lucide-react";
+import { Card } from "@shafiq-info/ui";
 import { RevealGroup } from "@/components/common/reveal";
 import { getProfile } from "@/services/profile.service";
 import { getProjects } from "@/services/project.service";
@@ -6,8 +7,8 @@ import { getExperiences } from "@/services/experience.service";
 import { getSkillCategories } from "@/services/skill.service";
 
 /**
- * Every number here is computed from real data — no invented "50+ projects"
- * / "30+ happy clients" style marketing stats.
+ * Every number here is computed from real data — no invented "100+
+ * projects" / "50+ clients" style marketing stats.
  */
 export async function AboutStats() {
   const [profile, projects, experiences, skillCategories] = await Promise.all([
@@ -31,14 +32,11 @@ export async function AboutStats() {
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
       <RevealGroup>
         {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-card border border-transparent p-5 text-center shadow-sm transition-all duration-300 [background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand-soft)_border-box] hover:shadow-glow hover:[background:linear-gradient(var(--background-elevated),var(--background-elevated))_padding-box,var(--gradient-brand)_border-box]"
-          >
+          <Card key={stat.label} sparkle className="p-5 text-center">
             <stat.icon className="mx-auto mb-2 h-5 w-5 text-accent" aria-hidden="true" />
             <p className="text-gradient-brand text-2xl font-bold sm:text-3xl">{stat.value}</p>
             <p className="text-xs text-foreground-muted">{stat.label}</p>
-          </div>
+          </Card>
         ))}
       </RevealGroup>
     </div>
