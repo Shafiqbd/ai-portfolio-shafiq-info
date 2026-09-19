@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { Send } from "lucide-react";
 import { Button, Input, Textarea, useToast } from "@shafiq-info/ui";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,7 +77,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex max-w-xl flex-col gap-5">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
       <Input
         label="Name"
         required
@@ -127,10 +128,13 @@ export function ContactForm() {
         onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
         error={errors.message}
       />
-
-      <Button type="submit" disabled={submitting} className="self-start">
-        {submitting ? "Sending…" : "Send message"}
+  <div className="text-right">
+     <Button type="submit" disabled={submitting} size="lg" className="mt-2 ">
+        {submitting ? "Sending…" : "Send Message"}
+        <Send className="h-4 w-4" aria-hidden="true" />
       </Button>
+  </div>
+ 
     </form>
   );
 }

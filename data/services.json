@@ -1,69 +1,51 @@
 [
   {
+    "slug": "full-stack-application-development",
+    "title": "Full-Stack Web Applications",
+    "shortDescription": "Full-stack web applications with React/Next.js front ends and NestJS APIs. Covers UI, backend, database design, and deployment in one connected build. Built for production, not just a demo.",
+    "description": "I build scalable, production-ready web applications from frontend to backend. I develop modern interfaces with React and Next.js, backed by robust APIs using Node.js and NestJS. I design efficient database architectures with PostgreSQL or MySQL and integrate authentication, payments, third-party services, and real-time features. Every application is optimized for performance, security, maintainability and seamless deployment.",
+    "icon": "Code2",
+    "media": { "type": "video", "url": "/images/services/full-stack-video.webm" },
+    "tagline": "I believe in quality not quantity."
+  },
+
+  {
     "slug": "custom-software-development",
     "title": "Custom Software Development",
-    "summary": "End-to-end custom software built around a specific business process.",
-    "description": "Design and delivery of bespoke software systems, from requirements through architecture, implementation, and deployment.",
-    "deliveredVia": { "name": "TechQul", "url": "" }
-  },
-  {
-    "slug": "web-application-development",
-    "title": "Web Application Development",
-    "summary": "Full-stack web applications with React/Next.js front ends and NestJS APIs.",
-    "description": "Production-grade web applications covering UI, API, database design, and deployment."
-  },
-  {
-    "slug": "erp-development",
-    "title": "ERP Development",
-    "summary": "Enterprise resource planning systems tailored to multi-branch or multi-department operations.",
-    "description": "ERP systems covering accounting, inventory, HR, and operational workflows.",
-    "deliveredVia": { "name": "TechQul", "url": "" }
+    "shortDescription": "End-to-end custom software built around a specific business process, not a generic template. From requirements and architecture through implementation and deployment. Delivered via TechQul.",
+    "description": "Custom software development for businesses that need more than an off-the-shelf tool can offer. I design and build bespoke software solutions tailored to a specific business process — from initial requirements gathering and technical architecture through implementation, testing, and deployment. This includes internal tools, workflow automation systems, multi-user dashboards, and business management platforms built on modern, maintainable stacks (React/Next.js, Node.js/NestJS, PostgreSQL/MySQL). Delivered through TechQul, each engagement focuses on solving the real operational bottleneck — not just shipping code — with clear documentation and a codebase built to be extended as the business grows.",
+    "deliveredVia": { "name": "TechQul", "url": "" },
+    "icon": "Wrench"
   },
   {
     "slug": "accounting-software",
     "title": "Accounting Software",
-    "summary": "Financial and accounting management systems, including multi-branch support.",
-    "description": "Accounting software for organizations managing ledgers, branches, and financial reporting.",
+    "shortDescription": "Financial and accounting management systems, including multi-branch support. Covers ledgers, reporting, and day-to-day bookkeeping workflows. Delivered via TechQul for organizations that need accurate, auditable financial data.",
+    "description": "Accounting software development for organizations that need reliable, auditable financial management — not another spreadsheet. I build systems that handle general ledgers, multi-branch accounting, income and expense tracking, and financial reporting, with role-based access so finance teams and branch managers see exactly what they need. Built on PostgreSQL/MySQL with a NestJS API and a React/Next.js interface, these systems are designed to scale from a single office to multi-branch organizations without a rewrite. Delivered via TechQul, past work in this space includes the Nayanogor Somity accounting and membership management system — real financial software running in production, not a demo.",
     "deliveredVia": { "name": "TechQul", "url": "" },
-    "relatedProjectIds": ["nayanogor-somity"]
-  },
-  {
-    "slug": "ecommerce",
-    "title": "E-commerce",
-    "summary": "Storefronts and commerce platforms built for real transaction volume.",
-    "description": "E-commerce platforms covering product catalogs, checkout, and order management.",
-    "deliveredVia": { "name": "TechQul", "url": "" }
-  },
-  {
-    "slug": "business-management-systems",
-    "title": "Business Management Systems",
-    "summary": "Internal tools and dashboards that run day-to-day operations.",
-    "description": "Custom internal systems for managing branches, staff, and business workflows.",
-    "deliveredVia": { "name": "TechQul", "url": "" }
+    "relatedProjectIds": ["nayanogor-somity"],
+    "icon": "Calculator"
   },
   {
     "slug": "ai-integration",
     "title": "AI Integration",
-    "summary": "Adding LLM-powered features to existing products.",
-    "description": "Structured-data-grounded AI features, from assistant widgets to retrieval-augmented workflows."
+    "shortDescription": "Adding LLM-powered features to existing products — assistant widgets, structured Q&A, and retrieval-augmented workflows. Grounded in your real data, not generic prompts. A practical way to make a product feel AI-native without a ground-up rebuild.",
+    "description": "AI integration services for teams that want to add genuinely useful AI features to an existing product — not bolt on a generic chatbot. I build LLM-powered assistants, structured Q&A widgets, and retrieval-augmented generation (RAG) workflows grounded in your own data (documentation, FAQs, product content, or internal knowledge bases), so answers stay accurate instead of hallucinated. This covers everything from a floating AI assistant on a marketing site to internal tools that let non-technical staff query business data in plain language. Work includes prompt and context design, API integration with LLM providers, and the surrounding application logic needed to make an AI feature reliable in production, not just a demo.",
+    "icon": "Brain"
   },
   {
     "slug": "api-development",
     "title": "API Development",
-    "summary": "REST APIs designed for real client integrations.",
-    "description": "API design and implementation with NestJS, including validation, auth, and documentation.",
-    "deliveredVia": { "name": "TechQul", "url": "" }
-  },
-  {
-    "slug": "devops",
-    "title": "DevOps",
-    "summary": "Docker, CI/CD, and deployment pipelines.",
-    "description": "Containerized environments and automated pipelines for reliable delivery."
+    "shortDescription": "REST APIs designed for real client integrations — validated, documented, and secure. Built with NestJS for maintainability as the system grows. A solid backend foundation for web apps, mobile apps, or third-party integrations.",
+    "description": "API development for products and businesses that need a reliable backend other systems can depend on. I design and build REST APIs using NestJS and TypeScript, with structured validation, authentication and authorization, error handling, and API documentation so frontend teams, mobile teams, and third-party integrators can work against a stable contract. This includes designing resource models and database schemas (PostgreSQL/MySQL), implementing role-based access control, and building endpoints that hold up under real usage — not just a proof of concept. Delivered via TechQul, this service fits teams building a new product from scratch or adding an API layer to an existing system.",
+    "deliveredVia": { "name": "TechQul", "url": "" },
+    "icon": "Plug"
   },
   {
     "slug": "website-maintenance",
     "title": "Website Maintenance",
-    "summary": "Ongoing support, updates, and performance maintenance.",
-    "description": "Continued upkeep of existing websites: updates, bug fixes, and performance tuning."
+    "shortDescription": "Ongoing support, updates, and performance maintenance for existing websites. Covers bug fixes, dependency updates, and speed/SEO tuning. A practical option for businesses that need a site kept reliable without hiring in-house.",
+    "description": "Website maintenance for businesses that already have a site and need it to keep working reliably. This covers ongoing bug fixes, framework and dependency updates, security patches, and performance tuning — page speed, Core Web Vitals, and image/asset optimization — so the site stays fast and stable over time. It also includes small content and feature updates, uptime monitoring, and technical SEO housekeeping: the kind of ongoing care a website needs after launch that often gets skipped once the initial project ships. A practical fit for businesses that want a site kept current without hiring an in-house developer.",
+    "icon": "RefreshCw"
   }
 ]

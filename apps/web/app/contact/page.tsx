@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/common/section";
-import { ContactForm } from "@/components/contact/contact-form";
+import { ContactCard } from "@/components/contact/contact-card";
 import { getProfile } from "@/services/profile.service";
 
 export const metadata: Metadata = {
@@ -18,20 +18,7 @@ export default async function ContactPage() {
       titleAs="h1"
       description={profile.shortDescription}
     >
-      <div className="flex flex-col gap-8 sm:flex-row sm:gap-16">
-        <ContactForm />
-        <div className="flex flex-col gap-2 text-sm text-foreground-muted">
-          <p className="font-medium text-foreground">Direct</p>
-          <a href={`mailto:${profile.email}`} className="hover:text-foreground">
-            {profile.email}
-          </a>
-          {profile.phone && (
-            <a href={`tel:${profile.phone}`} className="hover:text-foreground">
-              {profile.phone}
-            </a>
-          )}
-        </div>
-      </div>
+      <ContactCard profile={profile} />
     </Section>
   );
 }

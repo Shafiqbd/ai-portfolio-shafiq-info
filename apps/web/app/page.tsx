@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { FloatingSocial } from "@/components/sections/floating-social";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { CaseStudiesTeaser } from "@/components/sections/case-studies-teaser";
@@ -13,6 +14,7 @@ import { Cta } from "@/components/sections/cta";
 export default function Home() {
   return (
     <>
+      <FloatingSocial />
       <Hero />
       <ExperienceTimeline />
       <FeaturedProjects />

@@ -1,35 +1,9 @@
 [
-  {
-    "id": "full-stack-engineering",
-    "imageUrl": "",
-    "caption": "Full-Stack Engineering",
-    "category": "Craft"
-  },
-  { "id": "api-design", "imageUrl": "", "caption": "API Design", "category": "Backend" },
-  {
-    "id": "database-architecture",
-    "imageUrl": "",
-    "caption": "Database Architecture",
-    "category": "Backend"
-  },
-  {
-    "id": "ai-native-development",
-    "imageUrl": "",
-    "caption": "AI-Native Development",
-    "category": "AI"
-  },
-  {
-    "id": "cloud-devops",
-    "imageUrl": "",
-    "caption": "Cloud & DevOps",
-    "category": "Infrastructure"
-  },
-  { "id": "ui-craft", "imageUrl": "", "caption": "UI Craft", "category": "Frontend" },
-  {
-    "id": "performance",
-    "imageUrl": "",
-    "caption": "Performance Engineering",
-    "category": "Craft"
-  },
-  { "id": "security", "imageUrl": "", "caption": "Security-Minded Delivery", "category": "Craft" }
+  { "id": "g1", "imageUrl": "/images/gallery/g1.JPG" },
+  { "id": "g2", "imageUrl": "/images/gallery/g2.JPG" },
+  { "id": "g3", "imageUrl": "/images/gallery/g3.JPG" },
+  { "id": "g4", "imageUrl": "/images/gallery/g4.JPG" },
+  { "id": "g5", "imageUrl": "/images/gallery/g5.jpg" },
+  { "id": "g6", "imageUrl": "/images/gallery/g6.jpg" },
+  { "id": "g7", "imageUrl": "/images/gallery/g7.jpg" }
 ]

@@ -69,12 +69,6 @@ export function HeroContent({
           </Link>
         </motion.p>
 
-        {topTechnologies.length > 0 && (
-          <motion.p variants={item} className="font-mono text-sm text-foreground-muted">
-            {topTechnologies.join(" · ")}
-          </motion.p>
-        )}
-
         <motion.div
           variants={item}
           className="flex flex-wrap items-center justify-center gap-3 lg:justify-start"
@@ -82,7 +76,7 @@ export function HeroContent({
           <Button asChild size="lg">
             <Link href="/projects">View My Work</Link>
           </Button>
-          {profile.resumeUrl ? (
+          {/* {profile.resumeUrl ? (
             <Button asChild variant="secondary" size="lg">
               <a href={profile.resumeUrl}>Download CV</a>
             </Button>
@@ -90,7 +84,7 @@ export function HeroContent({
             <Button asChild variant="secondary" size="lg">
               <Link href="/resume">Download CV</Link>
             </Button>
-          )}
+          )} */}
           <OpenAskShafiqButton variant="ghost" size="lg">
             Ask Shafiq AI
           </OpenAskShafiqButton>

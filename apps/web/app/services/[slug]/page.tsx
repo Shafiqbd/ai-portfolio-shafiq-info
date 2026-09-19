@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Badge, Button, Card, CardDescription, CardHeader, CardTitle } from "@shafiq-info/ui";
+import { Button, Card, CardDescription, CardHeader, CardTitle } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
 import { JsonLd } from "@/components/common/json-ld";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { getServiceBySlug, getServices } from "@/services/service.service";
 import { getProjects } from "@/services/project.service";
+import {  Calendar, FolderGit2, Briefcase, Layers } from "lucide-react";
+import { PageBanner } from "@/components/common/page-banner";
+import { StatsBanner } from "@/components/common/stats-banner";
+
+
+const stats = [
+    { icon: FolderGit2, value: `20+`, label: "Projects Delivered" },
+        { icon: Briefcase, value: `10+`, label: "Happy Clients" },
+    { icon: Layers, value: `12+`, label: "Technologies" },
+            { icon: Calendar, value: `5.00`, label: "Client Reviews" },
+  ];
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -21,7 +32,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = await getServiceBySlug(slug);
   if (!service) return {};
-  return { title: service.title, description: service.summary };
+  return { title: service.title, description: service.shortDescription };
 }
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -41,14 +52,22 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           { name: service.title, path: `/services/${service.slug}` },
         ])}
       />
-      <Section eyebrow="Service" title={service.title} titleAs="h1">
-        <div className="flex flex-col gap-4">
-          {service.deliveredVia && (
-            <Badge variant="accent" className="w-fit">
-              Delivered via {service.deliveredVia.name}
-            </Badge>
+    <PageBanner eyebrow="Service" title={`${service.title}.`}>
+        <div className="mt-4 w-full">
+          <StatsBanner stats={stats} />
+        </div>
+      </PageBanner>
+      <Section>
+        <div className="flex flex-col gap-6">
+          <p className=" whitespace-pre-line text-foreground-muted">{service.description}</p>
+          {service.tagline && (
+            <blockquote
+              className="max-w-2xl border-l-2 pl-4 italic text-foreground"
+              style={{ borderImage: "var(--gradient-brand) 1" }}
+            >
+              &ldquo;{service.tagline}&rdquo;
+            </blockquote>
           )}
-          <p className="max-w-2xl text-foreground-muted">{service.description}</p>
         </div>
       </Section>
 

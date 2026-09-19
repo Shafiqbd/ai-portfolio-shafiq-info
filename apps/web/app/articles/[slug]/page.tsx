@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Badge, Button } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
 import { JsonLd } from "@/components/common/json-ld";
+import { StatsBanner } from "@/components/common/stats-banner";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { getArticleBySlug, getArticles } from "@/services/article.service";
 

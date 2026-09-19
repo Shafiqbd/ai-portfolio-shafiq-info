@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Badge, Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@shafiq-info/ui";
+import { EmptyState } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
-import { RevealGroup } from "@/components/common/reveal";
+import { ServicesGrid } from "@/components/services/services-grid";
 import { getServices } from "@/services/service.service";
 
 export const metadata: Metadata = {
@@ -15,29 +14,7 @@ export default async function ServicesPage() {
 
   return (
     <Section eyebrow="What I can build" title="Services" titleAs="h1">
-      {services.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <RevealGroup>
-            {services.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`}>
-                <Card className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center justify-between gap-2">
-                      <CardTitle>{service.title}</CardTitle>
-                      {service.deliveredVia && (
-                        <Badge variant="accent">via {service.deliveredVia.name}</Badge>
-                      )}
-                    </div>
-                    <CardDescription>{service.summary}</CardDescription>
-                  </CardHeader>
-                </Card>
-              </Link>
-            ))}
-          </RevealGroup>
-        </div>
-      ) : (
-        <EmptyState title="No services listed yet" />
-      )}
+      {services.length > 0 ? <ServicesGrid services={services} /> : <EmptyState title="No services listed yet" />}
     </Section>
   );
 }

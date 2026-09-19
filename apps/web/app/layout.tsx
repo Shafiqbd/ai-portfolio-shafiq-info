@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AskShafiqPanel } from "@/components/ai/ask-shafiq-panel";
+import { BackToTop } from "@/components/common/back-to-top";
 import { JsonLd } from "@/components/common/json-ld";
 import { getProfile } from "@/services/profile.service";
 import { personJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -72,6 +73,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             </main>
             <Footer />
             <AskShafiqPanel />
+            <BackToTop />
           </ToastProvider>
         </ThemeProvider>
       </body>

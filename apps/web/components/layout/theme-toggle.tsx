@@ -37,7 +37,7 @@ export function ThemeToggle() {
             aria-label={label}
             title={label}
             onClick={() => setTheme(value)}
-            className={`inline-flex h-8 w-8 items-center justify-center rounded-[calc(var(--radius-control)-2px)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+            className={`inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-[calc(var(--radius-control)-2px)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
               active
                 ? "bg-accent text-accent-foreground"
                 : "text-foreground-muted hover:text-foreground"

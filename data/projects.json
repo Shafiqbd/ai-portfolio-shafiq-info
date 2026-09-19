@@ -9,7 +9,8 @@
     "features": [],
     "thumbnailUrl": "/images/projects/nayanogor/banner_img.png",
     "featured": true,
-    "caseStudySlug": "nayanogor-somity"
+    "caseStudySlug": "nayanogor-somity",
+    "liveUrl": "https://www.nayanagorsomity.org"
   },
   {
     "id": "alahazrat-academy",
@@ -20,7 +21,8 @@
     "technologies": ["React", "Next.js", "Tailwind CSS", "NestJS"],
     "features": [],
     "thumbnailUrl": "/images/projects/alahazrat/banner_img.png",
-    "featured": true
+    "featured": true,
+    "liveUrl": "https://www.alahazratacademy.com"
   },
   {
     "id": "sawaribd",
@@ -31,7 +33,8 @@
     "technologies": ["React", "TypeScript", "PostgreSQL", "NestJS"],
     "features": [],
     "thumbnailUrl": "/images/projects/booking/banner_img.jpg",
-    "featured": true
+    "featured": true,
+    "liveUrl": "https://service.hondasalespoint.com"
   },
   {
     "id": "pridebook-pro",
@@ -44,13 +47,13 @@
     "thumbnailUrl": "/images/projects/Erp/banner_img.jpg",
     "featured": true
   },
-  {
+  {   
     "id": "mms",
     "slug": "mms",
     "title": "Merchant Management System (MMS)",
     "summary": "web platform designed to manage and automate merchant-related financial operations",
     "role": "Frontend Engineer",
-    "technologies": ["React", "TypeScript", "soket.io", "Tailwind CSS"],
+    "technologies": ["React", "TypeScript", "soket.io", "Tailwind CSS", "Chart.js", "Agentic AI"],
     "features": [],
     "thumbnailUrl": "/images/projects/mms/banner_img.jpg",
     "featured": true

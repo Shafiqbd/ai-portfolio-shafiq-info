@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Link2 } from "lucide-react";
 import { primaryNav, site } from "@shafiq-info/config";
 import { getProfile } from "@/services/profile.service";
@@ -13,8 +14,20 @@ export async function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="site-container mx-auto flex flex-col gap-8 px-6 py-12 sm:flex-row sm:justify-between">
-        <div className="flex flex-col gap-2">
-          <p className="font-mono text-sm font-semibold">{site.name}</p>
+        <div className="flex flex-col gap-3">
+          <Link
+            href="/"
+            aria-label={site.name}
+            className="inline-block w-fit rounded-control bg-[#0a0b0d] px-2.5 py-2 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(9,160,74,0.6)]"
+          >
+            <Image
+              src="/images/logo/logo.webp"
+              alt={site.name}
+              width={256}
+              height={92}
+              className="h-9 w-auto"
+            />
+          </Link>
           <p className="max-w-xs text-sm text-foreground-muted">{profile.tagline}</p>
         </div>
 
@@ -29,23 +42,6 @@ export async function Footer() {
             </Link>
           ))}
         </nav>
-
-        {socialLinks.length > 0 && (
-          <div className="flex items-center gap-3">
-            {socialLinks.map((link) => (
-              <a
-                key={link.platform}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.platform}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-control text-foreground-muted transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                <Link2 className="h-4 w-4" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className="border-t border-border px-6 py-4">

@@ -99,7 +99,7 @@ export function TechStackTabs({ categories }: { categories: SkillCategory[] }) {
           <TabsTrigger
             key={tab.category}
             value={tab.category}
-            className="rounded-control border border-border px-4 py-2 text-sm data-[state=active]:border-transparent data-[state=active]:bg-gradient-brand data-[state=active]:text-white data-[state=active]:shadow-glow"
+            className="rounded-control border cursor-pointer border-border px-4 py-2 text-sm data-[state=active]:border-transparent data-[state=active]:bg-gradient-brand data-[state=active]:text-white data-[state=active]:shadow-glow"
           >
             {tab.category}
           </TabsTrigger>

@@ -73,7 +73,7 @@ export function AskShafiqPanel() {
               type="button"
               aria-label="Close"
               onClick={() => setOpen(false)}
-              className="rounded-control p-1 text-foreground-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+              className="rounded-control cursor-pointer p-1 text-foreground-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -137,7 +137,7 @@ export function AskShafiqPanel() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
-        className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-4 py-3 text-sm font-medium text-white shadow-glow transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-4 py-3 text-sm font-medium text-white shadow-glow transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent cursor-pointer"
       >
         <Bot className="h-4 w-4" aria-hidden="true" />
         {open ? "Close" : "Ask Shafiq AI"}

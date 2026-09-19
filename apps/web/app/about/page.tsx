@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Target, Sparkles, ShieldCheck, Rocket } from "lucide-react";
+import { Target, Sparkles, ShieldCheck, Rocket, Calendar, FolderGit2, Briefcase, Layers } from "lucide-react";
 import { Section } from "@/components/common/section";
 import { PageBanner } from "@/components/common/page-banner";
 import { RevealGroup } from "@/components/common/reveal";
-import { AboutStats } from "@/components/about/about-stats";
-import { ExperienceTimeline } from "@/components/sections/experience-timeline";
+import { StatsBanner } from "@/components/common/stats-banner";
 import { TechStack } from "@/components/sections/tech-stack";
 import { Education } from "@/components/sections/education";
 import { Achievements } from "@/components/sections/achievements";
@@ -42,14 +41,21 @@ const MINDSET_POINTS = [
   },
 ];
 
+const stats = [
+    { icon: Calendar, value: `6+`, label: "Years Experience" },
+    { icon: FolderGit2, value: `100+`, label: "Projects Delivered" },
+    { icon: Briefcase, value: `50+`, label: "Organizations" },
+    { icon: Layers, value: `20+`, label: "Technologies" },
+  ];
+
 export default async function AboutPage() {
-  const profile = await getProfile();
+  const [profile] = await Promise.all([getProfile()]);
 
   return (
     <>
       <PageBanner eyebrow="About" title={`Hi, I'm ${profile.name}.`}>
         <div className="mt-4 w-full">
-          <AboutStats />
+          <StatsBanner stats={stats} />
         </div>
       </PageBanner>
 
@@ -70,10 +76,8 @@ export default async function AboutPage() {
       {/* <ExperienceTimeline /> */}
 
       <TechStack />
-
-      <Education />
-
       <Achievements />
+      <Education />
 
       <Section eyebrow="Why work with me" title="Mindset">
         <div className="flex flex-col gap-4">

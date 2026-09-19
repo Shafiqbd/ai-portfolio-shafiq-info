@@ -15,6 +15,8 @@ export interface Education {
   // Optional: some entries are seeded before exact dates are confirmed.
   startYear?: number;
   endYear?: number;
+  cgpa: string;
+  outOf: string;
 }
 
 export interface Certification {
@@ -36,7 +38,7 @@ export interface GalleryItem {
   id: string;
   imageUrl: string;
   caption?: string;
-  category: string;
+  category?: string;
 }
 
 export type ResumeVariantId = "software-engineer" | "fullstack-remote" | "academic";

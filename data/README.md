@@ -24,20 +24,28 @@ on each.
 
 - **profile.json** — `socialLinks[].url` are empty; the live site shows the
   icons (GitHub, Stack Overflow, LinkedIn, Facebook) but not the exact
-  handles/URLs. `avatarUrl` and `resumeUrl` point at asset paths that don't
-  exist yet — the Hero currently renders an animated initials placeholder
-  (`components/sections/animated-profile.tsx`) instead of a real photo; swap
-  in a real headshot via `next/image` once one exists.
+  handles/URLs. The Footer hides entries with no URL. The Home page floating
+  social rail (`components/sections/floating-social.tsx`) instead keeps all
+  4 icons clickable by falling back to each platform's generic homepage
+  (github.com, stackoverflow.com, linkedin.com, facebook.com) when a
+  profile URL is missing — not a real handle, just enough to make the icon
+  functional rather than dead. Replace with the real profile URLs as soon
+  as you have them. `resumeUrl` still points at an asset path that doesn't
+  exist yet. `avatarUrl` (`/images/profile/avatar.jpg`) also still doesn't
+  exist, but the Hero (`components/sections/animated-profile.tsx`) no longer
+  depends on it — it now renders a real photo at `public/images/hero_img.png`
+  directly instead of the old animated-initials placeholder.
 - **experiences.json** — now has 4 real roles (IT Consultants PLC, Pridesys
   IT ltd., Rotnogorva Farida Zaman School & College, Techqul) with real
   `address` values, but all 4 still share the exact same placeholder
   `responsibilities`, `technologies`, and `milestoneStage` text — copied
   from the original single-entry seed. The Experience section will keep
   looking repetitive until each entry gets its own real responsibilities/
-  stack/milestone label. Two entries also have malformed `endDate` values
+  stack/milestone label. Two entries had malformed `endDate` values
   (`"20222-05-30"` on Pridesys, `"20220-03-30"` on Rotnogorva — an extra
-  digit in the year) that render as garbage dates; likely meant to be
-  `2022-05-30` / `2022-03-30`.
+  digit in the year) that rendered as garbage dates on the live Experience
+  timeline; fixed to `2022-05-30` / `2022-03-30` during the responsive QA
+  pass — double-check these are the intended dates.
 - **projects.json** — 6 real projects, all `featured: true`, each with a
   real `thumbnailUrl` under `apps/web/public/images/projects/<folder>/
 banner_img.{png,jpg}` rendered directly in the Featured Projects cards.
@@ -59,13 +67,25 @@ banner_img.{png,jpg}` rendered directly in the Featured Projects cards.
 - **articles.json** — holds 3 **placeholder** articles (generic engineering
   topics matching Shafiq's stack) for design-preview purposes; no MDX body is
   wired up yet (see the article `[slug]` page). Replace with real writing
-  before shipping.
-- **gallery.json** — abstract gradient tiles (no real screenshots exist yet)
-  labeled with engineering-discipline captions rather than pretending to be
-  real project photos. Swap for real screenshots when available.
+  before shipping. Each now has a real `coverImageUrl` under
+  `public/images/articles/` (a1–a3, matched by topic — a2 for the NestJS/
+  backend article, a3 for the frontend one, a1 for the AI one) rendered in
+  the new two-column "Latest Articles & Insights" teaser
+  (`components/sections/articles-teaser.tsx`). `a4.png` (a more general
+  "career/opportunities" banner) doesn't match any of the 3 current articles
+  and is unused — a candidate cover for a future 4th article.
+- **gallery.json** — now holds 7 real photos (`public/images/gallery/g1–g7`),
+  shown without captions in the Home page gallery carousel
+  (`components/sections/gallery-carousel.tsx`).
 - **services.json** — seeded from the spec's proposed service list (§16), not
   the live site's older list. `deliveredVia.url` for TechQul-delivered
-  services is empty pending the actual TechQul URL.
+  services is empty pending the actual TechQul URL. The Home page's Services
+  section (`components/sections/services-teaser.tsx`) highlights the first
+  entry with a media panel driven by `Service.media`
+  (`{ type: "video" | "image", url }`) — `full-stack-application-development`
+  now has a real demo clip (`public/images/services/full-stack-video.webm`);
+  the other 5 services still fall back to the abstract gradient placeholder
+  until they get their own media.
 - **education.json** / **certifications.json** — institution/degree/cert name
   are from the spec; exact start/end years and issue date are omitted rather
   than guessed (`startYear`/`issuedDate` are optional in the type for this

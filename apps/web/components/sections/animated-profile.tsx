@@ -1,14 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { Badge } from "@shafiq-info/ui";
-
-function getInitials(name: string) {
-  const words = name.replace(/\./g, "").split(" ").filter(Boolean);
-  const meaningful = words.filter((word) => word.length > 2);
-  const source = meaningful.length >= 2 ? meaningful : words;
-  return (source[0][0] + source[source.length - 1][0]).toUpperCase();
-}
 
 const MAX_ORBIT_BADGES = 8;
 const ORBIT_RADIUS_PERCENT = 54;
@@ -42,7 +36,6 @@ export function AnimatedProfile({
   available: boolean;
   technologies: string[];
 }) {
-  const initials = getInitials(name);
   const badges = technologies.slice(0, MAX_ORBIT_BADGES);
 
   return (
@@ -70,17 +63,21 @@ export function AnimatedProfile({
           transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
         />
 
-        {/* Avatar placeholder — swap for a real photo (next/image) once one exists */}
-        <div className="bg-background-elevated absolute inset-6 flex items-center justify-center rounded-full border border-border shadow-glow">
-          <span className="text-gradient-brand font-mono text-5xl font-bold sm:text-7xl">
-            {initials}
-          </span>
+        <div className="bg-background-elevated absolute inset-6 overflow-hidden rounded-full border border-border shadow-glow">
+          <Image
+            src="/images/hero_img.png"
+            alt={name}
+            fill
+            priority
+            sizes="(min-width: 640px) 384px, 240px"
+            className="object-cover"
+          />
         </div>
 
         {available && (
           <div className="absolute -bottom-1 left-1/2 -translate-x-1/2">
             <motion.div
-              className="flex items-center gap-1.5 rounded-full border border-border bg-background-elevated px-2.5 py-1 shadow-glow sm:px-3 sm:py-1.5"
+              className="flex items-center gap-1.5 rounded-full border border-border bg-background-elevated px-2.5 py-0.5 shadow-glow sm:px-3 sm:py-1"
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -110,7 +107,7 @@ export function AnimatedProfile({
             >
               <Badge
                 variant="accent"
-                className="shadow-glow px-1.5 py-0.5 text-[10px] sm:px-2.5 sm:py-0.5 sm:text-xs"
+                className="shadow-glow whitespace-nowrap px-2 py-1 text-xs sm:px-3"
               >
                 {tech}
               </Badge>

@@ -27,20 +27,27 @@ export function Reveal({
   );
 }
 
-/** Wraps a list of items, revealing each with a small staggered delay. */
+/**
+ * Wraps a list of items, revealing each with a small staggered delay.
+ * The delay is capped (`maxDelay`) so long lists (e.g. a 20+ item skill
+ * grid) don't leave later items sitting invisible for seconds after they've
+ * scrolled into view.
+ */
 export function RevealGroup({
   children,
   className,
   stagger = 0.08,
+  maxDelay = 0.4,
 }: {
   children: ReactNode[];
   className?: string;
   stagger?: number;
+  maxDelay?: number;
 }) {
   return (
     <>
       {children.map((child, index) => (
-        <Reveal key={index} delay={index * stagger} className={className}>
+        <Reveal key={index} delay={Math.min(index * stagger, maxDelay)} className={className}>
           {child}
         </Reveal>
       ))}

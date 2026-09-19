@@ -13,6 +13,7 @@
     { "platform": "GitHub", "url": "" },
     { "platform": "Stack Overflow", "url": "" },
     { "platform": "LinkedIn", "url": "" },
+    { "platform": "Email", "url": "mailto:shafiqinfo.dev@gmail.com" },
     { "platform": "Facebook", "url": "" }
   ],
   "avatarUrl": "/images/profile/avatar.jpg",

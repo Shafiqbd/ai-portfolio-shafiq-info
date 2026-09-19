@@ -7,7 +7,8 @@
     "category": "Backend",
     "tags": ["NestJS", "Architecture", "PostgreSQL"],
     "readingTimeMinutes": 7,
-    "publishedAt": "2026-06-12"
+    "publishedAt": "2026-06-12",
+    "coverImageUrl": "/images/articles/a2.png"
   },
   {
     "slug": "server-components-without-losing-your-mind",
@@ -17,7 +18,8 @@
     "category": "Frontend",
     "tags": ["Next.js", "React", "Performance"],
     "readingTimeMinutes": 6,
-    "publishedAt": "2026-04-03"
+    "publishedAt": "2026-04-03",
+    "coverImageUrl": "/images/articles/a3.png"
   },
   {
     "slug": "grounding-an-ai-assistant-in-your-own-data",
@@ -27,6 +29,7 @@
     "category": "AI Engineering",
     "tags": ["AI", "RAG", "Product"],
     "readingTimeMinutes": 8,
-    "publishedAt": "2026-02-20"
+    "publishedAt": "2026-02-20",
+    "coverImageUrl": "/images/articles/a1.png"
   }
 ]
