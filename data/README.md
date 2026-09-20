@@ -26,15 +26,18 @@ on each.
   icons (GitHub, Stack Overflow, LinkedIn, Facebook) but not the exact
   handles/URLs. The Footer hides entries with no URL. The Home page floating
   social rail (`components/sections/floating-social.tsx`) instead keeps all
-  4 icons clickable by falling back to each platform's generic homepage
-  (github.com, stackoverflow.com, linkedin.com, facebook.com) when a
-  profile URL is missing — not a real handle, just enough to make the icon
-  functional rather than dead. Replace with the real profile URLs as soon
-  as you have them. `resumeUrl` still points at an asset path that doesn't
-  exist yet. `avatarUrl` (`/images/profile/avatar.jpg`) also still doesn't
-  exist, but the Hero (`components/sections/animated-profile.tsx`) no longer
-  depends on it — it now renders a real photo at `public/images/hero_img.png`
-  directly instead of the old animated-initials placeholder.
+  icons clickable by falling back to each platform's generic homepage
+  (github.com, stackoverflow.com, linkedin.com, youtube.com, facebook.com)
+  when a profile URL is missing — not a real handle, just enough to make the
+  icon functional rather than dead. Replace with the real profile URLs as soon
+  as you have them. A **YouTube** entry was added for the redesigned footer's
+  social row (empty `url` → generic youtube.com fallback); swap in the real
+  channel URL, or remove the entry if there is no channel. `resumeUrl` still
+  points at an asset path that doesn't exist yet. `avatarUrl`
+  (`/images/profile/avatar.jpg`) also still doesn't exist, but the Hero
+  (`components/sections/animated-profile.tsx`) no longer depends on it — it
+  now renders a real photo at `public/images/hero_img.png` directly instead
+  of the old animated-initials placeholder.
 - **experiences.json** — now has 4 real roles (IT Consultants PLC, Pridesys
   IT ltd., Rotnogorva Farida Zaman School & College, Techqul) with real
   `address` values, but all 4 still share the exact same placeholder

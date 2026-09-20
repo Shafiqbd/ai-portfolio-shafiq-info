@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon, FacebookIcon } from "@/components/common/brand-icons";
+import { GithubIcon, LinkedinIcon, FacebookIcon, YoutubeIcon } from "@/components/common/brand-icons";
 import type { Profile } from "@shafiq-info/types";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
@@ -8,6 +8,7 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 export const SOCIAL_ICON_MAP: Record<string, IconComponent> = {
   GitHub: GithubIcon,
   LinkedIn: LinkedinIcon,
+  YouTube: YoutubeIcon,
   Facebook: FacebookIcon,
   Email: Mail,
 };
@@ -17,6 +18,7 @@ export const SOCIAL_ICON_MAP: Record<string, IconComponent> = {
 const FALLBACK_URL: Record<string, string> = {
   GitHub: "https://github.com/Shafiqbd",
   LinkedIn: "https://www.linkedin.com/in/shafiq-info",
+  YouTube: "https://www.youtube.com",
   Facebook: "https://www.facebook.com/shafiq.info.bd",
   Email: "mailto:shafiqinfo.dev@gmail.com",
 };

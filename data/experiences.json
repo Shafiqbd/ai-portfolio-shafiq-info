@@ -6,11 +6,12 @@
     "startDate": "2022-06-01",
     "summary": "Full-stack development, REST API design, code optimization, and mentoring within a production engineering team.",
     "address": "Tejgaon, Dhaka, Bangladesh",
-    "responsibilities": [
-      "Full-stack feature development across React/Next.js and NestJS",
-      "REST API design and implementation",
-      "Code optimization and performance improvements",
-      "Mentoring team members"
+     "responsibilities": [
+      "Develop and maintain scalable web applications using React, Next.js, and NestJS",
+      "Design, develop, and integrate RESTful APIs for business-critical applications",
+      "Design and optimize database queries, schemas, and data-driven features",
+      "Improve application performance, code quality, scalability, and maintainability",
+      "Collaborate with team members, review code, troubleshoot issues, and mentor junior developers"
     ],
     "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
     "milestoneStage": "Full-Stack Engineering"
@@ -24,29 +25,36 @@
     "address": "Karwan Bazar, Dhaka, Bangladesh",
     "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
     "responsibilities": [
-      "Full-stack feature development across React/Next.js and NestJS",
-      "REST API design and implementation",
-      "Code optimization and performance improvements",
-      "Mentoring team members"
+      "Developed responsive and user-friendly web interfaces for business applications",
+      "Built and integrated RESTful APIs to support frontend applications and business workflows",
+      "Implemented reusable components and optimized frontend code for better performance",
+      "Worked with databases and backend services to develop data-driven application features",
+      "Collaborated with designers and developers to troubleshoot issues and deliver production-ready features"
     ],
     "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
     "milestoneStage": "Full-Stack Engineering"
   },
   {
-    "id": "rfzsc",
-    "company": "Rotnogorva Farida Zaman School & College",
-    "role": "Assistent Teacher(ICT)",
-    "startDate": "2019-02-01",
-    "endDate": "2020-03-30",
-    "address": "Badda, Dhaka, Bangladesh",
-    "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
-    "responsibilities": [
-      "Full-stack feature development across React/Next.js and NestJS",
-      "REST API design and implementation",
-      "Code optimization and performance improvements",
-      "Mentoring team members"
-    ],
-    "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
-    "milestoneStage": "Full-Stack Engineering"
+   "id": "rfzsc",
+  "company": "Rotnogorva Farida Zaman School & College",
+  "role": "Assistant Teacher (ICT)",
+  "startDate": "2019-02-01",
+  "endDate": "2020-03-30",
+  "address": "Badda, Dhaka, Bangladesh",
+  "summary": "Taught ICT, computer programming, and English Version classes while helping students develop practical computer and problem-solving skills.",
+  "responsibilities": [
+    "Taught ICT and computer programming fundamentals to students",
+    "Conducted classes for English Version students across relevant subjects",
+    "Prepared lesson plans, practical exercises, and learning materials",
+    "Guided students through C programming and fundamental problem-solving concepts",
+    "Assessed students' academic progress and supported their learning through practical sessions"
+  ],
+  "technologies": [
+    "C",
+    "ICT",
+    "Computer Fundamentals",
+    "English Version Curriculum"
+  ],
+  "milestoneStage": "Teaching & Foundations"
   }
 ]

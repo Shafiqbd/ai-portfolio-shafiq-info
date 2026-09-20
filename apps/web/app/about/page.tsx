@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Target, Sparkles, ShieldCheck, Rocket, Calendar, FolderGit2, Briefcase, Layers } from "lucide-react";
+import {
+  Target,
+  Sparkles,
+  ShieldCheck,
+  Rocket,
+  Calendar,
+  FolderGit2,
+  Briefcase,
+  Layers,
+} from "lucide-react";
 import { Section } from "@/components/common/section";
 import { PageBanner } from "@/components/common/page-banner";
 import { RevealGroup } from "@/components/common/reveal";
@@ -42,11 +51,11 @@ const MINDSET_POINTS = [
 ];
 
 const stats = [
-    { icon: Calendar, value: `6+`, label: "Years Experience" },
-    { icon: FolderGit2, value: `100+`, label: "Projects Delivered" },
-    { icon: Briefcase, value: `50+`, label: "Organizations" },
-    { icon: Layers, value: `20+`, label: "Technologies" },
-  ];
+  { icon: Calendar, value: `6+`, label: "Years Experience" },
+  { icon: FolderGit2, value: `100+`, label: "Projects Delivered" },
+  { icon: Briefcase, value: `50+`, label: "Organizations" },
+  { icon: Layers, value: `20+`, label: "Technologies" },
+];
 
 export default async function AboutPage() {
   const [profile] = await Promise.all([getProfile()]);
@@ -76,8 +85,9 @@ export default async function AboutPage() {
       {/* <ExperienceTimeline /> */}
 
       <TechStack />
-      <Achievements />
+
       <Education />
+      <Achievements />
 
       <Section eyebrow="Why work with me" title="Mindset">
         <div className="flex flex-col gap-4">

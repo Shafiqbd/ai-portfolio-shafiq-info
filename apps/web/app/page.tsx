@@ -9,7 +9,6 @@ import { ArticlesTeaser } from "@/components/sections/articles-teaser";
 import { ServicesTeaser } from "@/components/sections/services-teaser";
 import { Achievements } from "@/components/sections/achievements";
 import { GalleryMarquee } from "@/components/sections/gallery-marquee";
-import { Cta } from "@/components/sections/cta";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
       {/* <AiEngineering /> */}
       <ArticlesTeaser />
       <GalleryMarquee />
-      <Cta />
     </>
   );
 }

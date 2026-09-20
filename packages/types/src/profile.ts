@@ -11,6 +11,7 @@ export interface Profile {
   shortDescription: string;
   description: string;
   tagline: string;
+  philosophy: string;
   location: string;
   availability: Availability;
   yearsExperience: number;

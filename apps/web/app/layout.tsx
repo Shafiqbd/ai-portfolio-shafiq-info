@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import { site } from "@shafiq-info/config";
 import { ToastProvider } from "@shafiq-info/ui";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AskShafiqPanel } from "@/components/ai/ask-shafiq-panel";
-import { BackToTop } from "@/components/common/back-to-top";
 import { JsonLd } from "@/components/common/json-ld";
 import { getProfile } from "@/services/profile.service";
 import { personJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -19,6 +18,13 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+// Handwritten accents (footer script flourishes). Exposed as `font-script`
+// via the --font-script theme mapping in globals.css.
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
 });
 
@@ -50,7 +56,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <div
@@ -73,7 +79,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             </main>
             <Footer />
             <AskShafiqPanel />
-            <BackToTop />
           </ToastProvider>
         </ThemeProvider>
       </body>

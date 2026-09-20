@@ -39,4 +39,6 @@ export const radius = {
 export const fonts = {
   sans: "var(--font-geist-sans)",
   mono: "var(--font-geist-mono)",
+  /** Handwritten accent face (Caveat), loaded in apps/web/app/layout.tsx. */
+  script: "var(--font-caveat)",
 } as const;
