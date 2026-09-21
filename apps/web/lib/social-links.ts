@@ -18,7 +18,7 @@ export const SOCIAL_ICON_MAP: Record<string, IconComponent> = {
 const FALLBACK_URL: Record<string, string> = {
   GitHub: "https://github.com/Shafiqbd",
   LinkedIn: "https://www.linkedin.com/in/shafiq-info",
-  YouTube: "https://www.youtube.com",
+  YouTube: "https://www.youtube.com/@shafiqdotinfo",
   Facebook: "https://www.facebook.com/shafiq.info.bd",
   Email: "mailto:shafiqinfo.dev@gmail.com",
 };

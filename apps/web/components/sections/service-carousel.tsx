@@ -28,7 +28,7 @@ export function ServiceCarousel({ services }: { services: Service[] }) {
 
   return (
     <div>
-      <div className="relative overflow-hidden">
+      <div className="relative -m-2 overflow-hidden p-2">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.div
             key={page}
