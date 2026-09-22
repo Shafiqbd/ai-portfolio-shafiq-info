@@ -1,35 +1,103 @@
 [
+ 
   {
-    "slug": "structuring-a-nestjs-api-for-multi-branch-systems",
-    "title": "Structuring a NestJS API for Multi-Branch Systems",
-    "excerpt": "How module boundaries, tenancy, and a shared service layer keep a multi-branch accounting API maintainable as branches (and requirements) multiply.",
-    "contentPath": "structuring-a-nestjs-api-for-multi-branch-systems.mdx",
-    "category": "Backend",
-    "tags": ["NestJS", "Architecture", "PostgreSQL"],
-    "readingTimeMinutes": 7,
-    "publishedAt": "2026-06-12",
-    "coverImageUrl": "/images/articles/a2.png"
-  },
-  {
-    "slug": "server-components-without-losing-your-mind",
-    "title": "Server Components Without Losing Your Mind",
-    "excerpt": "A practical mental model for deciding what stays a Server Component, what needs 'use client', and where the boundary actually belongs.",
-    "contentPath": "server-components-without-losing-your-mind.mdx",
-    "category": "Frontend",
-    "tags": ["Next.js", "React", "Performance"],
-    "readingTimeMinutes": 6,
-    "publishedAt": "2026-04-03",
-    "coverImageUrl": "/images/articles/a3.png"
-  },
-  {
-    "slug": "grounding-an-ai-assistant-in-your-own-data",
-    "title": "Grounding an AI Assistant in Your Own Data (Before Reaching for RAG)",
-    "excerpt": "Why a small, reviewed knowledge base and a keyword matcher can outperform a half-built RAG pipeline — and when it's actually time to graduate to one.",
-    "contentPath": "grounding-an-ai-assistant-in-your-own-data.mdx",
-    "category": "AI Engineering",
-    "tags": ["AI", "RAG", "Product"],
-    "readingTimeMinutes": 8,
-    "publishedAt": "2026-02-20",
-    "coverImageUrl": "/images/articles/a1.png"
-  }
+  "slug": "ai-native-software-development",
+  "title": "AI-Native Software Development: What It Means for Modern Developers",
+  "shortDescription": "AI is changing the way software is built. Learn what AI-Native Software Development means, how it differs from traditional development, and how developers can integrate AI into their daily engineering workflow.",
+  "category": "Software Engineering",
+  "coverImageUrl": "/images/articles/ar1.png",
+  "readingTimeMinutes": 7,
+  "tags": [
+    "AI",
+    "Software Engineering",
+    "AI-Native Development",
+    "AI Coding Agents"
+  ],
+  "content": "<h2>What Is AI-Native Software Development?</h2><p>AI-Native Software Development is an approach where artificial intelligence becomes an integrated part of the software development lifecycle.</p><p>Instead of using AI only to generate code, developers can use AI for planning, coding, testing, debugging, code review, documentation, and other engineering tasks.</p><h2>Traditional vs AI-Native Development</h2><p>In traditional software development, developers manually handle most stages of the development process—from understanding requirements to writing code, testing, reviewing, and deploying applications.</p><p>An AI-native workflow can introduce AI into each of these stages.</p><blockquote>Requirement → AI Planning → Coding Agent → Testing → AI Review → Human Approval → Deployment</blockquote><h2>AI Does Not Replace the Developer</h2><p>AI-native development does not mean allowing AI to build everything without supervision.</p><p>AI can generate code, analyze errors, create tests, and suggest improvements, but developers still need to make important decisions about architecture, security, business logic, performance, and production readiness.</p><h2>How AI-Native Development Works</h2><p>A modern AI-native workflow can start with a GitHub issue or product requirement. An AI planning agent can break the requirement into technical tasks and create a clear implementation plan.</p><p>An AI coding agent can then work on the repository, implement the required changes, and run tests.</p><h2>Why Context Matters</h2><p>One of the most important concepts in AI-native development is context. AI produces better results when it understands the project's architecture, coding conventions, business rules, existing components, and testing requirements.</p><h2>The Future of Software Engineering</h2><p>As AI becomes more capable, developers may spend less time writing repetitive code and more time focusing on architecture, system design, product requirements, security, performance, and engineering decisions.</p>",
+  "publishedAt": "2026-09-20"
+},
+{
+  "slug": "claude-code-ai-coding-agent-software-development",
+  "title": "Claude Code: How to Use an AI Coding Agent for Software Development",
+  "shortDescription": "Learn how Claude Code works as an AI coding agent and how developers can use it to plan, write, test, debug, and improve software more efficiently.",
+  "content": "<p>AI is changing the way software developers build applications. Instead of using AI only for code suggestions, developers can now use <strong>AI coding agents</strong> to work on complete development tasks. Claude Code is one of these tools, designed to work directly with your codebase and development workflow.</p><h2>What Is Claude Code?</h2><p>Claude Code is an <strong>AI coding agent from Anthropic</strong> that can understand a project, inspect files, make code changes, run commands, execute tests, and help developers work with Git using natural language instructions.</p><p>Unlike a traditional coding assistant that mainly suggests code, Claude Code can work through multiple steps to complete a development task.</p><h2>How Claude Code Works</h2><p>A typical workflow can look like:</p><ol><li>Give Claude Code a clear development task.</li><li>It investigates the existing codebase.</li><li>It creates an implementation plan.</li><li>It modifies the required files.</li><li>It runs tests and development commands.</li><li>It analyzes errors and improves the implementation.</li><li>The developer reviews the final changes.</li></ol><h2>What Can You Build with Claude Code?</h2><p>Claude Code can help with many software engineering tasks, including building features, debugging problems, refactoring code, writing tests, understanding unfamiliar codebases, updating documentation, and working with Git and GitHub.</p><h2>A Simple Example</h2><p>Imagine you are working on a Next.js and NestJS application and need to add a member management feature.</p><pre><code>Implement member management for the admin panel.\n\nRequirements:\n- Add member CRUD APIs\n- Add PostgreSQL database changes\n- Add React/Next.js UI\n- Follow the existing project architecture\n- Add validation and tests\n- Run the relevant checks before finishing</code></pre><p>Instead of manually searching through the project and changing every related file, you can give Claude Code the task and let it investigate the codebase, implement the changes, and run the required checks.</p><h2>Why Context Matters</h2><p>The quality of an AI coding agent depends heavily on the context it receives. Project architecture, coding conventions, business rules, testing requirements, and documentation help the agent make better decisions.</p><p>This is why <strong>Context Engineering</strong> is becoming an important skill for developers working with AI agents.</p><h2>Should You Trust AI-Generated Code?</h2><p>AI-generated code should always be reviewed and tested before reaching production. AI can help with implementation, but developers remain responsible for architecture, security, business logic, performance, and final technical decisions.</p><blockquote>AI generates → Tests verify → Developer reviews → CI validates → Human approves</blockquote><h2>Final Thoughts</h2><p>Claude Code represents a shift from simple AI-assisted coding toward <strong>agentic software development</strong>. Instead of asking AI for individual code snippets, developers can give it well-defined engineering tasks and let it work through multiple steps.</p><p>The real advantage is not simply writing code faster. It is creating a development workflow where <strong>developers, AI agents, automation, and verification work together</strong> to build software more efficiently.</p>",
+  "category": "AI & Software Engineering",
+  "tags": [
+    "Claude Code",
+    "AI Coding Agent",
+    "AI Software Development",
+    "Agentic Coding",
+    "AI Development",
+    "Software Engineering",
+    "Claude AI",
+    "Developer Tools"
+  ],
+  "readingTimeMinutes": 4,
+  "publishedAt": "2026-05-12T00:00:00+06:00",
+  "coverImageUrl": "/images/articles/ar2.png"
+},
+{
+  "slug": "react-vs-nextjs-2026-which-one-should-you-use",
+  "title": "React vs Next.js: Which One Should You Use in 2026?",
+  "shortDescription": "React and Next.js are both powerful choices for modern web development, but they solve different problems. Learn when to use React, when to choose Next.js, and how to make the right decision for your next project.",
+  "content": "<p><strong>React vs Next.js</strong> is still a common question among developers in 2026. While both technologies are closely connected, they are not exactly the same thing.</p><p>React is a UI library for building component-based user interfaces, while Next.js is a React framework that provides additional features for building complete web applications, including routing, rendering, data fetching, and optimization.</p><h2>What Is React?</h2><p>React is a JavaScript library for building user interfaces with reusable components. It gives developers the flexibility to choose additional tools for routing, data fetching, state management, styling, and application architecture.</p><p>React can be a good choice when you want more control over your application's architecture or when you are building a focused client-side application.</p><h2>What Is Next.js?</h2><p>Next.js is a React framework designed for building modern web applications. It adds features and conventions around React, including file-based routing, server and client rendering patterns, data fetching, caching, image optimization, and full-stack application capabilities.</p><p>The Next.js App Router also supports modern React features such as Server Components.</p><h2>React vs Next.js: The Main Difference</h2><p>The simplest way to understand the difference is:</p><blockquote>React helps you build the UI. Next.js gives you a framework for building the application around that UI.</blockquote><p>With React alone, you typically choose and configure additional libraries and tools. With Next.js, many common application requirements are provided by the framework.</p><h2>When Should You Use React?</h2><p>React can be a strong fit when you are building:</p><ul><li>Single-page applications</li><li>Interactive dashboards</li><li>Internal business applications</li><li>Client-heavy applications</li><li>Custom frontend experiences</li><li>Projects where you want to choose your own tooling</li></ul><p>If your application is primarily a client-side interface and you do not need the additional features provided by a framework, React can be a practical choice.</p><h2>When Should You Use Next.js?</h2><p>Next.js is often a better fit when your application needs a broader web application framework.</p><p>Consider Next.js for:</p><ul><li>SEO-focused websites</li><li>Blogs and content platforms</li><li>E-commerce applications</li><li>Marketing websites</li><li>Large production web applications</li><li>Full-stack React applications</li><li>Applications requiring server-side capabilities</li></ul><p>Next.js provides routing, rendering, optimization, and other application-level capabilities without requiring you to assemble everything yourself.</p><h2>React or Next.js for SEO?</h2><p>If SEO is an important requirement, Next.js provides built-in rendering and application features that can make it easier to build search-friendly web applications.</p><p>This is especially useful for blogs, documentation websites, portfolios, news websites, and other content-driven platforms where pages need to be discoverable by search engines.</p><h2>React or Next.js for a Full-Stack Application?</h2><p>If you are planning to build a complete application with frontend and server-side functionality, Next.js can provide a more integrated development experience.</p><p>However, React can still be used with a separate backend such as NestJS, Express, Laravel, or Django. In that architecture, React focuses on the frontend while the backend handles APIs, authentication, business logic, and database operations.</p><h2>So, Which One Should You Choose in 2026?</h2><p>There is no universal answer. The right choice depends on your project requirements.</p><p>Choose <strong>React</strong> when you want a flexible UI library and prefer to build your frontend architecture with your own set of tools.</p><p>Choose <strong>Next.js</strong> when you want a more complete React framework with routing, rendering strategies, optimization, and full-stack capabilities.</p><blockquote>React gives you flexibility. Next.js gives you a structured application framework built around React.</blockquote><h2>Final Thoughts</h2><p>React and Next.js should not be treated as direct competitors. In fact, Next.js is built on React and extends it with additional application-level capabilities.</p><p>For developers learning modern web development, understanding React fundamentals first and then learning Next.js can provide a strong foundation for building production-ready applications.</p>",
+  "category": "Web Development",
+  "tags": [
+    "React",
+    "Next.js",
+    "React vs Next.js",
+    "Next.js 2026",
+    "React 2026",
+    "Frontend Development",
+    "Web Development",
+    "JavaScript"
+  ],
+  "readingTimeMinutes": 5,
+  "publishedAt": "2026-03-05T00:00:00+06:00",
+  "coverImageUrl": "/images/articles/ar3.png"
+},
+{
+  "slug": "full-stack-developer-roadmap-2026",
+  "title": "Full-Stack Developer Roadmap: What to Learn in 2026",
+  "shortDescription": "A practical Full-Stack Developer roadmap for 2026 covering frontend, backend, databases, APIs, DevOps, testing, system design, and AI-powered development.",
+  "content": "<p>Becoming a <strong>Full-Stack Developer</strong> means learning how modern web applications work from the user interface to the server, database, and deployment infrastructure.</p><p>You do not need to learn every technology available. The goal is to build a strong foundation, choose a practical stack, and gradually develop the skills needed to build and maintain production-ready applications.</p><h2>1. Start with Web Fundamentals</h2><p>Before learning frameworks, understand the core technologies of the web.</p><ul><li>HTML and semantic markup</li><li>CSS and responsive design</li><li>JavaScript fundamentals</li><li>HTTP and HTTPS</li><li>Browser and DOM basics</li><li>Git and GitHub</li></ul><p>A strong foundation makes learning modern frameworks much easier.</p><h2>2. Learn a Modern Frontend Stack</h2><p>After mastering JavaScript, learn a component-based frontend library such as <strong>React</strong>.</p><p>Focus on components, props, state, hooks, forms, API integration, routing, performance, accessibility, and reusable UI patterns.</p><p>Then learn a framework such as <strong>Next.js</strong> to understand modern rendering, routing, server-side capabilities, and production application architecture.</p><h2>3. Learn TypeScript</h2><p>TypeScript is an important skill for modern production applications. Learn types, interfaces, generics, utility types, narrowing, and how to use TypeScript effectively with React and backend frameworks.</p><h2>4. Learn Backend Development</h2><p>Choose one backend ecosystem and become comfortable building APIs and server-side applications.</p><p>For example, with Node.js you can learn <strong>NestJS</strong> or Express. Focus on REST APIs, authentication, authorization, validation, error handling, file uploads, background jobs, and application architecture.</p><h2>5. Learn Databases</h2><p>A Full-Stack Developer should understand both how to use databases and how they work.</p><ul><li>SQL fundamentals</li><li>PostgreSQL or MySQL</li><li>Database relationships</li><li>Indexes</li><li>Transactions</li><li>Query optimization</li><li>ORMs such as Prisma or TypeORM</li></ul><p>Do not depend completely on an ORM. Understanding SQL and database design is essential for building scalable applications.</p><h2>6. Learn APIs and Authentication</h2><p>Learn how frontend and backend systems communicate through APIs. Understand REST, HTTP status codes, request validation, pagination, filtering, caching, authentication, authorization, sessions, and token-based authentication.</p><h2>7. Learn Testing</h2><p>Production developers need more than code that works on their own machine. Learn unit testing, integration testing, API testing, and end-to-end testing.</p><p>Testing becomes especially important when working with AI coding agents because automated verification helps validate AI-generated changes.</p><h2>8. Learn Docker and Deployment</h2><p>Once you can build applications, learn how to run and deploy them.</p><ul><li>Linux fundamentals</li><li>Docker</li><li>Nginx</li><li>Environment variables</li><li>CI/CD</li><li>Cloud platforms</li><li>Application monitoring</li></ul><p>You should eventually be able to take an application from development to a production server.</p><h2>9. Learn System Design</h2><p>As your experience grows, start learning how large applications are designed.</p><p>Study scalability, caching, load balancing, queues, Redis, database scaling, microservices, logging, monitoring, and distributed systems.</p><p>You do not need to start with complex microservices. First learn how to design a clean and scalable monolithic application.</p><h2>10. Learn AI-Native Development</h2><p>In 2026, Full-Stack Developers can also benefit from learning how AI coding tools and agents fit into the development workflow.</p><p>Explore tools such as AI coding assistants and coding agents, while learning how to use them responsibly for planning, implementation, testing, debugging, documentation, and code review.</p><p>The goal is not to depend on AI for every decision. Instead, learn how to combine <strong>developer expertise, AI agents, automation, and verification</strong>.</p><h2>A Practical Learning Order</h2><p>A simple roadmap can be:</p><blockquote>HTML → CSS → JavaScript → Git → React → TypeScript → Next.js → Node.js → Backend Framework → SQL → PostgreSQL → APIs → Authentication → Testing → Docker → Deployment → System Design → AI-Native Development</blockquote><h2>Build Projects Along the Way</h2><p>Do not learn these technologies only through tutorials. Build real projects as you progress.</p><p>Start with a small application, then build an authentication system, e-commerce application, dashboard, SaaS product, or business management system. Each project should introduce new engineering challenges.</p><h2>Final Thoughts</h2><p>There is no single technology stack that every Full-Stack Developer must learn in 2026. Strong developers understand fundamental concepts and can adapt to different tools and frameworks.</p><p>Focus on <strong>fundamentals, practical projects, backend and database knowledge, deployment, system design, and continuous learning</strong>. Once these skills are combined, you can move from simply writing code to building complete production-ready software.</p>",
+  "category": "Career & Development",
+  "tags": [
+    "Full-Stack Developer",
+    "Full-Stack Developer Roadmap",
+    "Full-Stack Roadmap 2026",
+    "Web Development",
+    "React",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Software Engineering",
+    "AI Development"
+  ],
+  "readingTimeMinutes": 6,
+  "publishedAt": "2026-01-02T00:00:00+06:00",
+  "coverImageUrl": "/images/articles/ar4.png"
+},
+{
+  "slug": "prompt-engineering-to-agent-engineering",
+  "title": "Prompt Engineering to Agent Engineering: The Next Step in AI Development",
+  "shortDescription": "AI development is moving beyond writing better prompts. Learn how Prompt Engineering is evolving into Agent Engineering and how developers can build AI systems that plan, use tools, execute tasks, and verify results.",
+  "content": "<p>AI development is evolving quickly. In the early days of generative AI, much of the focus was on <strong>Prompt Engineering</strong>—learning how to write better instructions to get better responses from AI models.</p><p>Today, the focus is gradually moving toward something broader: <strong>Agent Engineering</strong>.</p><p>Instead of simply asking AI to generate an answer, developers can build systems where AI can understand a goal, create a plan, use tools, perform actions, and evaluate the results.</p><h2>What Is Prompt Engineering?</h2><p>Prompt Engineering is the practice of designing effective instructions for AI models. A well-designed prompt can provide context, define a role, specify constraints, and describe the expected output.</p><p>For example, instead of asking an AI to <em>“write an API”</em>, a developer can provide the technology stack, requirements, coding conventions, expected response format, and validation rules.</p><p>Prompt Engineering remains useful, but modern AI applications require more than good prompts.</p><h2>What Is Agent Engineering?</h2><p>Agent Engineering focuses on building AI-powered systems that can perform multi-step tasks with some level of autonomy.</p><p>An AI agent can combine a language model with <strong>tools, memory, context, planning, execution, and verification</strong>.</p><p>A simplified agent workflow looks like:</p><blockquote>Goal → Plan → Use Tools → Execute → Observe → Evaluate → Improve</blockquote><h2>Prompt vs Agent</h2><p>A prompt usually follows a simple pattern: <strong>Input → AI → Output</strong>.</p><p>An agent can follow a more complex loop: <strong>Goal → Reason → Act → Observe → Reason Again → Complete</strong>.</p><p>For example, a prompt can ask AI to explain why an application is failing. An agent could inspect logs, examine relevant files, identify a possible problem, modify the code, run tests, and report the result.</p><h2>The Building Blocks of an AI Agent</h2><p>Modern AI agents can be built from several important components.</p><ul><li><strong>Model:</strong> Provides reasoning and language capabilities.</li><li><strong>Tools:</strong> Allow the agent to interact with APIs, databases, files, terminals, or external services.</li><li><strong>Context:</strong> Provides the information required to make useful decisions.</li><li><strong>Memory:</strong> Helps maintain relevant information across interactions or tasks.</li><li><strong>Planning:</strong> Breaks complex goals into smaller actions.</li><li><strong>Verification:</strong> Checks whether the result is correct.</li></ul><h2>Why Agent Engineering Matters for Developers</h2><p>Software development contains many repetitive and multi-step tasks. Developers can use agents to assist with coding, testing, debugging, documentation, research, code review, and deployment workflows.</p><p>For example, an AI coding agent can receive a GitHub issue, inspect the repository, create a plan, modify multiple files, run tests, fix errors, and prepare the changes for review.</p><p>This is very different from simply asking an AI model to generate a code snippet.</p><h2>Context Engineering Becomes Important</h2><p>As agents become more capable, providing the right context becomes increasingly important.</p><p>An agent needs to understand the project's architecture, business rules, coding standards, available tools, constraints, and verification requirements.</p><p>This is where <strong>Context Engineering</strong> becomes an important part of modern AI development.</p><h2>From Prompt Engineering to Agent Engineering</h2><p>The shift can be viewed as an evolution:</p><blockquote>Prompt Engineering → Context Engineering → Tool Use → Agent Engineering → AI-Native Systems</blockquote><p>Prompt Engineering focuses on communicating effectively with AI. Agent Engineering focuses on designing the entire environment in which AI can reason, act, use tools, and verify its work.</p><h2>What Developers Should Learn</h2><p>Developers interested in the next generation of AI applications should gradually expand their skills beyond prompt writing.</p><ul><li>LLM fundamentals</li><li>Prompt and context design</li><li>Tool calling</li><li>APIs and function calling</li><li>Agent workflows</li><li>Memory and state management</li><li>RAG and knowledge systems</li><li>Evaluation and testing</li><li>Security and permissions</li><li>AI-native software architecture</li></ul><h2>Final Thoughts</h2><p>Prompt Engineering is not disappearing. Instead, it is becoming one component of a much larger AI engineering discipline.</p><p>The next generation of AI applications will not simply answer questions. They will increasingly <strong>understand goals, use tools, perform actions, and verify results</strong>.</p><p>For developers, this creates a new opportunity: moving from simply <strong>prompting AI</strong> to <strong>engineering systems where AI can work effectively</strong>.</p>",
+  "category": "AI & Software Engineering",
+  "tags": [
+    "Prompt Engineering",
+    "Agent Engineering",
+    "AI Agents",
+    "AI Development",
+    "Context Engineering",
+    "AI-Native Development",
+    "LLM",
+    "Artificial Intelligence",
+    "Software Engineering"
+  ],
+  "readingTimeMinutes": 5,
+  "publishedAt": "2026-01-22T00:00:00+06:00",
+  "coverImageUrl": "/images/articles/ar5.png"
+}
 ]

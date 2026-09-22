@@ -12,7 +12,7 @@ export async function CaseStudiesTeaser() {
     <Section
       eyebrow="Deep dives"
       title="Case Studies"
-      description="Problem, architecture, and the engineering decisions behind flagship work."
+      description="How flagship systems were designed, built, and shipped."
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <RevealGroup>
@@ -20,8 +20,11 @@ export async function CaseStudiesTeaser() {
             <Link key={caseStudy.slug} href={`/case-studies/${caseStudy.slug}`}>
               <Card className="h-full">
                 <CardHeader>
+                  <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                    {caseStudy.category}
+                  </p>
                   <CardTitle>{caseStudy.title}</CardTitle>
-                  <CardDescription>{caseStudy.problem}</CardDescription>
+                  <CardDescription>{caseStudy.shortDescription}</CardDescription>
                 </CardHeader>
               </Card>
             </Link>

@@ -29,7 +29,7 @@ export function articleJsonLd(article: Article) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
-    description: article.excerpt,
+    description: article.shortDescription,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt ?? article.publishedAt,
     url: `${site.url}/articles/${article.slug}`,

@@ -7,17 +7,14 @@ import { JsonLd } from "@/components/common/json-ld";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { getServiceBySlug, getServices } from "@/services/service.service";
 import { getProjects } from "@/services/project.service";
-import {  Calendar, FolderGit2, Briefcase, Layers } from "lucide-react";
+import { Briefcase, FolderGit2, Layers, Sparkles, Star } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { PageBanner } from "@/components/common/page-banner";
 import { StatsBanner } from "@/components/common/stats-banner";
+import { ServiceMedia } from "@/components/services/service-media";
 
-
-const stats = [
-    { icon: FolderGit2, value: `20+`, label: "Projects Delivered" },
-        { icon: Briefcase, value: `10+`, label: "Happy Clients" },
-    { icon: Layers, value: `12+`, label: "Technologies" },
-            { icon: Calendar, value: `5.00`, label: "Client Reviews" },
-  ];
+/** stats[].icon in data/services.json is a lucide name — resolve or fall back. */
+const STAT_ICONS: Record<string, LucideIcon> = { FolderGit2, Briefcase, Layers, Star };
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -44,6 +41,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     ? (await getProjects()).filter((project) => service.relatedProjectIds?.includes(project.id))
     : [];
 
+  const stats = service.stats.map((stat) => ({
+    icon: STAT_ICONS[stat.icon] ?? Sparkles,
+    value: stat.value,
+    label: stat.label,
+  }));
+
   return (
     <>
       <JsonLd
@@ -52,14 +55,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           { name: service.title, path: `/services/${service.slug}` },
         ])}
       />
-    <PageBanner eyebrow="Service" title={`${service.title}.`}>
+      <PageBanner eyebrow="Service" title={`${service.title}.`}>
         <div className="mt-4 w-full">
           <StatsBanner stats={stats} />
         </div>
+        {/* Banner image / video, sitting at the bottom of the stats section. */}
+        {service.media && (
+          <div className="mt-10 w-full">
+            <ServiceMedia service={service} />
+          </div>
+        )}
       </PageBanner>
+
       <Section>
         <div className="flex flex-col gap-6">
-          <p className=" whitespace-pre-line text-foreground-muted">{service.description}</p>
+          {/* Body ships as an HTML string in data/services.json (repo-authored,
+              not user input) — rendered as-is and styled via .article-content. */}
+          <article className="article-content" dangerouslySetInnerHTML={{ __html: service.content }} />
           {service.tagline && (
             <blockquote
               className="max-w-2xl border-l-2 pl-4 italic text-foreground"

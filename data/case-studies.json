@@ -1,42 +1,92 @@
 [
-  {
-    "slug": "nayanogor-somity",
-    "title": "Nayanogor Somity — Multi-Branch Financial Management",
-    "problem": "Branch offices were tracking member accounts, loans, and collections in disconnected spreadsheets, making it slow and error-prone to reconcile finances across the organization.",
-    "context": "A financial cooperative operating across multiple branches needed a single system that every branch could use day-to-day, while giving head office a real-time consolidated view.",
-    "requirements": [
-      "Per-branch member and account management with role-based access",
-      "Loan issuance, repayment scheduling, and collections tracking",
-      "Real-time consolidated reporting across all branches",
-      "Auditable transaction history"
-    ],
-    "solution": "A multi-tenant web application with branch-scoped data access, a shared accounting engine, and a reporting layer that aggregates across branches without duplicating business logic per branch.",
-    "architecture": {
-      "description": "React front end talking to a NestJS REST API, with PostgreSQL as the system of record. Branch scoping is enforced at the query layer so every request is implicitly filtered to the caller's branch (or all branches, for head-office roles) rather than relying on the client to filter correctly."
+ {
+  "slug": "smart-somity-cooperative-management-system",
+  "title": "Nayanogor Somity — Cooperative Society & Microfinance Management System",
+  "shortDescription": "A full-stack financial management platform designed to digitize members, savings, loans, DPS, collections, accounting, and reporting for cooperative societies.",
+  "category": "Full-Stack Development",
+  "tags": [
+    "React",
+    "NestJS",
+    "PostgreSQL",
+    "Redis",
+    "Microfinance",
+    "Accounting Software",
+    "Full-Stack Development"
+  ],
+  "coverImageUrl": "/images/case-studies/smart-somity.webp",
+  "projectUrl": "#",
+  "role": "Full-Stack Engineer",
+  "projectType": "Production Business System",
+  "duration": "Ongoing",
+  "overview": "<p><strong>Nayanogor Somity</strong> is a cooperative society and microfinance management platform built to replace manual paper and Excel-based operations with a centralized digital system.</p><p>The platform manages members, savings, loans, DPS, daily collections, accounting, financial reports, branches, and user permissions in one connected application.</p>",
+  "challenge": "<p>Traditional cooperative societies often depend on paper ledgers and spreadsheets. Managing multiple financial transactions, loan repayments, guarantors, collections, and accounting manually can make reconciliation difficult and limit real-time visibility.</p>",
+  "solution": "<p>I designed and developed a full-stack platform where business operations and accounting work together. Every major financial movement is processed through transactional workflows and reflected in a double-entry accounting ledger.</p>",
+  "keyFeatures": [
+    "Member & nominee management",
+    "Savings and DPS management",
+    "Loan lifecycle and guarantor validation",
+    "Daily collection with multiple income heads",
+    "Double-entry accounting and ledger",
+    "Multi-branch management",
+    "Financial reports with PDF & Excel export",
+    "Role-based permissions and audit logs",
+    "Bengali and English interface"
+  ],
+  "engineeringHighlights": [
+    {
+      "title": "Double-Entry Accounting",
+      "description": "Every financial movement creates balanced debit and credit entries, keeping ledgers, cash books, and reports consistent."
     },
-    "technologies": ["React", "TypeScript", "PostgreSQL", "NestJS"],
-    "role": "Full-Stack Developer",
-    "features": [
-      "Branch-scoped member and account management",
-      "Loan lifecycle: issuance, repayment schedule, collections",
-      "Consolidated cross-branch reporting for head office",
-      "Role-based access control"
-    ],
-    "challenges": [
-      "Keeping branch-level data isolation correct without duplicating query logic across every endpoint",
-      "Designing a reporting layer that stays fast as transaction volume grows across branches"
-    ],
-    "engineeringDecisions": [
-      {
-        "decision": "Enforce branch scoping at the query layer, not in each controller",
-        "rationale": "Centralizing the scoping rule in one place removes an entire class of bugs where a new endpoint forgets to filter by branch."
-      },
-      {
-        "decision": "Model accounting entries as immutable, append-only records",
-        "rationale": "Financial data needs a reliable audit trail — corrections are new entries, not edits to history."
-      }
-    ],
-    "screenshots": [],
-    "relatedProjectIds": ["nayanogor-somity"]
-  }
+    {
+      "title": "Transactional Integrity",
+      "description": "Financial operations such as collections, withdrawals, and loan disbursements are handled inside database transactions."
+    },
+    {
+      "title": "Guarantor Validation",
+      "description": "Loan guarantor coverage is validated against the guarantors' live savings and DPS balances."
+    },
+    {
+      "title": "Reporting Architecture",
+      "description": "Heavy reporting and ledger calculations are handled through PostgreSQL functions for efficient set-based processing."
+    }
+  ],
+  "techStack": [
+    "React 19",
+    "Vite",
+    "TypeScript",
+    "Redux Toolkit",
+    "RTK Query",
+    "Tailwind CSS",
+    "NestJS",
+    "TypeORM",
+    "PostgreSQL",
+    "Redis",
+    "AWS S3"
+  ],
+  "metrics": [
+    {
+      "value": "159+",
+      "label": "REST Endpoints"
+    },
+    {
+      "value": "35+",
+      "label": "SQL Functions"
+    },
+    {
+      "value": "38",
+      "label": "Application Pages"
+    },
+    {
+      "value": "25",
+      "label": "Backend Modules"
+    }
+  ],
+  "learnings": "<p>This project strengthened my experience in <strong>financial system design, transactional database architecture, scalable reporting, and full-stack application development</strong>. It also reinforced the importance of treating accounting logic as a core part of the system rather than an additional reporting layer.</p>",
+  "nextSteps": [
+    "Expand automated testing for financial workflows",
+    "Integrate AI Features",
+    "Move business rules into configurable settings",
+    "Optimize scheduled loan processing"
+  ]
+}
 ]

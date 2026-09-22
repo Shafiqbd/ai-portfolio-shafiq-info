@@ -1,51 +1,188 @@
 [
   {
-    "slug": "full-stack-application-development",
-    "title": "Full-Stack Web Applications",
-    "shortDescription": "Full-stack web applications with React/Next.js front ends and NestJS APIs. Covers UI, backend, database design, and deployment in one connected build. Built for production, not just a demo.",
-    "description": "I build scalable, production-ready web applications from frontend to backend. I develop modern interfaces with React and Next.js, backed by robust APIs using Node.js and NestJS. I design efficient database architectures with PostgreSQL or MySQL and integrate authentication, payments, third-party services, and real-time features. Every application is optimized for performance, security, maintainability and seamless deployment.",
+    "slug": "full-stack-web-application-development",
+    "title": "Full-Stack Web Application Development",
+    "shortDescription": "Build scalable, secure, and production-ready web applications using React, Next.js, Node.js, NestJS, PostgreSQL, and modern full-stack technologies.",
+    "content": "<p>I build <strong>scalable full-stack web applications</strong> designed around real business requirements. From frontend interfaces and backend APIs to databases, authentication, and deployment, I can handle the complete development lifecycle.</p><h2>What I Build</h2><ul><li>Business and enterprise web applications</li><li>SaaS platforms and dashboards</li><li>E-commerce applications</li><li>Admin panels and management systems</li><li>Customer portals and workflow applications</li></ul><h2>Technology Stack</h2><p>Depending on the project, I work with <strong>React, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, MySQL, Redis</strong>, and modern deployment technologies.</p><p>The focus is not only on building a working application, but on creating a maintainable, secure, responsive, and production-ready system that can grow with your business.</p>",
     "icon": "Code2",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "20+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "10+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "12+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
     "media": { "type": "video", "url": "/images/services/full-stack-video.webm" },
-    "tagline": "I believe in quality not quantity."
-  },
-
-  {
-    "slug": "custom-software-development",
-    "title": "Custom Software Development",
-    "shortDescription": "End-to-end custom software built around a specific business process, not a generic template. From requirements and architecture through implementation and deployment. Delivered via TechQul.",
-    "description": "Custom software development for businesses that need more than an off-the-shelf tool can offer. I design and build bespoke software solutions tailored to a specific business process — from initial requirements gathering and technical architecture through implementation, testing, and deployment. This includes internal tools, workflow automation systems, multi-user dashboards, and business management platforms built on modern, maintainable stacks (React/Next.js, Node.js/NestJS, PostgreSQL/MySQL). Delivered through TechQul, each engagement focuses on solving the real operational bottleneck — not just shipping code — with clear documentation and a codebase built to be extended as the business grows.",
-    "deliveredVia": { "name": "TechQul", "url": "" },
-    "icon": "Wrench"
+    "tagline": "From idea to production-ready software."
   },
   {
-    "slug": "accounting-software",
-    "title": "Accounting Software",
-    "shortDescription": "Financial and accounting management systems, including multi-branch support. Covers ledgers, reporting, and day-to-day bookkeeping workflows. Delivered via TechQul for organizations that need accurate, auditable financial data.",
-    "description": "Accounting software development for organizations that need reliable, auditable financial management — not another spreadsheet. I build systems that handle general ledgers, multi-branch accounting, income and expense tracking, and financial reporting, with role-based access so finance teams and branch managers see exactly what they need. Built on PostgreSQL/MySQL with a NestJS API and a React/Next.js interface, these systems are designed to scale from a single office to multi-branch organizations without a rewrite. Delivered via TechQul, past work in this space includes the Nayanogor Somity accounting and membership management system — real financial software running in production, not a demo.",
-    "deliveredVia": { "name": "TechQul", "url": "" },
-    "relatedProjectIds": ["nayanogor-somity"],
-    "icon": "Calculator"
+    "slug": "business-management-software-development",
+    "title": "Business & Management Software Development",
+    "shortDescription": "Custom business management software, ERP systems, SaaS platforms, and workflow applications built around your unique business processes.",
+    "content": "<p>Every business has its own workflows, challenges, and operational requirements. I build <strong>custom business management software</strong> that fits those processes instead of forcing your business into a generic system.</p><h2>What I Build</h2><ul><li>ERP and business management systems</li><li>SaaS applications</li><li>Inventory and sales management systems</li><li>Employee and workflow management platforms</li><li>Multi-branch business applications</li></ul><h2>How I Approach It</h2><p>The development process starts with understanding your requirements and business workflow. I then design the application architecture, database structure, user experience, APIs, and core functionality before moving into development.</p><p>The result is a <strong>scalable and maintainable business application</strong> designed to support real operational needs and future growth.</p>",
+    "icon": "BriefcaseBusiness",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "10+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "8+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "20+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
+    "media": { "type": "image", "url": "/images/services/s2.png" },
+    "tagline": "Software designed around the way your business works."
   },
   {
-    "slug": "ai-integration",
-    "title": "AI Integration",
-    "shortDescription": "Adding LLM-powered features to existing products — assistant widgets, structured Q&A, and retrieval-augmented workflows. Grounded in your real data, not generic prompts. A practical way to make a product feel AI-native without a ground-up rebuild.",
-    "description": "AI integration services for teams that want to add genuinely useful AI features to an existing product — not bolt on a generic chatbot. I build LLM-powered assistants, structured Q&A widgets, and retrieval-augmented generation (RAG) workflows grounded in your own data (documentation, FAQs, product content, or internal knowledge bases), so answers stay accurate instead of hallucinated. This covers everything from a floating AI assistant on a marketing site to internal tools that let non-technical staff query business data in plain language. Work includes prompt and context design, API integration with LLM providers, and the surrounding application logic needed to make an AI feature reliable in production, not just a demo.",
-    "icon": "Brain"
+    "slug": "accounting-financial-software-development",
+    "title": "Accounting & Financial Software Development",
+    "shortDescription": "Develop reliable accounting and financial management software with ledgers, transactions, reporting, multi-branch support, and business workflows.",
+    "content": "<p>I develop <strong>accounting and financial management software</strong> for businesses that need structured, accurate, and auditable financial data.</p><h2>What I Can Build</h2><ul><li>Accounting management systems</li><li>General ledger and sub-ledger systems</li><li>Income and expense management</li><li>Voucher and transaction management</li><li>Financial reporting dashboards</li><li>Multi-branch accounting systems</li></ul><h2>Built for Accuracy</h2><p>Financial software requires more than a good interface. Database design, transaction integrity, account relationships, reporting logic, and auditability are important parts of the system.</p><p>I focus on building financial applications with a structured architecture that can support <strong>accurate transactions, reporting, scalability, and day-to-day accounting workflows</strong>.</p>",
+    "icon": "Calculator",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "10+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "5+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "15+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
+    "media": { "type": "image", "url": "/images/services/s3.png" },
+    "tagline": "Reliable software for accurate financial operations."
   },
   {
-    "slug": "api-development",
-    "title": "API Development",
-    "shortDescription": "REST APIs designed for real client integrations — validated, documented, and secure. Built with NestJS for maintainability as the system grows. A solid backend foundation for web apps, mobile apps, or third-party integrations.",
-    "description": "API development for products and businesses that need a reliable backend other systems can depend on. I design and build REST APIs using NestJS and TypeScript, with structured validation, authentication and authorization, error handling, and API documentation so frontend teams, mobile teams, and third-party integrators can work against a stable contract. This includes designing resource models and database schemas (PostgreSQL/MySQL), implementing role-based access control, and building endpoints that hold up under real usage — not just a proof of concept. Delivered via TechQul, this service fits teams building a new product from scratch or adding an API layer to an existing system.",
-    "deliveredVia": { "name": "TechQul", "url": "" },
-    "icon": "Plug"
+    "slug": "ai-integration-and-automation",
+    "title": "AI Integration & Automation",
+    "shortDescription": "Add practical AI capabilities to existing products with intelligent assistants, document processing, RAG, automation, and AI-powered workflows.",
+    "content": "<p>I help businesses integrate <strong>AI into existing software products and workflows</strong> to make applications more intelligent, automated, and useful.</p><h2>What I Can Build</h2><ul><li>AI assistants and chat interfaces</li><li>AI-powered search and knowledge systems</li><li>RAG-based applications</li><li>Document and data processing workflows</li><li>AI-powered content and business automation</li><li>Intelligent workflow and decision-support features</li></ul><h2>Practical AI, Not Just Prompts</h2><p>AI integration should solve a real business problem. I focus on connecting AI models with your existing application, data, APIs, and workflows rather than simply adding a chatbot.</p><p>The goal is to create <strong>useful and maintainable AI features</strong> that fit naturally into your product and provide measurable value.</p>",
+    "icon": "BrainCircuit",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "8+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "5+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "18+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
+    "media": { "type": "image", "url": "/images/services/s4.png" },
+    "tagline": "Turn AI capabilities into useful product experiences."
   },
   {
-    "slug": "website-maintenance",
-    "title": "Website Maintenance",
-    "shortDescription": "Ongoing support, updates, and performance maintenance for existing websites. Covers bug fixes, dependency updates, and speed/SEO tuning. A practical option for businesses that need a site kept reliable without hiring in-house.",
-    "description": "Website maintenance for businesses that already have a site and need it to keep working reliably. This covers ongoing bug fixes, framework and dependency updates, security patches, and performance tuning — page speed, Core Web Vitals, and image/asset optimization — so the site stays fast and stable over time. It also includes small content and feature updates, uptime monitoring, and technical SEO housekeeping: the kind of ongoing care a website needs after launch that often gets skipped once the initial project ships. A practical fit for businesses that want a site kept current without hiring an in-house developer.",
-    "icon": "RefreshCw"
+    "slug": "api-backend-development",
+    "title": "API & Backend Development",
+    "shortDescription": "Build secure, scalable, and well-structured REST APIs and backend systems using Node.js, NestJS, PostgreSQL, MySQL, Redis, and modern architecture.",
+    "content": "<p>I build <strong>scalable backend systems and REST APIs</strong> that provide a reliable foundation for web applications, mobile applications, SaaS products, and third-party integrations.</p><h2>Backend Services</h2><ul><li>REST API development</li><li>Authentication and authorization</li><li>Database architecture and integration</li><li>Third-party API integrations</li><li>File and media management</li><li>Caching and performance optimization</li><li>Background jobs and business workflows</li></ul><h2>Technology & Architecture</h2><p>My backend development work commonly uses <strong>Node.js, NestJS, TypeScript, PostgreSQL, MySQL, Redis, and TypeORM</strong>.</p><p>I focus on clean architecture, validation, security, maintainability, performance, and clear API design so the backend can support both current requirements and future growth.</p>",
+    "icon": "ServerCog",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "20+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "15+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "8+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
+    "media": { "type": "image", "url": "/images/services/s5.png" },
+    "tagline": "A strong backend foundation for reliable products."
+  },
+  {
+    "slug": "legacy-application-modernization-maintenance",
+    "title": "Legacy Application Modernization & Maintenance",
+    "shortDescription": "Modernize existing applications, improve performance, fix technical debt, upgrade dependencies, and keep production systems secure and reliable.",
+    "content": "<p>Existing software often becomes difficult to maintain as technologies, dependencies, requirements, and business needs change. I help businesses <strong>modernize and maintain existing applications</strong> without unnecessarily rebuilding everything from scratch.</p><h2>What I Can Help With</h2><ul><li>Legacy application modernization</li><li>Performance optimization</li><li>Technical debt reduction</li><li>Dependency and framework upgrades</li><li>Bug fixing and production support</li><li>Code refactoring</li><li>Database and API improvements</li></ul><h2>Modernize Without Disruption</h2><p>The goal is to understand the existing system first, identify the highest-impact problems, and improve the application step by step.</p><p>This approach can help extend the life of an existing product while improving its <strong>performance, maintainability, security, and scalability</strong>.</p>",
+    "icon": "RefreshCw",
+    "stats": [
+      {
+        "icon": "FolderGit2",
+        "value": "25+",
+        "label": "Projects Delivered"
+      },
+      {
+        "icon": "Briefcase",
+        "value": "20+",
+        "label": "Clients Served"
+      },
+      {
+        "icon": "Layers",
+        "value": "10+",
+        "label": "Technologies"
+      },
+      {
+        "icon": "Star",
+        "value": "5.0/5",
+        "label": "Client Rating"
+      }
+    ],
+    "media": { "type": "image", "url": "/images/services/s6.png" },
+    "tagline": "Improve what you already have. Build for what comes next."
   }
 ]

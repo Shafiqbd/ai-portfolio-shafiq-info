@@ -33,11 +33,9 @@ on each.
   as you have them. A **YouTube** entry was added for the redesigned footer's
   social row (empty `url` → generic youtube.com fallback); swap in the real
   channel URL, or remove the entry if there is no channel. `resumeUrl` still
-  points at an asset path that doesn't exist yet. `avatarUrl`
-  (`/images/profile/avatar.jpg`) also still doesn't exist, but the Hero
-  (`components/sections/animated-profile.tsx`) no longer depends on it — it
-  now renders a real photo at `public/images/hero_img.png` directly instead
-  of the old animated-initials placeholder.
+  points at an asset path that doesn't exist yet. `avatarUrl` now points at
+  the real photo (`public/images/hero_img.png`, the same asset the Hero
+  renders) and is used as the author avatar on the article detail page.
 - **experiences.json** — now has 4 real roles (IT Consultants PLC, Pridesys
   IT ltd., Rotnogorva Farida Zaman School & College, Techqul) with real
   `address` values, but all 4 still share the exact same placeholder
@@ -60,23 +58,23 @@ banner_img.{png,jpg}` rendered directly in the Featured Projects cards.
   other 5 had dangling `caseStudySlug` values (pointing at case studies that
   don't exist, which would 404) that were removed rather than guessed at;
   add a real slug back once each project has a written case study.
-- **case-studies.json** — holds one **placeholder** case study, renamed from
-  "Smart Somity" to **Nayanogor Somity** to match the real project it
-  actually describes (plausible content, but not verified against how the
-  system actually works) — for design-preview purposes. The other 5 projects
-  (Alahazrat Academy, SawariBD, PrideBook Pro, MMS, DMS) still need their own
-  real Problem/Context/Architecture/Decisions/Impact write-ups before
-  shipping; none exist yet.
-- **articles.json** — holds 3 **placeholder** articles (generic engineering
-  topics matching Shafiq's stack) for design-preview purposes; no MDX body is
-  wired up yet (see the article `[slug]` page). Replace with real writing
-  before shipping. Each now has a real `coverImageUrl` under
-  `public/images/articles/` (a1–a3, matched by topic — a2 for the NestJS/
-  backend article, a3 for the frontend one, a1 for the AI one) rendered in
-  the new two-column "Latest Articles & Insights" teaser
-  (`components/sections/articles-teaser.tsx`). `a4.png` (a more general
-  "career/opportunities" banner) doesn't match any of the 3 current articles
-  and is unused — a candidate cover for a future 4th article.
+- **case-studies.json** — holds **1 real case study** (Nayanogor Somity,
+  authored by Shafiq) in the new content shape: HTML body sections
+  (overview / challenge / solution / learnings), keyFeatures,
+  engineeringHighlights, techStack, metrics, and nextSteps — all rendered on
+  the detail page. `coverImageUrl` points at
+  `public/images/case-studies/smart-somity.webp`, which **doesn't exist yet**;
+  the detail page detects this and renders a branded mesh placeholder until
+  the file is added. `projectUrl` is `"#"` (not publicly reachable), so the
+  live-project button stays hidden. The other 5 projects (Alahazrat Academy,
+  SawariBD, PrideBook Pro, MMS, DMS) still need their own write-ups.
+- **articles.json** — now holds **1 real article** (`ai-native-software-development`,
+  authored by Shafiq): `shortDescription` drives cards/listings, `content` is
+  the full body as an **HTML string** rendered on the detail page (styled via
+  `.article-content` in `apps/web/app/globals.css`; no MDX toolchain). Cover
+  image is `a2.png`. The previous 3 placeholder articles were removed;
+  `a1.png`, `a3.png`, and `a4.png` are unused until matching articles are
+  written.
 - **gallery.json** — now holds 7 real photos (`public/images/gallery/g1–g7`),
   shown without captions in the Home page gallery carousel
   (`components/sections/gallery-carousel.tsx`).

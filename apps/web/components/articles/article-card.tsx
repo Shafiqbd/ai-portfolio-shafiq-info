@@ -54,7 +54,7 @@ export function ArticleCard({
       <div className="relative flex flex-1 flex-col gap-3 p-6">
         <p className="font-mono text-xs uppercase tracking-wide text-accent">{article.category}</p>
         <h3 className="text-xl font-semibold tracking-tight">{article.title}</h3>
-        <p className="text-sm text-foreground-muted">{article.excerpt}</p>
+        <p className="text-sm text-foreground-muted">{article.shortDescription}</p>
         <span className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-accent">
           Read Article
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

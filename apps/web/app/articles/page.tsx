@@ -17,7 +17,7 @@ export default async function ArticlesPage() {
   return (
     <Section eyebrow="Writing" title="Articles" titleAs="h1">
       {articles.length > 0 ? (
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <RevealGroup>
             {articles.map((article) => (
               <ArticleCard key={article.slug} article={article} />

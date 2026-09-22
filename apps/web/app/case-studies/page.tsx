@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@shafiq-info/ui";
+import { Badge, Card, CardDescription, CardHeader, CardTitle, EmptyState } from "@shafiq-info/ui";
 import { Section } from "@/components/common/section";
 import { RevealGroup } from "@/components/common/reveal";
 import { getCaseStudies } from "@/services/case-study.service";
@@ -27,9 +27,20 @@ export default async function CaseStudiesPage() {
               <Link key={caseStudy.slug} href={`/case-studies/${caseStudy.slug}`}>
                 <Card className="h-full">
                   <CardHeader>
+                    <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                      {caseStudy.category}
+                    </p>
                     <CardTitle>{caseStudy.title}</CardTitle>
-                    <CardDescription>{caseStudy.problem}</CardDescription>
+                    <CardDescription>{caseStudy.shortDescription}</CardDescription>
                   </CardHeader>
+                  <div className="flex flex-wrap gap-2">
+                    {caseStudy.techStack.slice(0, 5).map((tech) => (
+                      <Badge key={tech}>{tech}</Badge>
+                    ))}
+                    {caseStudy.techStack.length > 5 && (
+                      <Badge>+{caseStudy.techStack.length - 5}</Badge>
+                    )}
+                  </div>
                 </Card>
               </Link>
             ))}

@@ -18,6 +18,6 @@
     { "platform": "Email", "url": "mailto:shafiqinfo.dev@gmail.com" },
     { "platform": "Facebook", "url": "" }
   ],
-  "avatarUrl": "/images/profile/avatar.jpg",
+  "avatarUrl": "/images/hero_img.png",
   "resumeUrl": ""
 }

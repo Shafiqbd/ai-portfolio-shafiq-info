@@ -13,10 +13,10 @@ export function ServicesGrid({ services }: { services: Service[] }) {
       <RevealGroup>
         {services.map((service) => (
           <Link key={service.slug} href={`/services/${service.slug}`}>
-            <Card className="h-full" onMouseMove={handleSpotlightMove}>
+            <Card className="flex h-full flex-col" onMouseMove={handleSpotlightMove}>
               <div className="spotlight-effect" aria-hidden="true" />
               <CardHeader>
-                <div className="flex items-start justify-between gap-2 mb-2">
+                <div className="mb-2 flex items-start justify-between gap-2">
                   <div className="flex items-center gap-3">
                     <ServiceIcon icon={service.icon} />
                     <CardTitle>{service.title}</CardTitle>
@@ -24,6 +24,14 @@ export function ServicesGrid({ services }: { services: Service[] }) {
                 </div>
                 <CardDescription>{service.shortDescription}</CardDescription>
               </CardHeader>
+              <div className="mt-auto grid grid-cols-2 gap-x-4 gap-y-3 border-t border-border pt-4">
+                {service.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-gradient-brand text-lg font-bold">{stat.value}</p>
+                    <p className="text-xs text-foreground-muted">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </Card>
           </Link>
         ))}
