@@ -11,8 +11,12 @@ services:
     image: ghcr.io/shafiqbd/ai-portfolio-shafiq-info-web:${WEB_IMAGE_TAG:-latest}
     restart: unless-stopped
     env_file: .env
+    # Bound to loopback ONLY: host nginx is the sole public entry point and
+    # reverse-proxies to it (see deploy/nginx/). Without the 127.0.0.1
+    # prefix Docker publishes on 0.0.0.0 and punches straight through
+    # firewalld, leaving the app reachable on :3000 over plain HTTP.
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
 
   api:
     image: ghcr.io/shafiqbd/ai-portfolio-shafiq-info-api:${API_IMAGE_TAG:-latest}
@@ -23,7 +27,7 @@ services:
     # decision). Uncomment below only if you want to hit /health or the
     # Swagger docs at /docs directly from outside the VPS.
     # ports:
-    #   - "4000:4000"
+    #   - "127.0.0.1:4000:4000"
 
   redis:
     image: redis:7-alpine

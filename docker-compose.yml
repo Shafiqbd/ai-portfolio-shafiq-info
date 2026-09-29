@@ -1,8 +1,8 @@
-# Local dev stack. Only postgres/redis are runnable today — apps/web doesn't
-# need either yet (it reads data/*.json directly), and apps/api doesn't exist
-# yet. This exists so Phase 9/15 can add services without redesigning the
-# file, and so PostgreSQL + Redis are available to develop against early if
-# needed.
+# Local dev stack. postgres/redis back apps/api (Phase 9), which connects to
+# both at boot and reports them via GET /health. apps/web doesn't need either
+# yet — it still reads data/*.json directly. Run `pnpm --filter api dev`
+# against these; web/api containers themselves are Phase 15
+# (see docker-compose.prod.yml).
 services:
   postgres:
     image: postgres:17-alpine

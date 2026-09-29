@@ -12,7 +12,7 @@ for the up-to-date list.
 
 ## Getting started
 
-Requires Node 20+ and pnpm (this repo pins `pnpm@12.4.2` via
+Requires Node 24+ and pnpm (this repo pins `pnpm@12.4.2` via
 `packageManager`; if you don't have pnpm on PATH, `corepack pnpm <cmd>` or
 `npm install -g pnpm` both work).
 

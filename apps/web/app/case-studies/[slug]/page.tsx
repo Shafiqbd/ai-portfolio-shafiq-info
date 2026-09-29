@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { existsSync } from "node:fs";
-import path from "node:path";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Badge, Button, Card, CardDescription, CardHeader, CardTitle } from "@shafiq-info/ui";
@@ -13,19 +10,6 @@ import { PageBanner } from "@/components/common/page-banner";
 import { StatsBanner } from "@/components/common/stats-banner";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { getCaseStudies, getCaseStudyBySlug } from "@/services/case-study.service";
-
-/**
- * coverImageUrl is a public web path; confirm the asset actually exists so a
- * missing file renders the branded placeholder instead of a broken image.
- * Works for both `pnpm dev` (cwd = apps/web) and repo-root runs.
- */
-function coverExists(url?: string) {
-  if (!url) return false;
-  const relative = url.replace(/^\//, "");
-  return ["apps/web/public", "public"].some((base) =>
-    existsSync(path.join(process.cwd(), base, relative)),
-  );
-}
 
 function SectionBlock({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -58,7 +42,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const caseStudy = await getCaseStudyBySlug(slug);
   if (!caseStudy) notFound();
 
-  const hasCover = coverExists(caseStudy.coverImageUrl);
   const isPublishedUrl = caseStudy.projectUrl && caseStudy.projectUrl !== "#";
 
   return (

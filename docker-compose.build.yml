@@ -1,0 +1,29 @@
+# Build-on-the-VPS override — the no-GitHub-Actions path to going live.
+#
+# docker-compose.prod.yml only *pulls* prebuilt images from ghcr.io, which
+# needs CI secrets and public packages. This override builds the same images
+# from the checked-out source instead, so a plain `git pull` + one command
+# deploys. Everything else (env_file, ports, restart policy, the local-db
+# profile) is inherited from docker-compose.prod.yml.
+#
+# Usage on the VPS, from the repo root:
+#   docker compose -f docker-compose.prod.yml -f docker-compose.build.yml up -d --build web
+#
+# Note: `pnpm --filter web build` needs ~2GB free RAM. On a 1GB VPS either
+# add swap or use the ghcr.io path in docker-compose.prod.yml instead.
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+      args:
+        # Baked into the client bundle at build time — must be the public
+        # HTTPS origin, or canonical/OG/sitemap URLs will be wrong.
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://shafiq.info.bd}
+    image: ai-portfolio-web:local
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    image: ai-portfolio-api:local

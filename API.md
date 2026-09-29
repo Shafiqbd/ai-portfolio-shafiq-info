@@ -1,7 +1,15 @@
 # API
 
-**Not implemented yet.** `apps/api` (NestJS) is scoped to Phase 9 of the
-roadmap. This document will describe real endpoints once they exist.
+**Phase 9 in progress — no content endpoints yet.** `apps/api` currently
+serves only infrastructure routes; this document will describe real endpoints
+as they land.
+
+## Live today
+
+- `GET /health` — version-neutral. Returns `{ status, db, redis }`; 503 when
+  Postgres or Redis is unreachable.
+- `GET /docs` — Swagger UI.
+- All domain routes will be URI-versioned under `/v1/...`.
 
 ## Contract in the meantime
 

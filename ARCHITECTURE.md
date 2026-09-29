@@ -32,7 +32,7 @@ packages/config    — design tokens, nav, site metadata
                                │
                                ▼
                     ┌─────────────────────┐
-                    │    NestJS API       │  apps/api (Phase 9, not built)
+                    │    NestJS API       │  apps/api (Phase 9, infra only)
                     │ REST API            │
                     │ Business Logic      │
                     │ AI Service          │

@@ -15,9 +15,20 @@ fast, accessible, secure, and well-architected, not just visually polished.
 
 - **Implemented**: monorepo scaffold, design-system primitives
   (`packages/ui`), shared content-model types (`packages/types`), demo-data
-  service layer (`apps/web/services/*.service.ts`) backed by `data/*.json`.
-- **Not implemented yet**: `apps/api` (NestJS/PostgreSQL/Redis), AI/RAG
-  pipeline beyond a static FAQ matcher, admin CMS, Docker/CI wiring.
+  service layer (`apps/web/services/*.service.ts`) backed by `data/*.json`,
+  and every `apps/web` page/section built against that data.
+- **`apps/api` — infrastructure only (Phase 9, in progress)**: NestJS boots
+  with zod-validated env, a TypeORM Postgres connection (`synchronize: false`,
+  migrations-only), Redis (ioredis), URI versioning (`/v1`), Swagger at
+  `/docs`, and a `/health` check that pings DB + Redis. There are **no
+  entities, no migrations, and no domain endpoints yet** — `apps/web` still
+  reads `data/*.json` for everything.
+- **Not implemented yet**: API domain modules + migrations, seeding
+  `data/*.json` into Postgres, pointing `apps/web`'s service layer at the API,
+  AI/RAG pipeline beyond a static FAQ matcher, admin CMS.
+- **Infra**: `docker/{api,web}.Dockerfile`, `docker-compose.prod.yml`, and CI
+  (lint/typecheck/test/build + image build-push) exist but have not yet been
+  exercised against a real deployment.
 - Do not describe unimplemented phases as done in commit messages, PR
   descriptions, or code comments.
 
@@ -29,7 +40,7 @@ See `ARCHITECTURE.md`.
 
 ```
 apps/web/        Next.js app (App Router) — the only implemented app so far
-apps/api/         NestJS API — placeholder, Phase 9
+apps/api/         NestJS API — infra scaffolded, no domain endpoints yet (Phase 9)
 packages/ui/       Design-system primitives (Button, Card, Modal, Tabs, Toast, ...)
 packages/types/     Shared content-model TypeScript interfaces
 packages/config/    Design tokens, nav config, site metadata
