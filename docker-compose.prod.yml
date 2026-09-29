@@ -1,0 +1,50 @@
+# Production stack, deployed on the VPS. Images are built+pushed by CI
+# (.github/workflows/ci.yml); this file only references them — it never
+# builds locally. No secrets live in this file — real values live only in a
+# VPS-only .env (never committed) referenced via env_file below.
+#
+# Default deploy (what CI runs):
+#   docker compose -f docker-compose.prod.yml pull
+#   docker compose -f docker-compose.prod.yml up -d --remove-orphans
+services:
+  web:
+    image: ghcr.io/shafiqbd/ai-portfolio-shafiq-info-web:${WEB_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"
+
+  api:
+    image: ghcr.io/shafiqbd/ai-portfolio-shafiq-info-api:${API_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    # No port published — apps/web reaches this over Docker's internal
+    # network at http://api:4000 only (see the Phase 15 plan's CORS/API_URL
+    # decision). Uncomment below only if you want to hit /health or the
+    # Swagger docs at /docs directly from outside the VPS.
+    # ports:
+    #   - "4000:4000"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    # Always-on: no host port published, only reachable by other containers
+    # on this compose network at redis:6379.
+
+  # Production Postgres is external (the VPS's existing instance — see
+  # DB_HOST/DB_PORT in the VPS-only .env). This service is NOT started by
+  # default; it exists only for a hypothetical from-scratch VPS with no
+  # separately managed database: `docker compose --profile local-db up -d`.
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    profiles: ["local-db"]
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-shafiq_info}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?}
+      POSTGRES_DB: ${DB_DATABASE:-shafiq_info}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

@@ -3,5 +3,10 @@ packages:
   - "packages/*"
 
 allowBuilds:
+  '@scarf/scarf': false
   sharp: false
   unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - '@nestjs/cli@12.0.5'
+  - '@nestjs/swagger@12.0.2'

@@ -7,11 +7,12 @@
     "summary": "Full-stack development, REST API design, code optimization, and mentoring within a production engineering team.",
     "address": "Tejgaon, Dhaka, Bangladesh",
      "responsibilities": [
-      "Develop and maintain scalable web applications using React, Next.js, and NestJS",
-      "Design, develop, and integrate RESTful APIs for business-critical applications",
-      "Design and optimize database queries, schemas, and data-driven features",
-      "Improve application performance, code quality, scalability, and maintainability",
-      "Collaborate with team members, review code, troubleshoot issues, and mentor junior developers"
+      "Built a secure multi-bank Dispute Management System (DMS) for financial transaction disputes using React, TypeScript and REST APIs, reducing manual dispute resolution time by 60%.",
+      "Developed a Central Billing Management System (CBMS) for automated corporate invoicing using React, TypeScript, Redux, Tailwind CSS and React-PDF, cutting billing cycle time by over 70%.",
+      "Contributed to the frontend of an e-Traffic Prosecution System for Bangladesh Police (DMP) using React and TypeScript, enabling real-time monitoring and management of 50K+ traffic cases monthly.",
+      "Improved application performance by up to 40% through lazy loading, memoization, code-splitting and bundle optimization",
+      "Built REST APIs with NestJS, set up CI/CD pipelines with GitHub Actions and managed VPS deployments and production support.",
+      "Led code reviews and mentored junior engineers, and prepared SRS, user manuals and technical documentation"
     ],
     "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
     "milestoneStage": "Full-Stack Engineering"
@@ -25,11 +26,12 @@
     "address": "Karwan Bazar, Dhaka, Bangladesh",
     "summary": "Web development, REST API design, code optimization, and mentoring within a production engineering team.",
     "responsibilities": [
-      "Developed responsive and user-friendly web interfaces for business applications",
-      "Built and integrated RESTful APIs to support frontend applications and business workflows",
-      "Implemented reusable components and optimized frontend code for better performance",
-      "Worked with databases and backend services to develop data-driven application features",
-      "Collaborated with designers and developers to troubleshoot issues and deliver production-ready features"
+      "Developed HR/Payroll, Inventory and Accounts ERP modules using Angular, TypeScript and RxJS for government and RMG-sector clients, including Dhaka WASA and Mahmud Group.",
+      "Built a Bangladesh Press Council Case Management System using React, TypeScript and Redux, digitizing citizen case submission and tracking and reducing manual paperwork for officials.",
+      "Extended SuiteCRM into PrideCRM, an enterprise CRM using PHP, Laravel and MySQL adding automated lead workflows and a modern UI to streamline sales tracking.",
+      "Collaborated with backend teams to integrate and validate RESTful APIs.",
+      "Wrote clean, maintainable code with unit and integration tests using Jest.",
+      "Mentored interns and junior developers through training and technical guidance."
     ],
     "technologies": ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "MySQL"],
     "milestoneStage": "Full-Stack Engineering"

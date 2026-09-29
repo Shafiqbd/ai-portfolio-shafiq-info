@@ -89,7 +89,11 @@ Phase 1 (`apps/web/services/ai.service.ts`): a static keyword-match against
 nothing — it cannot hallucinate. Phase 12 replaces the implementation with a
 PostgreSQL + pgvector RAG pipeline behind the same `askShafiq()` signature.
 
-## Deployment (target, not yet wired)
+## Deployment
 
-Docker + GitHub Actions CI/CD, described in `DEPLOYMENT.md` once Phase 15
-lands.
+Self-hosted VPS + Docker: `docker/web.Dockerfile` and `docker/api.Dockerfile`
+(multi-stage, pnpm-workspace-aware), `docker-compose.prod.yml` for the
+production stack, GitHub Actions (`.github/workflows/ci.yml`) building and
+pushing images to GHCR then deploying over SSH on every push to `main` that
+passes CI. Full detail, including the one-time GitHub Secrets + VPS setup
+still required, in `DEPLOYMENT.md`.
