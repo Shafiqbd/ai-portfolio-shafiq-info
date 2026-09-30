@@ -6,11 +6,11 @@ AlmaLinux 9" — no CI setup required), or pull CI-built images from GHCR.
 GitHub Actions verifies and publishes images on every push to `main`;
 **it does not deploy** — that step is manual until the SSH job is added.
 
-**Status**: Dockerfiles, compose, and the CI workflow are verified locally
-(D0) — both images build and the full stack runs with a passing `/health`.
-The workflow has not yet run on GitHub; its first run publishes the images
-(D1), after which both packages must be flipped to public. Auto-deploy (D2)
-is not implemented.
+**Status**: D0 (local verification) and **D1 (CI publishes images to GHCR)
+are done** — the workflow is green as of 2026-09-30 and both packages exist.
+Remaining before a live site: flip both GHCR packages to **public**, then
+follow "Going live on AlmaLinux 9". Auto-deploy (D2) is not implemented —
+releasing is manual.
 
 ## How it works
 
@@ -353,9 +353,9 @@ WEB_IMAGE_TAG=<old-sha> docker compose -f docker-compose.prod.yml up -d web
 
 ## Not yet done
 
-- **D1** (images publish to ghcr.io) — the workflow is implemented and
-  validated, but has not run yet; its first run happens on the next push to
-  `main`, after which both packages must be flipped to public.
+- **D1** (images publish to ghcr.io) — **done**; CI is green and both
+  packages exist. They are still **private** until flipped to public, which
+  the VPS pull requires.
 - **D2** (auto-deploy over SSH) — **deliberately not implemented yet**.
   `.github/workflows/ci.yml` ends at `build-push`; releasing is manual.
 - **The Dockerfiles have not been built on this machine** (no Docker

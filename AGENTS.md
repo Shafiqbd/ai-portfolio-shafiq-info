@@ -29,9 +29,10 @@ fast, accessible, secure, and well-architected, not just visually polished.
 - **Infra**: `docker/{api,web}.Dockerfile` and `docker-compose.prod.yml` are
   verified — both images build and the full stack (web + api + redis +
   postgres) runs locally with a passing `/health`. CI
-  (`.github/workflows/ci.yml`) verifies then publishes both images to GHCR;
-  **it does not deploy** — no SSH/VPS job yet, and the workflow has not run
-  against GitHub yet. Releasing to the VPS is manual (see `DEPLOYMENT.md`).
+  (`.github/workflows/ci.yml`) verifies then publishes both images to GHCR —
+  green as of 2026-09-30, so `ghcr.io/shafiqbd/ai-portfolio-shafiq-info-{web,api}`
+  now exist (`latest` + commit SHA). CI **does not deploy** — there is no
+  SSH/VPS job; releasing to the VPS is manual (see `DEPLOYMENT.md`).
 - Do not describe unimplemented phases as done in commit messages, PR
   descriptions, or code comments.
 
