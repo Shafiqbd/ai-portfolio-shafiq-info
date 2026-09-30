@@ -1,0 +1,50 @@
+# Local verification of the PRODUCTION stack — not used on the VPS.
+#
+# Lets you run the real prod compose stack on your laptop without editing
+# the shared `.env` (whose DB_HOST/REDIS_URL point at localhost for
+# `pnpm --filter api dev`, not at compose service names).
+#
+#   docker compose -f docker-compose.prod.yml \
+#                  -f docker-compose.build.yml \
+#                  -f docker-compose.localtest.yml \
+#                  --profile local-db up -d --build
+#
+#   curl http://127.0.0.1:3001/          # web
+#   curl http://127.0.0.1:4001/health    # api  -> {"status":"ok",...}
+#
+# Teardown (add -v to also drop the throwaway postgres volume):
+#   docker compose -f docker-compose.prod.yml \
+#                  -f docker-compose.build.yml \
+#                  -f docker-compose.localtest.yml \
+#                  --profile local-db down
+#
+# Ports are shifted to 3001/4001 so they can't collide with `pnpm dev` on
+# 3000. `!override` is required on `ports`: compose MERGES list fields
+# across -f files rather than replacing them, so without it the 3000 binding
+# from docker-compose.prod.yml is still applied and the run fails with
+# "address already in use".
+services:
+  web:
+    ports: !override ["127.0.0.1:3001:3000"]
+    environment:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3001
+
+  api:
+    ports: !override ["127.0.0.1:4001:4000"]
+    environment:
+      NODE_ENV: production
+      PORT: "4000"
+      # Compose service names, not localhost — containers talk over the
+      # compose network.
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USERNAME: shafiq_info
+      DB_PASSWORD: localtestpw   # throwaway; this stack holds no real data
+      DB_DATABASE: shafiq_info
+      REDIS_URL: redis://redis:6379
+
+  postgres:
+    environment:
+      POSTGRES_USER: shafiq_info
+      POSTGRES_PASSWORD: localtestpw
+      POSTGRES_DB: shafiq_info

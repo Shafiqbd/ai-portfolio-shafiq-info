@@ -231,6 +231,23 @@ docker image prune -f
 
 nginx and certs are untouched by app redeploys.
 
+### Verifying the stack locally before deploying
+
+`docker-compose.localtest.yml` runs this exact production stack on your own
+machine (ports shifted to 3001/4001, throwaway Postgres) without touching
+`.env`:
+
+```sh
+docker compose -f docker-compose.prod.yml -f docker-compose.build.yml \
+               -f docker-compose.localtest.yml --profile local-db up -d --build
+curl http://127.0.0.1:3001/           # web
+curl http://127.0.0.1:4001/health     # {"status":"ok","db":true,"redis":true}
+```
+
+Verified green on 2026-09-30: both images build, all 11 routes return 200,
+every asset referenced by `data/*.json` resolves, and the API connects to
+Postgres and Redis.
+
 ### Troubleshooting
 
 | Symptom | Cause |
@@ -238,6 +255,7 @@ nginx and certs are untouched by app redeploys.
 | `502 Bad Gateway` | SELinux boolean not set (step 3), or the web container isn't running — `docker compose ps` |
 | certbot: "Challenge failed" | DNS not propagated, or port 80 closed in firewalld |
 | Build killed / OOM | Not enough RAM for the Next build — add swap (step 5) |
+| Site up but nginx 502s, container healthy | `PORT` leaking from the shared `.env` — web must bind 3000; `docker-compose.prod.yml` pins it explicitly |
 | Site loads, links use the wrong host | `NEXT_PUBLIC_SITE_URL` was wrong **at build time** — fix `.env` and rebuild with `--build` |
 
 ## First live deploy (frontend on static data + API for smoke-testing)

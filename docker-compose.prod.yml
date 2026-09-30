@@ -11,6 +11,12 @@ services:
     image: ghcr.io/shafiqbd/ai-portfolio-shafiq-info-web:${WEB_IMAGE_TAG:-latest}
     restart: unless-stopped
     env_file: .env
+    environment:
+      # MUST be set explicitly. `.env` is shared with the api service and
+      # carries PORT=4000 for it; env_file would otherwise override the
+      # Dockerfile's ENV PORT=3000, Next would bind 4000, and the 3000 port
+      # mapping below would forward to nothing (nginx -> 502).
+      PORT: "3000"
     # Bound to loopback ONLY: host nginx is the sole public entry point and
     # reverse-proxies to it (see deploy/nginx/). Without the 127.0.0.1
     # prefix Docker publishes on 0.0.0.0 and punches straight through
