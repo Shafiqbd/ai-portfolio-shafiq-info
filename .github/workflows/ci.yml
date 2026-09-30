@@ -9,6 +9,7 @@ on:
 
 jobs:
   verify:
+    name: Verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +40,11 @@ jobs:
 
   build-push:
     name: Build & push images
+    # Gate: images are only built once lint/typecheck/test/build all pass, so
+    # a broken commit never reaches the registry.
     needs: verify
+    # Pull requests verify only — they must not publish images (a fork PR has
+    # no write access to the registry anyway).
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
@@ -54,8 +59,17 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
+          # Auto-provisioned per run; no PAT to create or rotate. Scoped by
+          # the `packages: write` permission above.
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # metadata-action lowercases the image name, which GHCR requires:
+      # Shafiqbd/ai-portfolio-shafiq-info -> ghcr.io/shafiqbd/...
+      #
+      # `type=raw,value=${{ github.sha }}` emits the BARE 40-char commit sha.
+      # Do not switch to `type=sha` — it prefixes tags with `sha-`, which
+      # would not match a `WEB_IMAGE_TAG=${{ github.sha }}` style pin in
+      # docker-compose.prod.yml.
       - name: Docker meta (web)
         id: meta-web
         uses: docker/metadata-action@v5
@@ -63,7 +77,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}-web
           tags: |
             type=raw,value=latest
-            type=sha,format=long
+            type=raw,value=${{ github.sha }}
 
       - name: Build & push web
         uses: docker/build-push-action@v6
@@ -72,6 +86,9 @@ jobs:
           file: docker/web.Dockerfile
           push: true
           tags: ${{ steps.meta-web.outputs.tags }}
+          labels: ${{ steps.meta-web.outputs.labels }}
+          # NEXT_PUBLIC_* is inlined into the client bundle at BUILD time —
+          # a runtime env var on the VPS would never reach the browser.
           build-args: |
             NEXT_PUBLIC_SITE_URL=https://shafiq.info.bd
           cache-from: type=gha
@@ -84,7 +101,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}-api
           tags: |
             type=raw,value=latest
-            type=sha,format=long
+            type=raw,value=${{ github.sha }}
 
       - name: Build & push api
         uses: docker/build-push-action@v6
@@ -93,38 +110,19 @@ jobs:
           file: docker/api.Dockerfile
           push: true
           tags: ${{ steps.meta-api.outputs.tags }}
+          labels: ${{ steps.meta-api.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  deploy:
-    name: Deploy to VPS
-    needs: build-push
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+      - name: Published images
+        run: |
+          echo "### Published to GHCR" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.meta-web.outputs.tags }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.meta-api.outputs.tags }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Copy compose file to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_SSH_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_SSH_PORT }}
-          source: "docker-compose.prod.yml"
-          target: "/opt/ai-portfolio"
-
-      - name: Deploy
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_SSH_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_SSH_PORT }}
-          script: |
-            cd /opt/ai-portfolio
-            export WEB_IMAGE_TAG=${{ github.sha }}
-            export API_IMAGE_TAG=${{ github.sha }}
-            docker compose -f docker-compose.prod.yml pull
-            docker compose -f docker-compose.prod.yml up -d --remove-orphans
-            docker image prune -f
+# NOTE: VPS/SSH deployment is intentionally NOT part of this workflow yet.
+# Images are published to GHCR and deployed manually — see DEPLOYMENT.md
+# ("Going live on AlmaLinux 9"). The previous SSH deploy job is in git
+# history at 8b7ac1c if it's needed as a starting point later.

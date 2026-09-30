@@ -26,9 +26,12 @@ fast, accessible, secure, and well-architected, not just visually polished.
 - **Not implemented yet**: API domain modules + migrations, seeding
   `data/*.json` into Postgres, pointing `apps/web`'s service layer at the API,
   AI/RAG pipeline beyond a static FAQ matcher, admin CMS.
-- **Infra**: `docker/{api,web}.Dockerfile`, `docker-compose.prod.yml`, and CI
-  (lint/typecheck/test/build + image build-push) exist but have not yet been
-  exercised against a real deployment.
+- **Infra**: `docker/{api,web}.Dockerfile` and `docker-compose.prod.yml` are
+  verified — both images build and the full stack (web + api + redis +
+  postgres) runs locally with a passing `/health`. CI
+  (`.github/workflows/ci.yml`) verifies then publishes both images to GHCR;
+  **it does not deploy** — no SSH/VPS job yet, and the workflow has not run
+  against GitHub yet. Releasing to the VPS is manual (see `DEPLOYMENT.md`).
 - Do not describe unimplemented phases as done in commit messages, PR
   descriptions, or code comments.
 

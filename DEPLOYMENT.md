@@ -2,11 +2,15 @@
 
 Self-hosted VPS (AlmaLinux 9) + Docker, behind host nginx with Let's Encrypt
 TLS. Two supported paths: build on the VPS from source (see "Going live on
-AlmaLinux 9" — no CI setup required), or let GitHub Actions build and push
-images on every push to `main`. **Status**: Dockerfiles + compose + CI workflow exist and are
-verified locally (D0). Publishing images to the registry (D1) and the live
-auto-deploy (D2) require one-time setup below before they'll actually run —
-see the checklist.
+AlmaLinux 9" — no CI setup required), or pull CI-built images from GHCR.
+GitHub Actions verifies and publishes images on every push to `main`;
+**it does not deploy** — that step is manual until the SSH job is added.
+
+**Status**: Dockerfiles, compose, and the CI workflow are verified locally
+(D0) — both images build and the full stack runs with a passing `/health`.
+The workflow has not yet run on GitHub; its first run publishes the images
+(D1), after which both packages must be flipped to public. Auto-deploy (D2)
+is not implemented.
 
 ## How it works
 
@@ -16,12 +20,13 @@ see the checklist.
    broken commit is simply never deployed.
 3. `build-push` job builds `docker/web.Dockerfile` and `docker/api.Dockerfile`
    (build context = repo root — pnpm workspaces don't build in isolation)
-   and pushes both to GitHub Container Registry, tagged `latest` and the git
-   SHA. Images are **public** — no pull credential needed anywhere.
-4. `deploy` job (only on push to `main`, not PRs) copies
-   `docker-compose.prod.yml` to the VPS and runs
-   `docker compose -f docker-compose.prod.yml pull && ... up -d --remove-orphans`
-   over SSH.
+   and pushes both to GitHub Container Registry, tagged `latest` and the bare
+   40-char commit SHA. Skipped entirely on pull requests. Images must be made
+   **public** once (see below) — the VPS pulls with no credentials.
+4. **Deployment is manual for now.** CI stops at publishing images; there is
+   no SSH/VPS job in the workflow yet. To release, SSH in and run the pull +
+   `up -d` yourself (see "Going live on AlmaLinux 9"), optionally pinning
+   `WEB_IMAGE_TAG`/`API_IMAGE_TAG` to a specific commit SHA.
 
 `docker-compose.prod.yml` runs `web`, `api`, and `redis` as containers on the
 VPS. Production Postgres is **external** — the VPS's own separately-managed
@@ -37,8 +42,14 @@ themselves.
 
 ## One-time setup checklist (required before D1/D2 will actually run)
 
-**On GitHub** — add these repo secrets (Settings → Secrets and variables →
-Actions):
+**On GitHub** — nothing is required for CI itself: the `build-push` job
+authenticates to GHCR with the auto-provisioned `GITHUB_TOKEN`. After the
+first successful run, flip both packages to **public** (Profile → Packages →
+each package → Package settings → Change visibility), or the VPS pull fails
+with `unauthorized`.
+
+The SSH secrets below are **not used by any workflow today** — add them only
+when the deploy job is reintroduced:
 
 | Secret | Value |
 |---|---|
@@ -342,10 +353,11 @@ WEB_IMAGE_TAG=<old-sha> docker compose -f docker-compose.prod.yml up -d web
 
 ## Not yet done
 
-- **D1** (images actually publish to ghcr.io) and **D2** (auto-deploy
-  actually runs) — both require the GitHub Secrets + VPS setup above, plus
-  flipping both GHCR packages to public, which only the repo/VPS owner can
-  complete. Neither has run yet.
+- **D1** (images publish to ghcr.io) — the workflow is implemented and
+  validated, but has not run yet; its first run happens on the next push to
+  `main`, after which both packages must be flipped to public.
+- **D2** (auto-deploy over SSH) — **deliberately not implemented yet**.
+  `.github/workflows/ci.yml` ends at `build-push`; releasing is manual.
 - **The Dockerfiles have not been built on this machine** (no Docker
   available in the current dev shell) — their first real exercise will be
   the CI `build-push` job.
