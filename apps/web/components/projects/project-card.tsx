@@ -13,7 +13,14 @@ import {
 } from "@shafiq-info/ui";
 import type { Project } from "@shafiq-info/types";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  priority = false,
+}: {
+  project: Project;
+  /** Skip lazy-loading for cards visible in the initial viewport (first row). */
+  priority?: boolean;
+}) {
   const primaryHref = project.liveUrl
     ? project.liveUrl
     : project.caseStudySlug
@@ -35,6 +42,7 @@ export function ProjectCard({ project }: { project: Project }) {
             fill
             sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
+            priority={priority}
           />
         ) : (
           <div className="bg-gradient-brand flex h-full items-center justify-center">
