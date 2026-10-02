@@ -1,15 +1,19 @@
+## =========================================================
 ## Base
+## =========================================================
 FROM node:20-bookworm-slim AS base
 WORKDIR /usr/src/app
 ENV PATH="/usr/src/app/node_modules/.bin:$PATH"
 
-## Dependencies
+## =========================================================
+## Dependencies (build-time)
+## =========================================================
 FROM base AS deps
 RUN corepack enable
 
 COPY package*.json ./
 
-# Force tar version and clean install
+# Clean install + pin tar
 RUN npm install --no-audit --no-fund && \
     npm install tar@7.5.19 --save-exact --force && \
     npm dedupe && \
@@ -19,7 +23,9 @@ RUN npm install --no-audit --no-fund && \
 RUN npm list tar | grep -q "tar@7.5.19" || \
     (echo "ERROR: tar@7.5.19 not installed" && exit 1)
 
+## =========================================================
 ## Build
+## =========================================================
 FROM base AS builder
 RUN corepack enable
 
@@ -31,19 +37,35 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
+## =========================================================
 ## Production runtime
+## =========================================================
 FROM node:20-bookworm-slim AS production
 
-# System updates
+# --- System packages (single layer, single apt-get update) ---
+# NOTE:
+#   * apt-get "upgrade" does not accept package names; use "install".
+#   * If apt-get update fails with GPG/signature errors on this base,
+#     the host Docker engine is < 24.0.2 (Debian Bookworm seccomp issue).
+#     Fix by upgrading Docker, or uncomment the keyring-refresh block below.
 RUN apt-get update && \
-    apt-get upgrade -y \
-      libgnutls30 \
-      libssl3 \
+    apt-get install -y --no-install-recommends \
+      dumb-init \
       ca-certificates \
       curl \
-      && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+      libgnutls30 \
+      libssl3 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# --- Fallback for old Docker engines (uncomment if needed) ---
+# RUN rm -rf /etc/apt/trusted.gpg.d/* && \
+#     apt-get update --allow-insecure-repositories || true && \
+#     apt-get install -y --no-install-recommends debian-archive-keyring gnupg && \
+#     apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#       dumb-init ca-certificates curl libgnutls30 libssl3 && \
+#     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
 
@@ -51,23 +73,13 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=4000
 
-# Install dumb-init
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-      dumb-init \
-      ca-certificates \
-      curl \
-      && \
-    rm -rf /var/lib/apt/lists/*
-
-# Create non-root user
+# --- Non-root user ---
 RUN groupadd -g 10001 appgroup && \
     useradd -u 10001 -g appgroup -M -s /usr/sbin/nologin appuser
 
-# Copy package files
+# --- Production dependencies ---
 COPY package*.json ./
 
-# CRITICAL: Ensure tar@7.5.19 in production
 RUN npm install --omit=dev --no-audit --no-fund && \
     npm install tar@7.5.19 --save-exact --force && \
     npm dedupe && \
@@ -78,12 +90,12 @@ RUN echo "=== Verifying tar version ===" && \
     npm list tar && \
     echo "=== Tar version check complete ==="
 
-# Copy built application
+# --- Application artifacts ---
 COPY --from=builder /usr/src/app/.next ./.next
 COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/package.json ./
 
-# Set proper permissions
+# --- Permissions ---
 RUN chown -R 10001:10001 /usr/src/app
 
 USER appuser
