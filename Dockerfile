@@ -63,6 +63,10 @@ RUN groupadd -g 10001 appgroup && \
 
 COPY package.json pnpm-lock.yaml ./
 
+allowBuilds:
+  '@scarf/scarf': false
+  unrs-resolver: false
+
 # Production-only deps, still inside the project so links stay on one device
 RUN --mount=type=cache,target=/usr/src/app/.pnpm-store \
     pnpm config set store-dir /usr/src/app/.pnpm-store && \
