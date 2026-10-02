@@ -66,6 +66,9 @@ RUN npm install --omit=dev --no-audit --no-fund && \
     npm dedupe && \
     npm cache clean --force
 
+RUN --mount=type=cache,target=/usr/src/app/.pnpm-store \
+    pnpm install --frozen-lockfile
+
 RUN echo "=== Verifying tar version ===" && \
     npm list tar && \
     echo "=== Tar version check complete ==="
@@ -74,7 +77,6 @@ RUN echo "=== Verifying tar version ===" && \
 RUN mkdir -p ./.next ./public
 
 COPY --from=builder /usr/src/app/.next ./.next
-COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/package.json ./
 
 RUN chown -R 10001:10001 /usr/src/app
