@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+apps/web/node_modules
+apps/api/node_modules
+packages/*/node_modules
 /.pnp
 .pnp.js
 
@@ -14,6 +17,9 @@
 
 # production
 /build
+# Compiled NestJS output (apps/api) — unanchored so it also catches any
+# future dist/ dir elsewhere in the workspace, same reasoning as node_modules.
+dist/
 
 # misc
 .DS_Store
@@ -24,8 +30,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# env files — real secrets live only in .env, never committed. .env.example
+# is the one allowed exception (re-allowed below) since it documents shape
+# only, no real values.
+.env
 .env*.local
+!.env.example
 
 # vercel
 .vercel

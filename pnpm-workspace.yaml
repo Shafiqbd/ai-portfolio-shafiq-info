@@ -4,7 +4,11 @@ packages:
 
 allowBuilds:
   '@scarf/scarf': false
-  sharp: false
+  # Next.js uses sharp for next/image optimization in standalone/production
+  # mode (docker/web.Dockerfile) — without its native binary built, deployed
+  # images silently fail to load. Safe: sharp's install script only
+  # downloads a prebuilt libvips binary for the current platform.
+  sharp: true
   unrs-resolver: false
 
 minimumReleaseAgeExclude:
