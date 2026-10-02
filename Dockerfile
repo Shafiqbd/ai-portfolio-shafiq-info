@@ -2,50 +2,49 @@
 ## Base
 ## =========================================================
 FROM node:20-bookworm-slim AS base
-WORKDIR /usr/src/app
-ENV PATH="/usr/src/app/node_modules/.bin:$PATH"
-
-# Pin pnpm once so every stage uses the same version.
-# MUST match "packageManager" in package.json.
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PNPM_VERSION=12.4.1
+
+RUN corepack enable && \
+    corepack prepare pnpm@${PNPM_VERSION} --activate
+
+WORKDIR /usr/src/app
 
 ## =========================================================
 ## Dependencies
 ## =========================================================
 FROM base AS deps
-RUN corepack enable && \
-    corepack prepare pnpm@${PNPM_VERSION} --activate
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY apps/web/package.json ./apps/web/
+COPY packages/ ./packages/
 
-COPY package.json pnpm-lock.yaml ./
-
-# Store inside the project so hard links stay on the same filesystem.
-RUN --mount=type=cache,target=/usr/src/app/.pnpm-store \
-    pnpm config set store-dir /usr/src/app/.pnpm-store && \
+RUN --mount=type=cache,target=/pnpm/store \
+    pnpm config set store-dir /pnpm/store && \
     pnpm install --frozen-lockfile
 
 ## =========================================================
 ## Build
 ## =========================================================
 FROM base AS builder
-RUN corepack enable && \
-    corepack prepare pnpm@${PNPM_VERSION} --activate
-
 COPY --from=deps /usr/src/app/node_modules ./node_modules
+COPY --from=deps /usr/src/app/apps/web/node_modules ./apps/web/node_modules
 COPY . .
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN pnpm run build
+# Replace "web" with the actual "name" in apps/web/package.json
+RUN pnpm --filter web build
 
 ## =========================================================
-## Production runtime
+## Production runtime (standalone output)
 ## =========================================================
 FROM node:20-bookworm-slim AS production
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      dumb-init ca-certificates curl libgnutls30 libssl3 \
+      dumb-init ca-certificates curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
@@ -54,33 +53,19 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=4000
 
-# ← THIS is what was missing: enable corepack in production
-RUN corepack enable && \
-    corepack prepare pnpm@${PNPM_VERSION} --activate
-
 RUN groupadd -g 10001 appgroup && \
     useradd -u 10001 -g appgroup -M -s /usr/sbin/nologin appuser
 
-COPY package.json pnpm-lock.yaml ./
-
-
-# Production-only deps, still inside the project so links stay on one device
-RUN --mount=type=cache,target=/usr/src/app/.pnpm-store \
-    pnpm config set store-dir /usr/src/app/.pnpm-store && \
-    pnpm install --frozen-lockfile --prod
-allowBuilds:
-  '@scarf/scarf': false
-  unrs-resolver: false
-
-RUN mkdir -p ./.next ./public
-
-COPY --from=builder /usr/src/app/.next ./.next
-COPY --from=builder /usr/src/app/public ./public
-COPY --from=builder /usr/src/app/package.json ./
-
-RUN chown -R 10001:10001 /usr/src/app
+# Next.js standalone layout in a pnpm monorepo:
+#   apps/web/.next/standalone/apps/web/server.js
+#   apps/web/.next/standalone/node_modules/  (minimal)
+#   apps/web/.next/standalone/packages/      (transpiled workspace pkgs)
+COPY --from=builder --chown=10001:10001 /usr/src/app/apps/web/.next/standalone ./
+COPY --from=builder --chown=10001:10001 /usr/src/app/apps/web/.next/static ./apps/web/.next/static
+COPY --from=builder --chown=10001:10001 /usr/src/app/apps/web/public ./apps/web/public
 
 USER appuser
 EXPOSE 4000
+
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["pnpm", "start"]
+CMD ["node", "apps/web/server.js"]
